@@ -1,0 +1,161 @@
+{
+  "default_lang": "es",
+  "available_langs": [
+    "es",
+    "en"
+  ],
+  "es": {
+    "nav": {
+      "logo": "jp.",
+      "portfolio": "👤 Portfolio",
+      "about": "Sobre mí",
+      "experience": "Experiencia",
+      "projects": "Proyectos",
+      "notes": "Notas",
+      "cnn": "🧠 CNN",
+      "llm": "💬 LLM",
+      "playground": "🎮 Playground",
+      "contact": "Contacto"
+    },
+    "subnav": {
+      "experience": "Ver experiencia",
+      "projects": "Ver proyectos",
+      "notes": "Ver notas",
+      "contact": "Hablamos"
+    },
+    "mobile_menu": {
+      "close": "✕"
+    },
+    "hero": {
+      "greeting": "Hola, soy"
+    },
+    "socials": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "kaggle": "Kaggle",
+      "email": "Email"
+    },
+    "experience": {
+      "label": "Trayectoria",
+      "title": "Experiencia & Perfil",
+      "subtitle": "Mi recorrido académico, profesional y formativo. Selecciona una categoría para explorar.",
+      "tabs": {
+        "academic": "🎓 Académico",
+        "professional": "💼 Profesional",
+        "training": "📚 Formación",
+        "stack": "⚙️ Stack"
+      },
+      "detail": {
+        "personal_exp": "Experiencia personal",
+        "learned": "Lo que aprendí y desarrollé",
+        "description": "Descripción",
+        "view_document": "Ver trabajo final",
+        "view_cert": "Ver certificado",
+        "view_recommendation": "Carta de recomendación"
+      },
+      "empty": "Sin entradas todavía."
+    },
+    "projects": {
+      "label": "Trabajo",
+      "title": "Proyectos",
+      "subtitle": "Una selección de proyectos propios y académicos. Filtra por tipo.",
+      "featured": "Destacado"
+    },
+    "notes": {
+      "label": "Pensamientos",
+      "title": "Notas & Reflexiones",
+      "subtitle": "Lo que aprendo, lo que me sorprende, lo que opino. Sin filtro académico."
+    },
+    "contact": {
+      "label": "Contacto",
+      "title": "¿Hablamos?",
+      "body": "Siempre dispuesto a hablar de proyectos interesantes, colaboraciones o simplemente de hacia dónde va la IA. Si tienes algo en mente, escríbeme.",
+      "btn_email": "Enviar email",
+      "btn_linkedin": "LinkedIn"
+    },
+    "footer": {
+      "made_by": "Hecho con ♥ por"
+    },
+    "aria": {
+      "theme_toggle": "Cambiar tema",
+      "open_menu": "Abrir menú"
+    }
+  },
+  "en": {
+    "nav": {
+      "logo": "jp.",
+      "portfolio": "👤 Portfolio",
+      "about": "About",
+      "experience": "Experience",
+      "projects": "Projects",
+      "notes": "Notes",
+      "cnn": "🧠 CNN",
+      "llm": "💬 LLM",
+      "playground": "🎮 Playground",
+      "contact": "Contact"
+    },
+    "subnav": {
+      "experience": "Experience",
+      "projects": "Projects",
+      "notes": "Notes",
+      "contact": "Contact"
+    },
+    "mobile_menu": {
+      "close": "✕"
+    },
+    "hero": {
+      "greeting": "Hi, I'm"
+    },
+    "socials": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "kaggle": "Kaggle",
+      "email": "Email"
+    },
+    "experience": {
+      "label": "Journey",
+      "title": "Experience & Profile",
+      "subtitle": "My academic, professional and training path. Select a category to explore.",
+      "tabs": {
+        "academic": "🎓 Academic",
+        "professional": "💼 Professional",
+        "training": "📚 Learning",
+        "stack": "⚙️ Stack"
+      },
+      "detail": {
+        "personal_exp": "Personal experience",
+        "learned": "What I learned and built",
+        "description": "Description",
+        "view_document": "View Thesis",
+        "view_cert": "View certificate",
+        "view_recommendation": "Recommendation letter"
+      },
+      "empty": "No entries yet."
+    },
+    "projects": {
+      "label": "Work",
+      "title": "Projects",
+      "subtitle": "A selection of personal and academic projects. Filter by type.",
+      "featured": "Featured"
+    },
+    "notes": {
+      "label": "Thoughts",
+      "title": "Notes & Reflections",
+      "subtitle": "What I learn, what surprises me, what I think. No academic filter."
+    },
+    "contact": {
+      "label": "Contact",
+      "title": "Let's talk?",
+      "body": "Always open to discussing interesting projects, collaborations or just where AI is heading. If you have something in mind, write to me.",
+      "btn_email": "Send email",
+      "btn_linkedin": "LinkedIn"
+    },
+    "footer": {
+      "made_by": "Made with ♥ by"
+    },
+    "aria": {
+      "theme_toggle": "Toggle theme",
+      "open_menu": "Open menu"
+    }
+  }
+}

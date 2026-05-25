@@ -1,0 +1,354 @@
+[
+  {
+    "id": "portfolio-web",
+    "name": {
+      "es": "Portfolio personal",
+      "en": "Personal portfolio"
+    },
+    "category": "web",
+    "categoryLabel": {
+      "es": "Web",
+      "en": "Web"
+    },
+    "icon": "🌐",
+    "featured": true,
+    "shortDesc": {
+      "es": "Portfolio personal y web de presentación desarrollada desde cero.",
+      "en": "Personal portfolio and presentation website built from scratch."
+    },
+    "description": {
+      "es": "Web personal desarrollada desde cero con HTML, CSS y JavaScript puro, sin frameworks. Incluye sección de proyectos, notas y reflexiones con línea temporal interactiva, sección educativa sobre CNN y YOLO con visualización interactiva de filtros, y un playground para experimentar con tus propias imágenes. Diseño responsivo con soporte de tema oscuro/claro y doble idioma.",
+      "en": "Personal website built from scratch with plain HTML, CSS and JavaScript — no frameworks. Features a projects section, notes and reflections with an interactive timeline, an educational section on CNNs and YOLO with interactive filter visualisation, and a playground to experiment with your own images. Responsive design with dark/light theme and bilingual support."
+    },
+    "tech": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "GitHub Pages"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/josepadillamtnz.github.io",
+    "period": {
+      "es": "Mayo 2026",
+      "en": "May 2026"
+    }
+  },
+  {
+    "id": "market-agent",
+    "name": {
+      "es": "Agente empresarial de mercado",
+      "en": "Market Enterprise Agent"
+    },
+    "category": "agents",
+    "categoryLabel": {
+      "es": "Agentes",
+      "en": "Agents"
+    },
+    "icon": "🤖",
+    "featured": true,
+    "shortDesc": {
+      "es": "Sistema multi-agente para automatizar búsqueda de proveedores y comparación de precios.",
+      "en": "Multi-agent system to automate supplier search and price comparison."
+    },
+    "description": {
+      "es": "Solución basada en IA para mejorar la eficiencia en la búsqueda de productos, recuperación de información y gestión de compras en un entorno empresarial. Arquitectura multi-agente secuencial con salvaguardas para órdenes de alto valor (≥$1000 requieren aprobación humana). Desarrollado como proyecto final del curso de Agentes de Google + Kaggle.",
+      "en": "AI-based solution to improve efficiency in product search, information retrieval and purchase management in an enterprise environment. Sequential multi-agent architecture with safeguards for high-value orders (≥$1000 require human approval). Developed as the capstone project for the Google + Kaggle Agents course."
+    },
+    "tech": [
+      "Gemini 2.5 Flash",
+      "Google ADK",
+      "Multi-agent",
+      "Python"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/MarketEnterpriseAgent_KaggleGoogleCourse",
+    "period": {
+      "es": "Diciembre 2025",
+      "en": "December 2025"
+    }
+  },
+  {
+    "id": "gaze-direction",
+    "name": {
+      "es": "Clasificador de dirección de mirada",
+      "en": "Gaze Direction Classifier"
+    },
+    "category": "cv",
+    "categoryLabel": {
+      "es": "Visión Artificial",
+      "en": "Computer Vision"
+    },
+    "icon": "👁️",
+    "featured": false,
+    "shortDesc": {
+      "es": "Clasificador binario CNN que detecta si una persona mira directamente a la cámara.",
+      "en": "Binary CNN classifier that detects whether a person is looking directly at the camera."
+    },
+    "description": {
+      "es": "Modelo de clasificación binaria entrenado sobre un dataset de 53.000 imágenes de ojos (64×64 px) para detectar si el sujeto mira o no a la cámara. Comparativa entre una CNN construida desde cero y transfer learning con MobileNetV2 preentrenado en ImageNet.",
+      "en": "Binary classification model trained on a dataset of 53,000 eye images (64×64 px) to detect whether the subject is looking at the camera. Comparison between a CNN built from scratch and transfer learning with MobileNetV2 pre-trained on ImageNet."
+    },
+    "tech": [
+      "CNN",
+      "MobileNetV2",
+      "PyTorch",
+      "NumPy"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/GazeDirection_BinaryClassification",
+    "period": {
+      "es": "Enero 2025",
+      "en": "January 2025"
+    }
+  },
+  {
+    "id": "customer-clustering",
+    "name": {
+      "es": "Clustering de personalidad de cliente",
+      "en": "Customer Personality Clustering"
+    },
+    "category": "ml",
+    "categoryLabel": {
+      "es": "Machine Learning",
+      "en": "Machine Learning"
+    },
+    "icon": "🔵",
+    "featured": false,
+    "shortDesc": {
+      "es": "Segmentación de clientes con múltiples algoritmos de clustering no supervisado.",
+      "en": "Customer segmentation using multiple unsupervised clustering algorithms."
+    },
+    "description": {
+      "es": "Análisis de segmentación de clientes aplicando y comparando KMeans, DBSCAN y clustering jerárquico aglomerativo (AHC) sobre el dataset de personalidad de cliente de Kaggle. Incluye análisis exploratorio previo y evaluación de métricas de calidad del clustering.",
+      "en": "Customer segmentation analysis applying and comparing KMeans, DBSCAN and agglomerative hierarchical clustering (AHC) on the Kaggle customer personality dataset. Includes prior exploratory analysis and evaluation of clustering quality metrics."
+    },
+    "tech": [
+      "KMeans",
+      "DBSCAN",
+      "AHC",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/CustomerDataClustering_KaggleDataset",
+    "period": {
+      "es": "Enero 2025",
+      "en": "January 2025"
+    }
+  },
+  {
+    "id": "titanic",
+    "name": {
+      "es": "Predicción de supervivencia — Titanic",
+      "en": "Titanic Survival Prediction"
+    },
+    "category": "ml",
+    "categoryLabel": {
+      "es": "Machine Learning",
+      "en": "Machine Learning"
+    },
+    "icon": "🚢",
+    "featured": false,
+    "shortDesc": {
+      "es": "Predicción de supervivientes con Random Forest y feature engineering.",
+      "en": "Survivor prediction with Random Forest and feature engineering."
+    },
+    "description": {
+      "es": "Análisis exploratorio y modelado predictivo sobre el dataset del Titanic de Kaggle. Feature engineering, tratamiento de nulos y comparativa de modelos. Punto de entrada a las competiciones de machine learning.",
+      "en": "Exploratory analysis and predictive modelling on the Kaggle Titanic dataset. Feature engineering, null handling and model comparison. Entry point to machine learning competitions."
+    },
+    "tech": [
+      "Random Forest",
+      "EDA",
+      "Pandas",
+      "scikit-learn"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/Titanic_KaggleDataset",
+    "period": {
+      "es": "Enero 2025",
+      "en": "January 2025"
+    }
+  },
+  {
+    "id": "breast-cancer",
+    "name": {
+      "es": "Diagnóstico de cáncer de mama",
+      "en": "Breast Cancer Diagnostic"
+    },
+    "category": "ml",
+    "categoryLabel": {
+      "es": "Machine Learning",
+      "en": "Machine Learning"
+    },
+    "icon": "🔬",
+    "featured": false,
+    "shortDesc": {
+      "es": "Clasificación de tumores benignos/malignos con regresión logística.",
+      "en": "Benign/malignant tumour classification with logistic regression."
+    },
+    "description": {
+      "es": "Exploración y modelado del dataset de diagnóstico de cáncer de mama. Análisis de correlaciones entre características del núcleo celular y benignidad/malignidad del tumor mediante regresión logística.",
+      "en": "Exploration and modelling of the breast cancer diagnostic dataset. Analysis of correlations between cell nucleus features and tumour benignity/malignancy using logistic regression."
+    },
+    "tech": [
+      "Logistic Regression",
+      "EDA",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/BreastCancer_KaggleDataset",
+    "period": {
+      "es": "Enero 2025",
+      "en": "January 2025"
+    }
+  },
+  {
+    "id": "adult-census",
+    "name": {
+      "es": "Estudio de ingresos del censo adulto",
+      "en": "Adult Census Income"
+    },
+    "category": "ml",
+    "categoryLabel": {
+      "es": "Machine Learning",
+      "en": "Machine Learning"
+    },
+    "icon": "📊",
+    "featured": false,
+    "shortDesc": {
+      "es": "Predicción de nivel de ingresos con árboles de decisión y Random Forest.",
+      "en": "Income level prediction with decision trees and Random Forest."
+    },
+    "description": {
+      "es": "Estudio del dataset de censo estadounidense para predecir si un individuo supera los $50k de ingresos anuales. Análisis de patrones demográficos y laborales con modelos basados en árboles.",
+      "en": "Study of the US census dataset to predict whether an individual earns above $50k annually. Analysis of demographic and employment patterns using tree-based models."
+    },
+    "tech": [
+      "Decision Tree",
+      "Random Forest",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/AdultCensusIncome_KaggleDataset",
+    "period": {
+      "es": "Enero 2025",
+      "en": "January 2025"
+    }
+  },
+  {
+    "id": "medical-cost",
+    "name": {
+      "es": "Predicción de costes médicos",
+      "en": "Medical Cost Prediction"
+    },
+    "category": "ml",
+    "categoryLabel": {
+      "es": "Machine Learning",
+      "en": "Machine Learning"
+    },
+    "icon": "🏥",
+    "featured": false,
+    "shortDesc": {
+      "es": "Predicción de costes de seguro médico con regresión lineal.",
+      "en": "Medical insurance cost prediction with linear regression."
+    },
+    "description": {
+      "es": "Análisis del dataset de seguros médicos para predecir el coste anual a partir de variables como edad, IMC, tabaquismo y región. Exploración de relaciones no lineales y feature engineering.",
+      "en": "Analysis of the medical insurance dataset to predict annual cost from variables such as age, BMI, smoking status and region. Exploration of non-linear relationships and feature engineering."
+    },
+    "tech": [
+      "Linear Regression",
+      "EDA",
+      "scikit-learn",
+      "Pandas"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/MedicalCost_KaggleDataset",
+    "period": {
+      "es": "Noviembre 2024",
+      "en": "November 2024"
+    }
+  },
+  {
+    "id": "simple-video",
+    "name": {
+      "es": "Aplicación de videollamada",
+      "en": "Simple Video App"
+    },
+    "category": "apps",
+    "categoryLabel": {
+      "es": "Aplicaciones",
+      "en": "Applications"
+    },
+    "icon": "📹",
+    "featured": false,
+    "shortDesc": {
+      "es": "Aplicación de videollamada con Python y GStreamer.",
+      "en": "Video call application with Python and GStreamer."
+    },
+    "description": {
+      "es": "Implementación de una aplicación de videollamada usando Python y el framework multimedia GStreamer para la captura, codificación y transmisión de vídeo en tiempo real entre dispositivos.",
+      "en": "Implementation of a video call application using Python and the GStreamer multimedia framework for real-time video capture, encoding and transmission between devices."
+    },
+    "tech": [
+      "Python",
+      "GStreamer",
+      "Networking"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/SimpleVideoApp",
+    "period": "2020"
+  },
+  {
+    "id": "jojos-app",
+    "name": {
+      "es": "JojosApp",
+      "en": "JojosApp"
+    },
+    "category": "apps",
+    "categoryLabel": {
+      "es": "Aplicaciones",
+      "en": "Applications"
+    },
+    "icon": "💬",
+    "featured": false,
+    "shortDesc": {
+      "es": "Aplicación Android de mensajería instantánea.",
+      "en": "Android instant messaging application."
+    },
+    "description": {
+      "es": "Aplicación de mensajería instantánea desarrollada con Android Studio en Java. Proyecto académico de introducción al desarrollo móvil y comunicación en tiempo real.",
+      "en": "Instant messaging application developed with Android Studio in Java. Academic project introducing mobile development and real-time communication."
+    },
+    "tech": [
+      "Java",
+      "Android Studio",
+      "Firebase"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/JojosApp",
+    "period": "2020"
+  },
+  {
+    "id": "comm-code",
+    "name": {
+      "es": "SimpleCommCode",
+      "en": "SimpleCommCode"
+    },
+    "category": "apps",
+    "categoryLabel": {
+      "es": "Aplicaciones",
+      "en": "Applications"
+    },
+    "icon": "📡",
+    "featured": false,
+    "shortDesc": {
+      "es": "Colección de implementaciones de comunicación entre dispositivos en Java.",
+      "en": "Collection of device communication implementations in Java."
+    },
+    "description": {
+      "es": "Conjunto de implementaciones básicas de protocolos de comunicación entre dispositivos usando Java. Incluye sockets TCP/UDP, cliente-servidor y otros patrones de comunicación de red.",
+      "en": "Set of basic device communication protocol implementations using Java. Includes TCP/UDP sockets, client-server and other network communication patterns."
+    },
+    "tech": [
+      "Java",
+      "Sockets",
+      "TCP/UDP"
+    ],
+    "github": "https://github.com/JosePadillaMtnz/SimpleCommCode",
+    "period": "2020"
+  }
+]

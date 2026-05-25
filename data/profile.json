@@ -1,0 +1,111 @@
+{
+  "name": "José Padilla",
+  "badge": {
+    "es": "Disponible para nuevas oportunidades",
+    "en": "Open to new opportunities"
+  },
+  "title": {
+    "es": "Ingeniero informático especializado en IA",
+    "en": "Computer Engineer specialised in AI"
+  },
+  "subtitle": {
+    "es": "Agentes · Visión Artificial · Machine Learning",
+    "en": "Agents · Computer Vision · Machine Learning"
+  },
+  "tagline": {
+    "es": "Sobre mí",
+    "en": "About me"
+  },
+  "bio": {
+    "es": [
+      "Elegí Ingeniería Informática porque desde pequeño me generaba especial curiosidad cómo funcionaba el ordenador de mi casa por dentro. ¿Cómo era capaz de mostrarme imágenes, vídeos, música, texto? ¿Cómo funcionaba una calculadora o cómo se ejecutaba un juego? Interesarme por estas cuestiones y la curiosidad fueron los principales motores de esta decisión.",
+      "Actualmente soy ingeniero especializado en inteligencia artificial aplicada. Llevo más de cinco años construyendo soluciones de IA en entornos de producción reales, desde sistemas de control de acceso biométrico hasta pipelines de entrenamiento automatizados. Me apasiona entender cómo funcionan las cosas desde dentro: no me conformo con que un modelo funcione, necesito saber por qué funciona y cómo mejorarlo.",
+      "Mi trayectoria ha pasado por entrenar y desplegar redes de clasificación y detección de objetos, diseñar sistemas completos de visión artificial para clientes reales o montar arquitecturas de agentes que solucionan problemas complejos y actuales. Aunque mis preferencias laborales cambiaron, parte de mi trabajo académico estuvo centrado en las redes y su seguridad, aportando su granito de arena al RFC 9061 estandarizado por la IETF: una experiencia que me demostró que el rigor técnico y el impacto real no están reñidos.",
+      "Me importa entender de verdad lo que hago, no solo que funcione. Eso implica seguir aprendiendo constantemente, no como obligación, sino porque la curiosidad que me trajo hasta aquí sigue siendo la misma. Creo que la IA es una herramienta extraordinaria cuando se usa como tal: para ampliar capacidades, acelerar procesos y resolver problemas que antes no tenían solución. No como sustituto del criterio, del oficio ni de las personas. Esta web es mi forma de presentarme al mundo: quién soy, en qué creo, qué estoy aprendiendo y cómo lo pienso."
+    ],
+    "en": [
+      "I chose Computer Engineering because from an early age I had a particular curiosity about how the computer in my house worked on the inside. How was it able to show me images, videos, music, text? How did a calculator work, or how did a game run? That curiosity and interest in these questions were the main drivers behind that decision.",
+      "I'm currently an engineer specialised in applied artificial intelligence. I've spent more than five years building AI solutions in real production environments, from biometric access control systems to automated training pipelines. I'm passionate about understanding how things work from the inside — I'm not satisfied with a model that works, I need to know why it works and how to improve it.",
+      "My career has included training and deploying classification and object detection networks, designing complete computer vision systems for real clients, and building agent architectures that solve complex, current problems. Although my work preferences have shifted, part of my academic work focused on networks and their security, making a small contribution to IETF RFC 9061 — an experience that showed me technical rigour and real-world impact are not mutually exclusive.",
+      "I care about truly understanding what I do, not just making it work. That means constantly learning — not as an obligation, but because the same curiosity that brought me here is still the same. I believe AI is an extraordinary tool when used as such: to extend capabilities, accelerate processes and solve problems that previously had no solution. Not as a replacement for judgement, craft or people. This website is my way of presenting myself to the world: who I am, what I believe in, what I'm learning and how I think about it."
+    ]
+  },
+  "tags": {
+    "es": [
+      "Python",
+      "Linux",
+      "Investigación & Desarrollo",
+      "Automatización",
+      "Docker",
+      "Bases de datos"
+    ],
+    "en": [
+      "Python",
+      "Linux",
+      "Research & Development",
+      "Automation",
+      "Docker",
+      "Databases"
+    ]
+  },
+  "stats": [
+    {
+      "value": "10+",
+      "label": {
+        "es": "Repositorios públicos",
+        "en": "Public repositories"
+      }
+    },
+    {
+      "value": "5+",
+      "label": {
+        "es": "Años de experiencia",
+        "en": "Years of experience"
+      }
+    },
+    {
+      "value": {
+        "es": "Visión artificial & Agentes",
+        "en": "Computer Vision & Agents"
+      },
+      "label": {
+        "es": "Especialización",
+        "en": "Specialisation"
+      },
+      "wide": true
+    },
+    {
+      "value": "∞",
+      "label": {
+        "es": "Curiosidad",
+        "en": "Curiosity"
+      }
+    },
+    {
+      "value": "Murcia",
+      "label": {
+        "es": "Ubicación",
+        "en": "Location"
+      }
+    },
+    {
+      "value": {
+        "es": "Inglés (B2) & Español",
+        "en": "Spanish & English (B2)"
+      },
+      "label": {
+        "es": "Idiomas",
+        "en": "Languages"
+      },
+      "wide": true
+    }
+  ],
+  "avatar": "files/cartoon_image.jpg",
+  "avatar_real": "files/real_image.jpg",
+  "social": {
+    "github": "https://github.com/josepadillamtnz",
+    "linkedin": "https://www.linkedin.com/in/josepadillamtnz/",
+    "kaggle": "https://www.kaggle.com/estopadilla",
+    "email": "josepadillamtnz@gmail.com"
+  }
+}

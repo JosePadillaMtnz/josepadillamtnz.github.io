@@ -1,0 +1,1474 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "es": "✦ Todas",
+      "en": "✦ All"
+    },
+    {
+      "id": "hitos",
+      "es": "🏆 Hitos",
+      "en": "🏆 Milestones"
+    },
+    {
+      "id": "academico",
+      "es": "🎓 Académico",
+      "en": "🎓 Academic"
+    },
+    {
+      "id": "profesional",
+      "es": "💼 Profesional",
+      "en": "💼 Professional"
+    },
+    {
+      "id": "formacion",
+      "es": "📚 Formación",
+      "en": "📚 Learning"
+    },
+    {
+      "id": "proyectos",
+      "es": "🚀 Proyectos",
+      "en": "🚀 Projects"
+    },
+    {
+      "id": "reflexiones",
+      "es": "💭 Reflexiones",
+      "en": "💭 Reflections"
+    },
+    {
+      "id": "curiosidades",
+      "es": "🔍 Curiosidades",
+      "en": "🔍 Curiosities"
+    }
+  ],
+  "entries": [
+    {
+      "id": "web-publicada-2026",
+      "dateSort": "2026-05",
+      "categories": [
+        "hitos",
+        "proyectos"
+      ],
+      "date": {
+        "es": "Mayo 2026",
+        "en": "May 2026"
+      },
+      "title": {
+        "es": "La web está publicada, y es como quería que fuera",
+        "en": "The website is live, and it's how I wanted it to be"
+      },
+      "body": {
+        "es": "Ya está. La web está publicada y, lo más importante, está reflejando lo que tenía en mente desde el principio. La parte que más me satisface es la de <strong>notas y reflexiones</strong>. Un espacio donde poder escribir sobre cualquier tema (tanto técnico, personal como profesional) de forma directa y sin el filtro académico de un CV o un artículo formal. Un lugar donde dejar constancia de lo que voy aprendiendo y viviendo, y que quien llegue pueda leerlo con comodidad. <br><br>Luego está la sección de <strong>CNN</strong>: una explicación interactiva del funcionamiento de las redes neuronales convolucionales, incluyendo un apartado específico sobre YOLO. La intención es clara: acercar el funcionamiento real de estas arquitecturas a cualquier persona, sin necesidad de ser experta en la materia. Que alguien sin formación técnica pueda entender qué ocurre dentro de un modelo cuando procesa una imagen. <br><br>Y en la misma línea está la sección de <strong>LLM</strong>: una guía interactiva sobre los grandes modelos de lenguaje. Desde qué son y cómo surgieron, hasta por qué funcionan tan bien y cuáles son sus límites reales. Con demos para entender cómo se tokenizan las palabras, cómo fluye la información a través del modelo paso a paso, o cómo afecta la temperatura a las respuestas generadas. La idea es la misma: que cualquiera pueda asomarse al interior de estos sistemas sin necesidad de saber matemáticas. <br><br>Y el <strong>playground</strong>: un espacio para experimentar con tus propios ficheros, a tu ritmo, y ver cómo funcionan estos sistemas de primera mano. Sin presión, sin código, solo probando y entendiendo. <br><br><strong>Pero esto no es el final.</strong> Tengo muchas ideas en mente para seguir mejorando y ampliando la página. Esto es solo la primera versión de algo que quiero que siga creciendo.",
+        "en": "There it is. The website is live and, most importantly, it reflects what I had in mind from the start. The part I'm most satisfied with is the <strong>notes and reflections</strong> section. A space to write about any topic — technical, personal, professional — in a direct way, without the academic filter of a CV or a formal article. A place to keep track of what I'm learning and experiencing, where anyone who arrives can read it comfortably. <br><br>Then there's the <strong>CNN</strong> section: an interactive explanation of how convolutional neural networks work, including a specific part on YOLO. The intention is clear — to bring the real workings of these architectures closer to anyone, without needing to be an expert. So that someone without a technical background can understand what happens inside a model when it processes an image. <br><br>Along the same lines is the <strong>LLM</strong> section: an interactive guide to large language models. From what they are and how they came to be, to why they work so well and what their real limitations are. With demos to understand how words are tokenised, how information flows through the model step by step, or how temperature affects the generated responses. The idea is the same: to let anyone peek inside these systems without needing to know any maths. <br><br>And the <strong>playground</strong>: a space to experiment with your own files, at your own pace, and see how these systems work first-hand. No pressure, no code, just exploring and understanding. <br><br><strong>But this isn't the end.</strong> I have a lot of ideas in mind to keep improving and expanding the site. This is just the first version of something I want to keep growing."
+      },
+      "tags": {
+        "es": [
+          "Portfolio",
+          "Web personal"
+        ],
+        "en": [
+          "Portfolio",
+          "Personal website"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "portfolio-web-2026",
+      "dateSort": "2026-03",
+      "categories": [
+        "proyectos"
+      ],
+      "date": {
+        "es": "Marzo 2026",
+        "en": "March 2026"
+      },
+      "title": {
+        "es": "Por fin: el portfolio que llevaba tiempo queriendo construir",
+        "en": "Finally: the portfolio I'd been wanting to build for a long time"
+      },
+      "body": {
+        "es": "Hay cosas que llevas mucho tiempo queriendo hacer y que siempre quedan pendientes por las mismas razones: falta de tiempo, otras prioridades, o simplemente porque nunca es el momento exacto. Esta web era una de ellas. La idea de tener un espacio propio donde presentarme, contar en qué creo, qué estoy aprendiendo y cómo lo pienso llevaba rondándome la cabeza desde hace mucho. Y por fin me he puesto en serio con ello. No quería algo genérico. <strong>Quería que reflejara cómo pienso realmente</strong>: con criterio, con honestidad, sin exagerar ni inflar nada. Un sitio donde quien llegue pueda entender quién soy y cómo trabajo, más allá de un CV. Estas notas son parte de eso, una forma de dejar constancia de lo que voy aprendiendo y viviendo, sin filtro académico. Empezar algo que llevas tiempo queriendo hacer tiene algo especial. No es urgente, pero importa. Y precisamente por eso, cuando por fin arranca, se siente bien.",
+        "en": "There are things you want to do for a long time that always stay pending for the same reasons: not enough time, other priorities, or simply because the moment never feels quite right. This website was one of them. The idea of having my own space to introduce myself, share what I believe in, what I'm learning and how I think about things had been in the back of my mind for a long time. And I've finally got serious about it. I didn't want something generic. <strong>I wanted it to reflect how I actually think</strong>: with honesty, with intention, without overstating anything. A place where whoever arrives can understand who I am and how I work, beyond a CV. These notes are part of that — a way of keeping track of what I'm learning and experiencing, without an academic filter. <strong>Starting something you've wanted to do for a long time has something special to it. It's not urgent, but it matters. And precisely because of that, when it finally gets going, it feels good.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Portfolio",
+          "Web personal"
+        ],
+        "en": [
+          "Portfolio",
+          "Personal website"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "biyectiva-un-anyo-2026",
+      "dateSort": "2026-02",
+      "categories": [
+        "reflexiones",
+        "profesional"
+      ],
+      "date": {
+        "es": "Febrero 2026",
+        "en": "February 2026"
+      },
+      "title": {
+        "es": "Un año en Biyectiva: balance y ganas de más",
+        "en": "One year at Biyectiva: taking stock and wanting more"
+      },
+      "body": {
+        "es": "Ha pasado un año desde que me uní a Biyectiva, y merece la pena parar un momento a pensarlo en voz alta. La valoración es muy positiva en todos los frentes. Los compañeros son muy buenos, tanto a nivel técnico como humano, y eso se nota en el día a día. Aprendo de ellos constantemente y al mismo tiempo siento que puedo aportar, que mi trabajo tiene peso real dentro del equipo. En cuanto a lo que he desarrollado este año: habilidades que antes apenas había practicado, como el <strong>trato directo con el cliente</strong> y la <strong>toma de requisitos</strong>, ahora forman parte natural de mi trabajo. Y otras que ya tenía, como la arquitectura de código, los conocimientos de <strong>visión artificial</strong> y ahora también de <strong>agéntica</strong>, han crecido de forma significativa. El entorno empuja a crecer, y eso es exactamente lo que buscaba. Con ganas de seguir asumiendo más responsabilidad, más retos y más proyectos que valga la pena contar.",
+        "en": "A year has passed since I joined Biyectiva, and it's worth taking a moment to think about it out loud. The balance is very positive on all fronts. My colleagues are excellent, both technically and as people, and that shows in day-to-day work. I learn from them constantly and at the same time feel like I contribute — that my work carries real weight within the team. As for what I've developed this year: skills I'd barely practised before, like <strong>direct client interaction</strong> and <strong>requirements gathering</strong>, are now a natural part of how I work. And others I already had — code architecture, <strong>computer vision</strong> knowledge, and now <strong>agentic AI</strong> — have grown significantly. The environment pushes you to grow, and that's exactly what I was looking for. Looking forward to taking on more responsibility, more challenges, and more projects worth talking about."
+      },
+      "tags": {
+        "es": [
+          "Biyectiva",
+          "Carrera profesional"
+        ],
+        "en": [
+          "Biyectiva",
+          "Professional career"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "vision-artificial-caso-exito-2026",
+      "dateSort": "2026-01",
+      "categories": [
+        "hitos",
+        "profesional"
+      ],
+      "date": {
+        "es": "Enero 2026",
+        "en": "January 2026"
+      },
+      "title": {
+        "es": "Un caso de éxito completo en visión artificial: del requisito al despliegue",
+        "en": "A complete computer vision success story: from requirement to deployment"
+      },
+      "body": {
+        "es": "Arrancar en una empresa nueva tiene su curva. Pero hay momentos que marcan un antes y un después, y este fue uno de ellos: cerrar el año con un proyecto de visión artificial completamente terminado y funcionando en producción en el cliente. No fue un prototipo ni una prueba de concepto. Fue el ciclo completo: <strong>toma de requisitos</strong> con el cliente para entender bien el problema y alinear expectativas, <strong>diseño de prototipos</strong> tempranos para validar si las ideas técnicas eran coherentes con la realidad del entorno, <strong>desarrollo iterativo</strong> con pruebas sobre datos reales, y finalmente el <strong>despliegue en producción</strong>. Cada fase tuvo sus fricciones, sus ajustes, sus imprevistos. Así es cuando el proyecto es real. Lo que más me llevo no es solo haber terminado algo que funciona, sino haber gestionado esa complejidad de principio a fin en un entorno profesional nuevo. <strong>Un caso de éxito completo en una etapa que acaba de empezar.</strong> Eso tiene mucho valor.",
+        "en": "Starting at a new company has its learning curve. But there are moments that mark a clear before and after, and this was one of them: closing the year with a computer vision project fully finished and running in production at the client's site. It wasn't a prototype or a proof of concept. It was the full cycle: <strong>requirements gathering</strong> with the client to properly understand the problem and align expectations, <strong>early prototype design</strong> to validate whether the technical ideas held up against the reality of the environment, <strong>iterative development</strong> with tests on real data, and finally <strong>deployment to production</strong>. Each phase had its friction, its adjustments, its surprises. That's what it looks like when the project is real. What I take away most isn't just having finished something that works, but having managed that complexity from start to finish in a new professional environment. <strong>A complete success story at the very beginning of a new chapter.</strong> That means a lot."
+      },
+      "tags": {
+        "es": [
+          "Visión artificial",
+          "Caso de éxito"
+        ],
+        "en": [
+          "Computer Vision",
+          "Success story"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_ai-computervision-ugcPost-7407454390246342656-B3hX?utm_source=share&utm_medium=member_desktop&rcm=ACoAACoG8AABjilfHD_R0G93Q8CB02w7prF-ef4"
+        }
+      ]
+    },
+    {
+      "id": "kaggle-agents-2025",
+      "dateSort": "2025-12",
+      "categories": [
+        "formacion",
+        "proyectos"
+      ],
+      "date": {
+        "es": "Diciembre 2025",
+        "en": "December 2025"
+      },
+      "title": {
+        "es": "Agentes de IA: lo que nadie te cuenta hasta que construyes uno",
+        "en": "AI agents: what nobody tells you until you build one"
+      },
+      "body": {
+        "es": "Para el proyecto final del curso intensivo de Google y Kaggle quería algo concreto: no un ejercicio académico, sino un agente que atacara un problema real. Elegí una problemática habitual en empresas de distribución: <strong>la gestión y análisis del mercado proveedor artículo por artículo</strong>. Esto ocurre porque es el tipo de tarea que consume tiempo, requiere cruzar mucha información y tiene impacto directo en decisiones de compra. El agente resultante cubre el pipeline completo: consulta precios, compara proveedores, analiza opciones y tramita órdenes de compra, simulando búsquedas reales sobre una base de datos sintética. Cada paso está orquestado, el agente sabe cuándo tiene información suficiente para actuar y cuándo necesita pedir confirmación antes de seguir. Ese control sobre la autonomía del sistema, <strong>decidir cuándo parar y cuándo delegar la decisión al humano</strong>, fue lo que más trabajé y lo que más me llevé del proyecto. <br><br>El curso en sí afianzó conceptos de agéntica que ya manejaba y añadió otros que no conocía: nuevas formas de estructurar herramientas, patrones de orquestación multi-agente, gestión del contexto entre pasos. Esa combinación de consolidar lo conocido y aprender algo nuevo es exactamente lo que hace que terminar un curso sea satisfactorio de verdad.",
+        "en": "For the capstone project of the Google and Kaggle intensive I wanted something concrete: not an academic exercise, but an agent tackling a real problem. I chose a common pain point in distribution companies — managing and analysing the supplier market product by product — because it's the kind of task that consumes time, requires cross-referencing a lot of information, and has direct impact on purchasing decisions. The resulting agent covers the full pipeline: it queries prices, compares suppliers, analyses options and processes purchase orders, simulating real searches over a synthetic database. Each step is orchestrated, the agent knows when it has enough information to act and when it needs to ask for confirmation before proceeding. That control over the system's autonomy — <strong>deciding when to stop and when to hand the decision back to the human</strong> — was what I worked on most and what I took most from the project. The course itself cemented agentic concepts I already handled and added others I hadn't encountered: new ways of structuring tools, multi-agent orchestration patterns, context management between steps. That combination of consolidating what you know and genuinely learning something new is exactly what makes finishing a course feel worthwhile."
+      },
+      "tags": {
+        "es": [
+          "Google ADK",
+          "Gemini",
+          "Multi-agent"
+        ],
+        "en": [
+          "Google ADK",
+          "Gemini",
+          "Multi-agent"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_aiagents-capstoneproject-kaggle-share-7411221162136866817-z9dh"
+        }
+      ]
+    },
+    {
+      "id": "sycophancy-2025",
+      "dateSort": "2025-08",
+      "categories": [
+        "curiosidades",
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Agosto 2025",
+        "en": "August 2025"
+      },
+      "title": {
+        "es": "Sycophancy: cuando la IA te da la razón aunque no la tengas",
+        "en": "Sycophancy: when AI agrees with you even when you're wrong"
+      },
+      "body": {
+        "es": "Descubrí hace poco el término <strong>sycophancy</strong> aplicado a los LLMs y me quedé pensando un rato. Se refiere a la tendencia que tienen los modelos de lenguaje a validar lo que dices, incluso cuando te equivocas. Si afirmas algo incorrecto con suficiente seguridad, el modelo tiende a ajustarse a ti en lugar de corregirte. No es un fallo técnico al uso; es un efecto secundario del propio entrenamiento, que optimiza para respuestas que <em>gusten</em> al usuario. El problema es que es difícil de detectar. La respuesta suena bien, es coherente, y llega con una confianza que no invita a dudar. Y ahí está la trampa. Desde que lo sé, me resulta más fácil recordar que usar un LLM no exime de contrastar, de preguntar desde otro ángulo, o de directamente buscar una fuente externa. La IA es una herramienta extraordinaria, pero una que a veces dice lo que quieres oír. Conviene no olvidarlo.",
+        "en": "I recently came across the term <strong>sycophancy</strong> applied to LLMs and it stuck with me. It refers to the tendency of language models to validate what you say, even when you're wrong. If you state something incorrect with enough confidence, the model tends to adjust to you rather than correct you. It's not a conventional technical bug; it's a side effect of the training itself, which optimises for responses that <em>please</em> the user. The tricky part is that it's hard to spot. The answer sounds good, it's coherent, and it arrives with a confidence that doesn't invite doubt. That's the trap. Since learning about it, I find it easier to remember that using an LLM doesn't replace cross-checking, asking from a different angle, or simply looking up an external source. AI is an extraordinary tool, but one that sometimes tells you what you want to hear. Worth keeping in mind."
+      },
+      "tags": {
+        "es": [
+          "LLMs",
+          "Pensamiento crítico"
+        ],
+        "en": [
+          "LLMs",
+          "Critical thinking"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "agents-2025",
+      "dateSort": "2025-04",
+      "categories": [
+        "curiosidades",
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Abril 2025",
+        "en": "April 2025"
+      },
+      "title": {
+        "es": "Cómo funciona un LLM por dentro y por qué eso cambia cómo lo usas",
+        "en": "How an LLM works under the hood and why that changes how you use it"
+      },
+      "body": {
+        "es": "Hay algo curioso en cómo la mayoría de la gente usa herramientas como Claude o ChatGPT sin saber realmente qué está pasando por dentro. Y entenderlo, aunque sea por encima, cambia bastante la forma en que los tratas. Un modelo de lenguaje grande no «piensa» en el sentido humano. Es una red neuronal entrenada sobre cantidades enormes de texto que aprendió a predecir, token a token, cuál es la continuación más probable de una secuencia. No tiene memoria entre conversaciones, no tiene acceso a internet por defecto, y no razona: genera. Lo que parece razonamiento es el resultado de haber visto tantos patrones que la salida resultante tiene estructura lógica. <br><br>Una curiosidad: <strong>el modelo no sabe lo que va a escribir hasta que lo escribe</strong>, sino que genera cada palabra condicionada por todo lo anterior, sin un plan previo. Donde se vuelve realmente interesante es cuando estos modelos empiezan a automatizar procesos: redactar, resumir, clasificar, transformar datos, responder preguntas sobre documentos propios... No sustituyen el criterio humano, pero sí eliminan fricciones en tareas que antes requerían tiempo y atención constante. La clave está en entender qué pueden hacer bien y qué no, ya que usarlos sin ese criterio es exactamente cuando fallan de formas que no esperas. <strong>Conocer mínimamente cómo funciona algo no es solo curiosidad técnica. Es lo que te permite usarlo bien.</strong>",
+        "en": "There's something curious about how most people use tools like Claude or ChatGPT without really knowing what's happening under the hood. And understanding it — even roughly — changes how you approach them quite a bit. A large language model doesn't «think» in the human sense. It's a neural network trained on enormous amounts of text that learned to predict, token by token, which continuation of a sequence is most likely. It has no memory between conversations, no internet access by default, and it doesn't reason: it generates. What looks like reasoning is the result of having seen so many patterns that the output ends up having logical structure. One curiosity: <strong>the model doesn't know what it's going to write until it writes it</strong>, it generates each word conditioned on everything before it, with no prior plan. Where it gets genuinely interesting is when these models start automating processes: drafting, summarising, classifying, transforming data, answering questions about your own documents... They don't replace human judgement, but they do remove friction from tasks that previously required constant time and attention. The key is understanding what they do well and what they don't, because using them without that judgement is exactly when they fail in unexpected ways. <strong>Knowing roughly how something works isn't just technical curiosity. It's what lets you use it well.</strong>"
+      },
+      "tags": {
+        "es": [
+          "LLMs",
+          "IA aplicada"
+        ],
+        "en": [
+          "LLMs",
+          "Applied AI"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "biyectiva-inicio-2025",
+      "dateSort": "2025-02",
+      "categories": [
+        "hitos",
+        "profesional"
+      ],
+      "date": {
+        "es": "Febrero 2025",
+        "en": "February 2025"
+      },
+      "title": {
+        "es": "Biyectiva: nueva etapa, mismo campo, más ganas",
+        "en": "Biyectiva: new chapter, same field, more drive"
+      },
+      "body": {
+        "es": "Empieza una nueva etapa laboral en Biyectiva, y tengo ganas de que arranque de verdad. Es una empresa centrada exclusivamente en inteligencia artificial aplicada no IA como componente de un producto más amplio, sino como el núcleo del trabajo: entender problemas reales de distintos sectores y encontrar la forma de resolverlos con IA. Eso es exactamente lo que quiero hacer. El nerviosismo está ahí, no voy a fingir que no. Quiero causar buena impresión, quiero aportar desde el primer momento, quiero que la apuesta que han hecho por mí tenga sentido. Esa presión de querer estar a la altura no me parece algo malo, de hecho me parece una señal de que esto me importa de verdad. Cada vez que he empezado algo nuevo con esa sensación, ha acabado siendo de las etapas que más me han dado. <strong>Con las ganas bien puestas y habiendo aprovechado el tiempo anterior para llegar lo más preparado posible, toca demostrar de qué soy capaz.</strong>",
+        "en": "A new work chapter begins at Biyectiva, and I'm genuinely looking forward to it getting started. It's a company focused exclusively on applied artificial intelligence — not AI as a component of a broader product, but as the core of the work itself: understanding real problems across different sectors and finding ways to solve them with AI. That's exactly what I want to be doing. The nerves are there, I won't pretend otherwise. I want to make a good impression, I want to contribute from day one, I want the bet they've made on me to make sense. That pressure of wanting to be up to the task doesn't feel like a bad thing to me, in fact it feels like a sign that this genuinely matters to me. Every time I've started something new with that feeling, it's ended up being one of the chapters that gave me the most. <strong>With the right mindset and having made the most of the time before to arrive as prepared as possible, now it's time to show what I'm capable of.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Biyectiva",
+          "IA aplicada"
+        ],
+        "en": [
+          "Biyectiva",
+          "Applied AI"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "platzi-ml-2025",
+      "dateSort": "2025-01",
+      "categories": [
+        "formacion",
+        "proyectos"
+      ],
+      "date": {
+        "es": "Enero 2025",
+        "en": "January 2025"
+      },
+      "title": {
+        "es": "Ruta de Machine Learning con Python: el pipeline completo, de principio a fin",
+        "en": "Machine Learning with Python path: the full pipeline, end to end"
+      },
+      "body": {
+        "es": "Después de cerrar una etapa laboral, tuve claro que quería aprovechar el tiempo para llegar a lo siguiente lo más formado posible. No dejarlo pasar. La ruta de Machine Learning de Platzi fue el eje central de ese periodo: un programa completo que cubre el flujo real de un proyecto de ML de extremo a extremo (EDA, preprocesado, creación y evaluación de modelos, y optimización mediante ajuste de hiperparámetros). Trabajé con modelos supervisados (regresión lineal y logística, árboles de decisión, clasificación) y no supervisados (clustering), siempre sobre datasets reales, con ejercicios que incluían despliegues reales de los modelos. Los proyectos están disponibles en mis repositorios de GitHub para quien quiera revisarlos. Lo que más me aportó no fue ningún algoritmo concreto, sino <strong>entender el pipeline como un todo</strong>: cada fase tiene su lógica, y saltarse cualquiera de ellas tiene un coste real en el resultado. Paralelo a esto, desarrollé un clasificador de dirección de mirada que me permitió experimentar de primera mano con transfer learning: comparé entrenar una CNN propia desde cero frente a usar MobileNetV2 preentrenada, y los resultados fueron claros. Los pesos de ImageNet ya traen consigo una comprensión de estructuras visuales que no tiene sentido ignorar. <strong>Fue un recordatorio de que no siempre la mejor solución es la que construyes tú solo desde el principio.</strong>",
+        "en": "After closing a work chapter, I was clear that I wanted to use the time to arrive at the next stage as well-prepared as possible. Not let it go to waste. Platzi's Machine Learning path was the centrepiece of that period: a complete programme covering the real flow of an ML project end to end (EDA, preprocessing, model building and evaluation, and optimisation through hyperparameter tuning). I worked with supervised models (linear and logistic regression, decision trees, classification) and unsupervised ones (clustering), always on real datasets, with exercises that included actual model deployments. The projects are available in my GitHub repositories for anyone who wants to look through them. What I got most out of it wasn't any particular algorithm, but <strong>understanding the pipeline as a whole</strong>: each phase has its own logic, and skipping any of them has a real cost on the outcome. Alongside this, I built a gaze direction classifier that let me experience transfer learning firsthand: I compared training a custom CNN from scratch against using a pretrained MobileNetV2, and the results were clear. ImageNet weights already carry an understanding of visual structures that makes no sense to ignore. <strong>It was a reminder that the best solution isn't always the one you build entirely from scratch.</strong>"
+      },
+      "tags": {
+        "es": [
+          "scikit-learn",
+          "Python",
+          "ML Pipeline",
+          "MobileNetV2"
+        ],
+        "en": [
+          "scikit-learn",
+          "Python",
+          "ML Pipeline",
+          "MobileNetV2"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_im-happy-to-share-that-ive-obtained-activity-7285649262456004610-z0Q7"
+        },
+        {
+          "label": {
+            "es": "Ver repositorios en GitHub",
+            "en": "View repositories on GitHub"
+          },
+          "url": "https://github.com/josepadillamtnz"
+        }
+      ]
+    },
+    {
+      "id": "rl-jjcosta-2024",
+      "dateSort": "2024-12",
+      "categories": [
+        "reflexiones",
+        "profesional"
+      ],
+      "date": {
+        "es": "Diciembre 2024",
+        "en": "December 2024"
+      },
+      "title": {
+        "es": "Cuatro años en CIBINAR: el balance de una etapa que me dio mucho",
+        "en": "Four years at CIBINAR: looking back on a chapter that gave me a lot"
+      },
+      "body": {
+        "es": "Hay cierres de etapa que llegan de forma ordenada, con tiempo para asimilarlos, y hay otros que te pillan un poco a contrapié. El de CIBINAR fue más de lo segundo. La forma en que terminó fue rara y algo atropellada ya que la empresa acabó cerrando, pero cuando me siento a pensar en lo que han sido estos cuatro años, eso queda en un segundo plano. Lo que me llevo es enorme. Crecimiento técnico real, estando metido en problemas que importan y que tienen que funcionar. Proyectos que arrancaban desde cero y acababan desplegados en producción. La satisfacción de ver que algo que construiste funciona en el mundo real. Y sobre todo, personas: compañeros con los que he compartido mucho más que trabajo, y de los que me llevo amistades muy buenas. Eso no se improvisa y no se da en todos los sitios. <br><br>También aprendí cosas que van más allá de la tecnología: a gestionar la incertidumbre cuando el problema no tiene solución obvia, a ser metódico bajo presión, a trabajar en equipo de verdad. Son cosas que no aparecen en ningún curso y que solo la experiencia te puede proporcionar. <strong>La forma de cerrar una etapa no siempre está en tu mano. Lo que sí está en tu mano es con qué te quedas de ella.</strong> Y yo me quedo con todo lo bueno, que fue mucho y muy enriquecedor.",
+        "en": "Some chapters end in an orderly way, with time to take them in. Others catch you a bit off guard. The end of CIBINAR was more the latter. The way it finished was strange and a little abrupt, and I'm not going to pretend otherwise. But when I sit down and think about what these four years actually were, that fades into the background. What I'm taking with me is enormous. Real technical growth — not the kind from a course, but the kind you get from being inside problems that matter and have to work. Projects that started from nothing and ended up deployed in production. The satisfaction of seeing something you built working out in the real world. And above all, people: colleagues I shared far more than work with, and friendships that feel like they'll last. That doesn't happen by chance and it doesn't happen everywhere. I also learned things that go beyond technology: how to manage uncertainty when a problem has no obvious solution, how to be methodical under pressure, how to genuinely work as a team. None of that appears in any course. <strong>How a chapter ends isn't always up to you. What is up to you is what you take from it.</strong> And what I'm taking is everything that was good — which was a lot."
+      },
+      "tags": {
+        "es": [
+          "CIBINAR",
+          "Computer Vision",
+          "IA"
+        ],
+        "en": [
+          "CIBINAR",
+          "Computer Vision",
+          "AI"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Carta de recomendación",
+            "en": "Recommendation letter"
+          },
+          "url": "files/RL_JJCosta_Spanish_Sign.pdf"
+        }
+      ]
+    },
+    {
+      "id": "eda-2024",
+      "dateSort": "2024-11",
+      "categories": [
+        "reflexiones",
+        "proyectos"
+      ],
+      "date": {
+        "es": "Noviembre 2024",
+        "en": "November 2024"
+      },
+      "title": {
+        "es": "El EDA es la parte que más se subestima, el Titanic me lo demostró",
+        "en": "EDA is the most underrated part, the Titanic proved it to me"
+      },
+      "body": {
+        "es": "Hay una tendencia natural cuando empiezas con un dataset nuevo: querer llegar al modelo cuanto antes. El análisis exploratorio se percibe como un trámite, algo que hay que hacer antes de lo que realmente importa. Trabajando con el dataset del Titanic entendí que esa intuición es exactamente la equivocada. El EDA (<em>Exploratory Data Analysis</em>) consiste en estudiar los datos antes de modelarlos: sus distribuciones, sus correlaciones, sus valores ausentes, sus outliers. Suena simple, pero la dificultad real está en que los <strong>patrones no suelen estar a la vista</strong>. Hay que mirar los datos desde ángulos distintos, cruzar variables que a priori no parecen relacionadas, y tener la paciencia de no sacar conclusiones demasiado pronto. <br><br>Con el Titanic pasé más tiempo en esta fase que en cualquier otra, explorando cómo distintas variables se relacionaban con la supervivencia. La mayoría de cruces no revelaban nada especial. Pero cuando aparecía una relación que sí decía algo, como una variable que correlacionaba con el resultado de formas que otras más obvias no explicaban del todo, acababa en un grado alto de satisfacción. <strong>Encontrar un patrón que no esperabas en datos que parecían conocidos</strong> tiene algo de descubrimiento genuino. Lo que más me llevé es que un buen análisis exploratorio no solo mejora el modelo; te dice qué preguntas merece la pena hacerse. Y eso vale más que cualquier ajuste de hiperparámetros.",
+        "en": "There's a natural tendency when you start with a new dataset: wanting to get to the model as quickly as possible. Exploratory analysis feels like a formality, something to get through before the real work begins. Working with the Titanic dataset made me understand that instinct is exactly wrong. EDA (<em>Exploratory Data Analysis</em>) means studying the data before modelling it: its distributions, correlations, missing values, outliers. It sounds simple. The real difficulty is that patterns don't present themselves. You have to look at the data from different angles, cross variables that seem unrelated at first glance, and have the patience not to jump to conclusions too early. <br><br>With the Titanic I spent more time on this phase than any other, exploring how different variables related to survival. Most combinations revealed nothing particularly interesting. But when a relationship appeared that actually said something — a variable that correlated with the outcome in ways that more obvious ones didn't fully explain — the satisfaction was disproportionate. <strong>Finding a pattern you didn't expect in data you thought you knew has something of genuine discovery to it.</strong> The main thing I took away is that good exploratory analysis doesn't just improve the model — it tells you which questions are worth asking. And that's worth more than any hyperparameter tuning."
+      },
+      "tags": {
+        "es": [
+          "EDA",
+          "Pandas",
+          "Kaggle"
+        ],
+        "en": [
+          "EDA",
+          "Pandas",
+          "Kaggle"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "black-box-2024",
+      "dateSort": "2024-09",
+      "categories": [
+        "curiosidades",
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Septiembre 2024",
+        "en": "September 2024"
+      },
+      "title": {
+        "es": "La caja negra: lo que nadie sabe del todo sobre cómo piensa un modelo",
+        "en": "The black box: what nobody fully knows about how a model thinks"
+      },
+      "body": {
+        "es": "Cuando hablamos de <strong>caja negra</strong> en IA nos referimos a algo concreto: un modelo que recibe una entrada y produce una salida, pero cuyo proceso interno es opaco. No hay una explicación directa de por qué tomó esa decisión. Una red neuronal con millones de parámetros ajustados durante el entrenamiento aprende representaciones que funcionan, pero que nadie diseñó explícitamente y que nadie puede leer de forma directa. Eso es la caja negra: un sistema que acierta sin que podamos explicar con precisión el camino.<br><br>Esto genera frustración legítima, especialmente en aplicaciones críticas donde la explicabilidad importa. Pero a mí siempre me ha parecido la parte más interesante del campo. Hay algo genuinamente fascinante en que un sistema aprenda a reconocer un tumor, detectar un objeto o traducir un texto <strong>sin que nadie le haya explicado qué es un tumor, un objeto o una palabra</strong>, y que funcione mejor que cualquier regla que pudiéramos escribir a mano. La complejidad no me parece un defecto a tolerar; me parece una señal de que hay algo profundo ahí dentro que todavía no entendemos del todo. Y entender cómo funciona por debajo (ya sea visualizando activaciones, analizando fallos, analizando resultados por capas o construyendo intuición sobre lo que «aprende» cada capa) es exactamente el tipo de problema que me engancha.",
+        "en": "When we talk about the <strong>black box</strong> in AI, we mean something specific: a model that takes an input and produces an output, but whose internal process is opaque. There's no direct explanation for why it made that decision. A neural network with millions of parameters adjusted during training learns representations that work, but that nobody explicitly designed and nobody can read directly. That's the black box: a system that gets it right without us being able to precisely explain how.<br><br>This generates legitimate frustration, especially in high-stakes applications where explainability matters. But I've always found it the most interesting part of the field. There's something genuinely fascinating about a system that learns to detect a tumour, recognise an object or translate a sentence <strong>without anyone having explained what a tumour, an object or a word is</strong>, and that works better than any rule we could write by hand. The complexity doesn't feel like a defect to tolerate; it feels like a signal that there's something profound inside that we don't fully understand yet. And figuring out how it works underneath (visualising activations, analysing failures, analysing results by layers or building intuition about what each layer «learns») is exactly the kind of problem that hooks me."
+      },
+      "tags": {
+        "es": [
+          "Explainability",
+          "Deep Learning"
+        ],
+        "en": [
+          "Explainability",
+          "Deep Learning"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "b2-cambridge-2024",
+      "dateSort": "2024-07",
+      "categories": [
+        "hitos",
+        "formacion"
+      ],
+      "date": {
+        "es": "Julio 2024",
+        "en": "July 2024"
+      },
+      "title": {
+        "es": "B2 de Cambridge conseguido: un reto que empezó hace más de un año",
+        "en": "Cambridge B2 achieved: a challenge that started over a year ago"
+      },
+      "body": {
+        "es": "Acabo de recibir los resultados del examen de Cambridge y el B2 <strong>está conseguido</strong>. Los nervios el día del examen estaban ahí, pero la verdad es que llegué bastante bien preparado. Le he dedicado muchas horas durante el último año y medio: clases en la academia, práctica en casa, trabajar cada destreza por separado. No fue un examen para el que me presenté a ver qué pasaba. Fue un examen para el que me preparé de verdad, y eso se notó en el resultado general.<br><br>El inglés es hoy en día una herramienta imprescindible, no un extra. En tecnología especialmente: accedes a más recursos, puedes comunicarte con más gente, participas en conversaciones que en otro idioma simplemente no existen. Sentir que empiezas a poder moverte con soltura en ese espacio (no solo leer, sino también hablar y escribir con más confianza) tiene un valor que va mucho más allá del papel. Aunque hay una parte que no salió tan bien como me habría gustado: el Listening no fue mi mejor sección. Pero en media el resultado fue bueno, y la nota final lo refleja. <strong>Esas cosas se mejoran practicando, y eso es exactamente lo que toca ahora.</strong>",
+        "en": "I have just received the Cambridge exam results and the B2 is done. The nerves on exam day were there, but the truth is I arrived well prepared. I have dedicated many hours over the past year and a half: classes at the academy, practice at home, working each skill separately. This was not an exam I sat to see what would happen. It was an exam I genuinely prepared for, and that showed in the overall result.<br><br>English today is an essential tool, not an extra. In technology especially: you access more resources, you can communicate with more people, you take part in conversations that simply do not exist in any other language. Feeling like you are starting to move with confidence in that space (not just reading, but also speaking and writing more freely) has a value that goes well beyond the certificate. Although there is one area that did not go as well as I would have liked: Listening was not my strongest section. But across the board the result was good, and the final grade reflects that. <strong>Those things improve with practice, and that is exactly what comes next.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Inglés",
+          "Cambridge",
+          "B2"
+        ],
+        "en": [
+          "English",
+          "Cambridge",
+          "B2"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver certificado",
+            "en": "View certificate"
+          },
+          "url": "files/B2_JosePadilla_StatementOfResult.pdf"
+        }
+      ]
+    },
+    {
+      "id": "platzi-data-2024",
+      "dateSort": "2024-06",
+      "categories": [
+        "formacion"
+      ],
+      "date": {
+        "es": "Junio 2024",
+        "en": "June 2024"
+      },
+      "title": {
+        "es": "Análisis de datos con Python: afianzando el ecosistema completo",
+        "en": "Data analysis with Python: consolidating the full ecosystem"
+      },
+      "body": {
+        "es": "La ruta de Platzi cubre el ecosistema de análisis de datos en Python de forma completa: Pandas, NumPy, Matplotlib y Seaborn. Lo que más me aportó no fue la sintaxis como tal, sino el énfasis en <strong>desarrollar criterio analítico</strong>: saber qué pregunta hacerle a los datos antes de ponerse a procesarlos. Esa parte es la que más cuesta interiorizar y la que más diferencia hace después. El análisis exploratorio, la manipulación de datasets y la visualización bien hecha no son pasos previos al trabajo real; son parte del trabajo real. Por ello, poder seguir afianzando conceptos que ya formaban parte de mi día a día a la vez que puedo descubrir nuevas formas de hacer las cosas y de pensar en soluciones, es muy valioso de cara a mi perfil laboral y mi eficiencia profesional.",
+        "en": "The Platzi path covers the Python data analysis ecosystem in full: Pandas, NumPy, Matplotlib and Seaborn. What I got most out of it wasn't the syntax — much of which I was already using at work — but the emphasis on <strong>developing analytical thinking</strong>: knowing what question to ask of the data before you start processing it. That's the part that takes longest to internalise and makes the biggest difference afterwards. Exploratory analysis, dataset manipulation and proper visualisation aren't steps before the real work — they are the real work. For that reason, being able to continue consolidating concepts that were already part of day-to-day work and getting more out of something that was already useful is very valuable."
+      },
+      "tags": {
+        "es": [
+          "Pandas",
+          "Matplotlib",
+          "EDA"
+        ],
+        "en": [
+          "Pandas",
+          "Matplotlib",
+          "EDA"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_im-happy-to-share-that-ive-obtained-activity-7205952473734287360-9eLm"
+        }
+      ]
+    },
+    {
+      "id": "cibisecurity-impacto-real-2024",
+      "dateSort": "2024-02",
+      "categories": [
+        "reflexiones",
+        "profesional"
+      ],
+      "date": {
+        "es": "Febrero 2024",
+        "en": "February 2024"
+      },
+      "title": {
+        "es": "Cuando el sistema hace exactamente lo que tenía que hacer",
+        "en": "When the system does exactly what it was supposed to do"
+      },
+      "body": {
+        "es": "Nos han comunicado que CibiSecurity detectó un intento de robo a tiempo. La alerta saltó, se actuó, y la persona implicada fue detenida. El sistema hizo lo que tenía que hacer. Hay una <strong>satisfacción</strong> muy particular en recibir ese tipo de noticia. No es un test, no es una demo, no es un caso de laboratorio: es el sistema funcionando en el mundo real y evitando que algo malo ocurra. Todo el trabajo de diseño, desarrollo, pruebas e iteraciones que hay detrás de eso cobra un significado diferente cuando se traduce en algo así. Que un proyecto en el que estás involucrado tenga un <strong>impacto positivo real, concreto y medible</strong>, es de las cosas más gratificantes que puede vivir alguien en este trabajo. Una de esas noticias que te recuerdan para qué sirve lo que construyes y te motiva a seguir trabajando en este proyecto.",
+        "en": "We've been informed that CibiSecurity detected a theft attempt in time. The alert fired, action was taken, and the person involved was stopped. The system did exactly what it was supposed to do. There's a very particular satisfaction in receiving that kind of news. It's not a test, not a demo, not a lab case: it's the system operating in the real world and preventing something bad from happening. All the design, development, testing and iteration work behind it takes on a different meaning when it translates into something like this. <strong>Having a project you're involved in make a real, concrete, measurable positive impact</strong>, is one of the most rewarding things you can experience in this line of work. One of those pieces of news that reminds you what you build things for and motivates you to keep working on this project."
+      },
+      "tags": {
+        "es": [
+          "CibiSecurity",
+          "Impacto real"
+        ],
+        "en": [
+          "CibiSecurity",
+          "Real impact"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "cibisecurity-lanzamiento-2023",
+      "dateSort": "2023-11",
+      "categories": [
+        "hitos",
+        "profesional"
+      ],
+      "date": {
+        "es": "Noviembre 2023",
+        "en": "November 2023"
+      },
+      "title": {
+        "es": "CibiSecurity: de módulos separados a producto completo",
+        "en": "CibiSecurity: from separate modules to a complete product"
+      },
+      "body": {
+        "es": "Hay momentos en un proyecto en los que todo lo que has ido construyendo por partes cobra sentido de golpe. Este es uno de esos momentos. Durante los últimos meses hemos estado desarrollando un nuevo módulo: <strong>Cibi Visión</strong>, un sistema de gestión de vídeo (VMS) que permite la visualización en tiempo real y la programación de grabación y eliminación de material. Un módulo que, por sí solo, ya tiene valor. Pero lo que hace especial este hito es lo que representa en conjunto. Ese módulo cierra la pieza que faltaba para lanzar oficialmente <strong>CibiSecurity</strong>: una solución integral de seguridad construida de forma modular, donde cada componente tiene un propósito claro y todos trabajan juntos.<br><br><strong>Cibi Identity</strong> gestiona el control de acceso mediante reconocimiento facial y biométrico, con roles, permisos y registro de movimientos. <strong>Cibi Detective</strong> aplica análisis predictivo para identificar patrones de riesgo y gestionar incidentes de seguridad. <strong>Cibi Perimeter</strong> cubre la analítica de vídeo con modelos de clasificación, conteos y controles de zona configurables. Y <strong>Cibi Visión</strong> cierra el ciclo con la gestión de grabación y la visualización en tiempo real de cámaras. Haber optado por una <strong>arquitectura modular</strong> no fue casualidad. Nos ha permitido desarrollar, probar y depurar cada pieza de forma independiente, identificar problemas con más precisión y construir sobre una base más sólida en cada iteración. <br><br>Ese enfoque se nota ahora que el producto está completo. Lo que más me llevo de este hito no es solo haber sacado adelante algo complejo, es el hecho de verlo funcionando en escenarios reales, resolviendo problemas concretos. Esa validación en el mundo real es la que da verdadero sentido a todo el esfuerzo previo. CibiSecurity ya no es una idea, un prototipo o una demo: ya es oficialmente un <strong>producto</strong>.",
+        "en": "There are moments in a project when everything you've been building piece by piece suddenly clicks into place. This is one of those moments. Over the past few months we've been developing a new module: <strong>Cibi Visión</strong>, a video management system (VMS) that enables real-time visualisation and scheduling of recording and deletion. A module that already has value on its own. But what makes this milestone special is what it represents as a whole. That module closes the missing piece needed to officially launch <strong>CibiSecurity</strong>: a comprehensive security solution built in a modular way, where each component has a clear purpose and all of them work together.<br><br><strong>Cibi Identity</strong> handles access control via facial and biometric recognition, with role and permission management and movement logging. <strong>Cibi Detective</strong> applies predictive analytics to identify risk patterns and manage security incidents. <strong>Cibi Perimeter</strong> covers video analytics with classification models, counts and configurable zone controls. And <strong>Cibi Visión</strong> closes the loop with recording management and real-time camera visualisation. Choosing a <strong>modular architecture</strong> wasn't accidental — it allowed us to develop, test and refine each piece independently, identify problems with greater precision, and build on a more solid foundation with each iteration.<br><br>What I take most from this milestone isn't just having delivered something complex — it's seeing it work in real scenarios, solving concrete problems. That real-world validation is what gives true meaning to all the effort that came before. CibiSecurity is no longer an idea, a prototype or a demo: it's officially a <strong>product</strong>."
+      },
+      "tags": {
+        "es": [
+          "CibiSecurity",
+          "Visión artificial"
+        ],
+        "en": [
+          "CibiSecurity",
+          "Computer Vision"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "adversarial-examples-2023",
+      "dateSort": "2023-08",
+      "categories": [
+        "curiosidades"
+      ],
+      "date": {
+        "es": "Agosto 2023",
+        "en": "August 2023"
+      },
+      "title": {
+        "es": "Adversarial examples: engañar a una IA con lo que el ojo no ve",
+        "en": "Adversarial examples: fooling an AI with what the eye can't see"
+      },
+      "body": {
+        "es": "Hay un fenómeno en visión artificial que, cuanto más lo piensas, más inquietante resulta: los <strong>adversarial examples</strong>. Con perturbaciones absolutamente imperceptibles para el ojo humano, como un patrón sutil en una prenda de ropa o unos píxeles alterados en una imagen, es posible engañar a un clasificador con una confianza del 99%. La imagen sigue pareciendo exactamente la misma para cualquier persona, pero el modelo la clasifica de forma completamente errónea. En el contexto de la videovigilancia esto deja de ser solo una curiosidad académica. Investigadores han demostrado técnicas para evadir sistemas de reconocimiento facial usando maquillaje con patrones específicos, gafas diseñadas computacionalmente o incluso ropa con estampados que confunden los modelos de detección de personas. El sistema ve, pero no ve lo mismo que nosotros. <strong>Lo más curioso del fenómeno no es que exista, sino lo que revela: que los modelos de visión artificial no \"entienden\" las imágenes como lo hacemos nosotros.</strong> Aprenden correlaciones estadísticas, no conceptos. Y esa diferencia, en entornos de seguridad real, importa.",
+        "en": "There's a phenomenon in computer vision that, the more you think about it, the more unsettling it becomes: <strong>adversarial examples</strong>. With perturbations completely imperceptible to the human eye — a few altered pixels in an image, a subtle pattern on a piece of clothing — it's possible to fool a classifier with 99% confidence. The image still looks exactly the same to any person, but the model classifies it completely incorrectly. In the context of video surveillance, this stops being just an academic curiosity. Researchers have demonstrated techniques to evade facial recognition systems using makeup with specific patterns, computationally designed glasses, or even clothing with prints that confuse person-detection models. The system sees, but it doesn't see what we see. <strong>The most curious thing about the phenomenon isn't that it exists, but what it reveals: that computer vision models don't 'understand' images the way we do.</strong> They learn statistical correlations, not concepts. And that difference, in real security environments, matters."
+      },
+      "tags": {
+        "es": [
+          "Visión artificial",
+          "Seguridad"
+        ],
+        "en": [
+          "Computer Vision",
+          "Security"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "analitica-predictiva-cibinar-2023",
+      "dateSort": "2023-07",
+      "categories": [
+        "profesional"
+      ],
+      "date": {
+        "es": "Julio 2023",
+        "en": "July 2023"
+      },
+      "title": {
+        "es": "Análisis predictivo en seguridad: anticiparse antes de que ocurra",
+        "en": "Predictive analytics in security: getting ahead before it happens"
+      },
+      "body": {
+        "es": "Otro de los módulos en los que estamos avanzando en Cibinar tiene un enfoque distinto al de la detección en tiempo real: el <strong>análisis predictivo basado en datos</strong>. El objetivo es ambicioso a la par que interesante: poder anticipar posibles amenazas o riesgos de seguridad antes de que lleguen a materializarse, no solo reaccionar cuando ya han ocurrido. En el contexto de la videovigilancia, este módulo encaja de forma natural como una capa adicional al sistema que ya estamos construyendo. Si la detección responde al presente, la predicción trabaja sobre el pasado para proyectarse al futuro: patrones de comportamiento, anomalías recurrentes, situaciones que estadísticamente preceden a un incidente. Hay algo que me parece especialmente valioso en este enfoque y que va más allá de la tecnología en sí: <strong>la prevención como filosofía</strong>. Un sistema que alerta antes de que el problema suceda no solo protege mejor, sino que cambia fundamentalmente la naturaleza de la respuesta. Pasar de reaccionar a anticipar es un salto cualitativo enorme, tanto en seguridad como en prácticamente cualquier otro dominio. Y poder contribuir a construir algo así es, sin duda, de lo más motivador que me ha traído esta etapa.",
+        "en": "Another module we're advancing on at Cibinar takes a different approach from real-time detection: <strong>data-driven predictive analytics</strong>. The goal is ambitious — being able to anticipate potential threats or security risks before they materialise, rather than just reacting after they've already happened. In the context of video surveillance, this module fits naturally as an additional layer on top of the system we're already building. If detection responds to the present, prediction works on the past to project into the future: behavioural patterns, recurring anomalies, situations that statistically precede an incident. There's something I find particularly valuable about this approach that goes beyond the technology itself: <strong>prevention as a philosophy</strong>. A system that alerts before the problem occurs doesn't just protect better — it fundamentally changes the nature of the response. Moving from reacting to anticipating is an enormous qualitative leap, both in security and in virtually any other domain. And being able to contribute to building something like that is, without doubt, one of the most motivating things this chapter has brought me."
+      },
+      "tags": {
+        "es": [
+          "Análisis predictivo",
+          "Videovigilancia"
+        ],
+        "en": [
+          "Predictive analytics",
+          "Video surveillance"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "reconocimiento-facial-cibinar-2023",
+      "dateSort": "2023-04",
+      "categories": [
+        "profesional"
+      ],
+      "date": {
+        "es": "Abril 2023",
+        "en": "April 2023"
+      },
+      "title": {
+        "es": "Reconocimiento facial: de la complejidad técnica a la implantación real",
+        "en": "Facial recognition: from technical complexity to real-world deployment"
+      },
+      "body": {
+        "es": "Uno de los proyectos más interesantes y exigentes en los que he trabajado en Cibinar este año ha sido el desarrollo e implantación de un sistema de reconocimiento facial. Las aplicaciones son amplias: control de acceso, identificación en entornos de seguridad, gestión de presencia... un tipo de tecnología que, bien construida, tiene un valor real y tangible. Pero llegar a un sistema funcional no es sencillo. Más allá de los retos técnicos propios, como pueden ser precisión en condiciones reales, variabilidad de iluminación o rendimiento en tiempo real entre otros, hay una capa que no se puede ignorar: <strong>el cumplimiento de la normativa de privacidad y protección de datos</strong>. Trabajar con datos biométricos implica responsabilidad legal y ética, y eso condiciona decisiones de diseño, almacenamiento y uso del sistema desde el principio. <br><br>Lo que más valoro ahora mismo es que el sistema ya está implantado internamente. Eso cambia todo: permite hacer tests sobre un entorno real, detectar mejoras tanto en la interfaz como en la funcionalidad, y, sobre todo, <strong>ver el sistema funcionando de verdad, no en un notebook</strong>. Esa diferencia entre un prototipo y algo que opera en producción es brutal, y cada iteración a partir de aquí parte de una base mucho más sólida.",
+        "en": "One of the most interesting and demanding projects I've worked on at Cibinar this year has been the development and deployment of a facial recognition system. The applications are broad: access control, identification in security environments, attendance management — a type of technology that, when built well, has real and tangible value. But getting to a functional system isn't straightforward. Beyond the technical challenges — accuracy under real conditions, lighting variability, real-time performance — there's a layer that can't be ignored: <strong>compliance with privacy and data protection regulations</strong>. Working with biometric data carries legal and ethical responsibility, and that shapes design, storage, and usage decisions from the very start. <br><br>What I value most right now is that the system is already deployed internally. That changes everything: it enables real-environment testing, surfaces improvements in both the interface and the functionality, and above all, <strong>lets you see the system actually running — not in a notebook</strong>. That gap between a prototype and something operating in production is enormous, and every iteration from here on builds on a much more solid foundation."
+      },
+      "tags": {
+        "es": [
+          "Reconocimiento facial",
+          "Visión artificial"
+        ],
+        "en": [
+          "Facial recognition",
+          "Computer Vision"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "ingles-academia-2023",
+      "dateSort": "2023-03",
+      "categories": [
+        "formacion",
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Marzo 2023",
+        "en": "March 2023"
+      },
+      "title": {
+        "es": "El inglés: la asignatura pendiente que por fin asumo",
+        "en": "English: the long-overdue challenge I finally take on"
+      },
+      "body": {
+        "es": "El inglés ha estado presente en mi vida desde pequeño, como en la de mucha gente de mi alrededor, pero siempre con esa sensación de que podría estar mejor. En el trabajo es casi el idioma por defecto: la programación es en inglés, la documentación técnica es en inglés, los papers que leo son en inglés, buena parte de lo que escribo acaba siendo en inglés. Sin embargo, hay una situación concreta que siempre se me ha hecho más difícil: expresarme verbalmente. Leer y escribir fluyen razonablemente bien, pero hablar con soltura, sin esa fracción de segundo de más buscando la palabra, es algo que no termino de tener.<br><br>Llevaba años con esa inquietud sin ponerle solución real. Cursos sueltos, apps, buenas intenciones, pero nada estructurado ni con un objetivo concreto al final. Así que he decidido apuntarme a una academia para trabajarlo en serio y, de paso, certificar el nivel con Cambridge. Juntar ambas cosas tiene sentido: no solo mejorar, sino tener algo que lo acredite. <strong>That's only the beginning.</strong>",
+        "en": "English has been present in my life since childhood — like almost everyone — but always with that feeling that it could be better. At work it is practically the default language: programming is in English, technical documentation is in English, the papers I read are in English, a good part of what I write ends up in English. However, there is one specific situation that has always been harder for me: expressing myself verbally. Reading and writing flow reasonably well, but speaking fluently — without that extra fraction of a second searching for the word — is something I have never quite nailed.<br><br>I had been sitting with that feeling for years without doing anything real about it. Scattered courses, apps, good intentions — but nothing structured and nothing with a concrete goal at the end. So I have decided to join an academy to work on it properly and, at the same time, certify the level with Cambridge. Combining both makes sense: not just improving, but having something to show for it. <strong>That's only the beginning.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Inglés",
+          "Asignatura pendiente",
+          "Cambridge",
+          "B2"
+        ],
+        "en": [
+          "English",
+          "Long-overdue subject",
+          "Cambridge",
+          "B2"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "foro-murcia-inteligente-2022",
+      "dateSort": "2022-12",
+      "categories": [
+        "formacion",
+        "profesional"
+      ],
+      "date": {
+        "es": "Diciembre 2022",
+        "en": "December 2022"
+      },
+      "title": {
+        "es": "II Foro Murcia Inteligente: IA fuera del entorno de trabajo",
+        "en": "II Murcia Inteligente Forum: AI outside the work environment"
+      },
+      "body": {
+        "es": "Hoy he asistido al II Foro Murcia Inteligente junto con compañeros de CIBINAR, y hay algo en este tipo de eventos que me resulta difícil de conseguir en el día a día del trabajo: ver el campo desde fuera. Cuando estás metido en un proyecto concreto, con sus problemas concretos, es fácil perder perspectiva de hacia dónde va todo esto a nivel más amplio. Un foro como este obliga a levantar la cabeza.<br><br>Los debates han sido entretenidos de verdad. Expertos con trayectorias muy distintas compartiendo sus puntos de vista sobre el presente y el futuro de la inteligencia artificial: algunos optimistas, otros más cautelosos, todos con argumentos que obligan a pensar. Me llevo varias ideas que quiero seguir tirando del hilo.<br><br>Pero lo que más valoro de este tipo de jornadas no es tanto la ponencia en sí como lo que pasa alrededor: conocer gente nueva, escuchar cómo otros en el sector piensan y trabajan, descubrir que hay más formas de enfocar los mismos problemas. <strong>La IA avanza tan rápido que salir del entorno habitual de vez en cuando no es opcional, es necesario.</strong>",
+        "en": "Today I attend the II Murcia Inteligente Forum with colleagues from CIBINAR, and there is something about this kind of event that is hard to get from the day-to-day of work: seeing the field from the outside. When you are deep in a specific project, with its specific problems, it is easy to lose perspective on where all of this is heading at a broader level. A forum like this forces you to look up.<br><br>The debates are genuinely engaging. Experts from very different backgrounds sharing their views on the present and future of artificial intelligence — some optimistic, others more cautious, all with arguments that make you think. I come away with several ideas I want to keep pulling on. On top of that, Carlos A. Abellán's contribution representing CIBINAR is an extra point of pride: seeing a colleague take the stage in that setting, in front of people from the industry, carries real weight.<br><br>But what I value most about these events is not so much the talks themselves as what happens around them: meeting new people, hearing how others in the field think and work, discovering there are more ways of approaching the same problems. <strong>AI moves so fast that stepping outside your usual environment every now and then is not optional — it is necessary.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Murcia IA",
+          "CIBINAR",
+          "Congreso"
+        ],
+        "en": [
+          "Murcia AI",
+          "CIBINAR",
+          "Conference"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_murciainteligente-artificialintelligence-activity-7003756212299202560-DD_1?utm_source=share&utm_medium=member_desktop&rcm=ACoAACoG8AABjilfHD_R0G93Q8CB02w7prF-ef4"
+        }
+      ]
+    },
+    {
+      "id": "analitica-video-cibinar-2022",
+      "dateSort": "2022-09",
+      "categories": [
+        "profesional"
+      ],
+      "date": {
+        "es": "Septiembre 2022",
+        "en": "September 2022"
+      },
+      "title": {
+        "es": "Videovigilancia inteligente: construyendo algo con aristas y con potencial",
+        "en": "Intelligent video surveillance: building something complex and full of potential"
+      },
+      "body": {
+        "es": "Gran parte de mi tiempo en Cibinar está concentrada en un producto de analítica de vídeo orientado a la videovigilancia y la seguridad. La idea central es potente: un sistema configurable que permite definir zonas de interés, clasificar tipos de amenazas y establecer cómo actuar ante cada una de ellas. No es un producto de una sola pieza, ya que tiene muchas aristas, muchas capas, muchas decisiones que tomar en paralelo. <strong>Y eso lo hace exigente</strong>. Trabajar en algo así requiere mantener varios frentes abiertos a la vez: la parte de detección, la lógica de configuración, la integración con sistemas externos, la respuesta ante eventos. Gestionar esa complejidad sin perder el hilo de hacia dónde va el producto es un ejercicio constante. Pero ver cómo avanza, ver que lo que construimos tiene aplicación real y que resuelve problemas concretos, hace que el esfuerzo valga la pena. Hay algo que me resulta <strong>fascinante</strong> y a la vez que <strong>invita a reflexionar</strong> en este tipo de tecnología: la precisión con la que un sistema puede llegar a observar, interpretar y reaccionar ante lo que ocurre en un espacio físico. No es ciencia ficción, es lo que estamos construyendo ahora mismo. La tecnología avanza rápido en este campo, y estar en ese avance desde dentro, contribuyendo a él, es una de esas cosas que te recuerdan por qué elegiste esta profesión.",
+        "en": "A large part of my time at Cibinar is focused on a video analytics product aimed at surveillance and security. The core idea is powerful: a configurable system that allows you to define zones of interest, classify types of threats, and set out how to respond to each one. It's not a single-piece product — it has many edges, many layers, many decisions to make in parallel. <strong>And that makes it demanding</strong>. Working on something like this means keeping several fronts open at once: the detection layer, the configuration logic, integration with external systems, event response. Managing that complexity without losing sight of where the product is headed is a constant exercise. But seeing it progress, seeing that what we build has real-world application and solves concrete problems, makes the effort worthwhile. <strong>There's something that fascinates me and at the same time invites reflection about this kind of technology: the precision with which a system can observe, interpret and react to what happens in a physical space.</strong> It's not science fiction — it's what we're building right now. Technology is moving fast in this field, and being inside that movement, contributing to it, is one of those things that reminds you why you chose this profession."
+      },
+      "tags": {
+        "es": [
+          "Visión artificial",
+          "Videovigilancia"
+        ],
+        "en": [
+          "Computer Vision",
+          "Video surveillance"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "gorila-invisible-2022",
+      "dateSort": "2022-07",
+      "categories": [
+        "curiosidades"
+      ],
+      "date": {
+        "es": "Julio 2022",
+        "en": "July 2022"
+      },
+      "title": {
+        "es": "El gorila invisible: por qué los humanos somos malos vigilantes",
+        "en": "The invisible gorilla: why humans are poor surveillance agents"
+      },
+      "body": {
+        "es": "En 1999, los psicólogos Christopher Chabris y Daniel Simons realizaron un experimento que se volvió célebre: pidieron a los participantes que contaran los pases de baloncesto de un equipo en un vídeo. En mitad del partido, un hombre disfrazado de gorila cruzaba la cancha durante varios segundos. El resultado: <strong>casi la mitad de los participantes no lo vio</strong>. No porque no miraran (de hecho miraban fijamente), sino porque su atención estaba enfocada en otra cosa. Este fenómeno, conocido como <strong>ceguera por inatención</strong>, tiene implicaciones directas en el campo de la videovigilancia. Un operador humano monitorizando múltiples cámaras simultáneamente, buscando algo concreto, es fisiológicamente incapaz de detectar todo lo que ocurre. No es descuido ni falta de atención, es simplemente el funcionamiento el cerebro humano. <strong>Trabajando en sistemas de vigilancia inteligente, este experimento cobra un significado muy práctico.</strong> Los modelos no se cansan, no se distraen y no tienen foco selectivo. Detectan lo que ocurre en el frame, no lo que esperan ver. La IA no elimina la necesidad del criterio humano, pero cubre exactamente el hueco donde la percepción humana falla de forma más predecible.",
+        "en": "In 1999, psychologists Christopher Chabris and Daniel Simons conducted an experiment that became famous: they asked participants to count basketball passes in a video. In the middle of the game, a person in a gorilla suit walked across the court for several seconds. The result: <strong>almost half the participants didn't see it</strong>. Not because they weren't looking — they were watching intently — but because their attention was focused elsewhere. This phenomenon, known as <strong>inattentional blindness</strong>, has direct implications in the field of video surveillance. A human operator monitoring multiple cameras simultaneously, looking for something specific, is physiologically incapable of detecting everything that happens. It's not negligence or lack of attention — it's how the human brain works. <strong>Working on intelligent surveillance systems, this experiment takes on a very practical meaning.</strong> Models don't get tired, don't get distracted, and don't have selective focus. They detect what happens in the frame, not what they expect to see. AI doesn't eliminate the need for human judgement, but it covers exactly the gap where human perception fails most predictably."
+      },
+      "tags": {
+        "es": [
+          "Psicología cognitiva",
+          "Vigilancia"
+        ],
+        "en": [
+          "Cognitive psychology",
+          "Surveillance"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "pipeline-entrenamiento-cibinar-2022",
+      "dateSort": "2022-06",
+      "categories": [
+        "profesional"
+      ],
+      "date": {
+        "es": "Junio 2022",
+        "en": "June 2022"
+      },
+      "title": {
+        "es": "Automatizando el pipeline de entrenamiento: cuando la herramienta la construyes tú",
+        "en": "Automating the training pipeline: when you build the tool yourself"
+      },
+      "body": {
+        "es": "Una de las cosas en las que más estoy invirtiendo tiempo dentro de Cibinar es en el desarrollo de un <strong>pipeline automatizado de entrenamiento</strong> que cubra el ciclo completo: obtención y validación de requisitos, preparación y limpieza de datos, generación de datasets, lanzamiento de entrenamientos, pruebas de rendimiento, generación de informes y, finalmente, despliegue y mantenimiento de los modelos resultantes. Es un trabajo que va mucho más allá de entrenar un modelo concreto. Se trata de construir la infraestructura que hace que todo ese proceso sea repetible, trazable y lo más autónomo posible. Cada pieza tiene que encajar con las demás, y cada decisión de diseño afecta al resultado final. <br><br>Lo que más me ha enseñado este tipo de proyecto es el valor de construir herramientas propias. Nunca vas a encontrar una solución externa que encaje exactamente con tu flujo de trabajo, tus datos, tus restricciones o tus necesidades específicas. Siempre falta algo, siempre sobra algo, siempre hay un punto donde la herramienta genérica toma una decisión que tú habrías tomado de otra forma. <strong>Construir tu propia herramienta te da un control total</strong> sobre cada paso del proceso, y eso tiene un valor añadido que no aparece en ningún lado.",
+        "en": "One of the things I'm investing most time in at Cibinar is developing an <strong>automated training pipeline</strong> that covers the full cycle — requirements gathering and validation, data preparation and cleaning, dataset generation, training runs, performance testing, report generation, and finally model deployment and maintenance. It's work that goes well beyond training a specific model. It's about building the infrastructure that makes the whole process repeatable, traceable and as autonomous as possible. Every piece has to fit with the others, and every design decision affects the final result. <br><br>What this kind of project has taught me most is the value of building your own tools. You'll never find an external solution that fits exactly with your workflow, your data, your constraints or your specific needs. Something is always missing, something always doesn't belong, there's always a point where the generic tool makes a decision you would have made differently. <strong>Building your own tool gives you total control</strong> over every step of the process — and that added value doesn't appear anywhere."
+      },
+      "tags": {
+        "es": [
+          "Automatización",
+          "MLOps"
+        ],
+        "en": [
+          "Automation",
+          "MLOps"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "cibinar-un-anyo-2022",
+      "dateSort": "2022-03",
+      "categories": [
+        "profesional",
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Marzo 2022",
+        "en": "March 2022"
+      },
+      "title": {
+        "es": "Un año en Cibinar: acoplado, convencido y creciendo",
+        "en": "One year at Cibinar: settled in, convinced, and growing"
+      },
+      "body": {
+        "es": "Ha pasado un año desde que entré en Cibinar, y es un buen momento para hacer balance. Me he acoplado bien al equipo: hay buen ambiente, hay con quién aprender y hay espacio para aportar. Ese encaje no es algo que se dé por hecho, y aquí ha funcionado. Pero lo que más destaco de este año es la confirmación de que estoy en el camino que quiero. Trabajar con inteligencia artificial, ver cómo lo que construyes tiene impacto real, ver que los proyectos avanzan y que el esfuerzo se traduce en resultados concretos... eso es gratificante de una forma que cuesta explicar hasta que lo vives. <strong>Esta etapa me está demostrando que esto es lo que quiero seguir haciendo.</strong> Queda mucho por aprender y mucho por construir. Pero la dirección está clara.",
+        "en": "A year has passed since I joined Cibinar, and it's a good moment to take stock. I've settled in well with the team: there's a good atmosphere, people to learn from, and room to contribute. That kind of fit isn't guaranteed, and here it's worked. But what stands out most from this year is the confirmation that I'm on the path I want. Working with artificial intelligence, seeing that what you build has real impact, seeing projects move forward and effort translate into concrete results — that's rewarding in a way that's hard to explain until you live it. <strong>This chapter is proving to me that this is what I want to keep doing.</strong> There's a lot left to learn and a lot left to build. But the direction is clear."
+      },
+      "tags": {
+        "es": [
+          "Cibinar",
+          "Carrera profesional"
+        ],
+        "en": [
+          "Cibinar",
+          "Professional career"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "yolo-curiosidad-2021",
+      "dateSort": "2021-12",
+      "categories": [
+        "curiosidades"
+      ],
+      "date": {
+        "es": "Diciembre 2021",
+        "en": "December 2021"
+      },
+      "title": {
+        "es": "YOLO: You Only Look Once, y eso lo cambia todo",
+        "en": "YOLO: You Only Look Once, and that changes everything"
+      },
+      "body": {
+        "es": "YOLO son las siglas de <em>You Only Look Once</em>, y el nombre no es casualidad, ya que describe exactamente lo que hace: en lugar de analizar una imagen en varias pasadas, la recorre una sola vez y produce a la vez la localización y la clasificación de todos los objetos que encuentra. Esa idea, aparentemente simple, es lo que le da su velocidad característica y lo convierte en una referencia en detección de objetos en tiempo real.<br><br>Las aplicaciones son amplísimas. Vehículos autónomos que detectan peatones y señales en milisegundos, sistemas de seguridad que identifican situaciones de riesgo en tiempo real, control de calidad industrial, detección de EPIs en obra (como en el proyecto en el que llevo meses trabajando), diagnóstico médico asistido por imagen... El patrón es siempre el mismo: cualquier problema donde necesites saber <em>qué hay</em> y <em>dónde está</em> en tiempo real es un candidato para YOLO.<br><br>Lo que más me llama la atención no es solo el rendimiento, sino la filosofía detrás. Hay algo en el enfoque de «mirar una sola vez y procesar el conjunto» que recuerda a cómo funciona la percepción humana. Cuando entras en una habitación no la escaneas región por región de forma metódica: en una fracción de segundo tienes ya una imagen global de lo que hay, dónde está y qué importa. YOLO hace algo parecido sobre píxeles. <strong>No sé si eso lo hace más interesante como herramienta o como idea, probablemente las dos cosas.</strong>",
+        "en": "YOLO stands for <em>You Only Look Once</em> — and the name is not accidental, it describes exactly what it does: instead of analysing an image in multiple passes, it processes it in a single forward pass and simultaneously produces the location and classification of every object it finds. That seemingly simple idea is what gives it its characteristic speed and makes it a benchmark in real-time object detection.<br><br>The applications are enormous. Autonomous vehicles detecting pedestrians and signs in milliseconds, security systems identifying risk situations in real time, industrial quality control, PPE detection on construction sites — like the project I have been working on for months —, image-assisted medical diagnosis... The pattern is always the same: any problem where you need to know <em>what is there</em> and <em>where it is</em> in real time is a candidate for YOLO.<br><br>What strikes me most is not just the performance — it is the philosophy behind it. There is something in the approach of «look once and process the whole» that resembles how human perception works. When you walk into a room you do not scan it region by region methodically: in a fraction of a second you already have a global picture of what is there, where it is and what matters. YOLO does something similar over pixels. <strong>I am not sure whether that makes it more interesting as a tool or as an idea — probably both.</strong>"
+      },
+      "tags": {
+        "es": [
+          "YOLO",
+          "Computer Vision",
+          "Deep Learning"
+        ],
+        "en": [
+          "YOLO",
+          "Computer Vision",
+          "Deep Learning"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "yolo-epis-2021",
+      "dateSort": "2021-10",
+      "categories": [
+        "profesional"
+      ],
+      "date": {
+        "es": "Octubre 2021",
+        "en": "October 2021"
+      },
+      "title": {
+        "es": "YOLO detectando EPIs en obra: cuando el modelo empieza a ver lo que necesitas",
+        "en": "YOLO detecting PPE on site: when the model starts seeing what you need"
+      },
+      "body": {
+        "es": "Llevar un tiempo trabajando con YOLO te hace entender por qué es una referencia en detección de objetos. La arquitectura es elegante, el rendimiento en tiempo real es difícil de igualar y las posibilidades de aplicación parecen no tener fin: desde vigilancia industrial hasta conducción autónoma, pasando por control de calidad o seguridad laboral. Cada nuevo problema en el que lo aplicas te descubre algo nuevo sobre lo que es capaz de hacer. <strong>Es de esas herramientas que cuanto más la usas, más potencial le ves.</strong><br><br>En una publicación que compartimos en LinkedIn, se puede ver en funcionamiento el sistema de detección de EPIs en obra que estamos desarrollando. Dentro de los diferentes proyectos de detección que tenemos en curso, destacaría que es uno de los más relevantes al tener impacto directo en la seguridad y poder evitar posibles accidentes laborales por negligencia o despiste. También es muy gratificante ver como esos entrenamientos y esas métricas se ven reflejadas en pruebas reales.<br><br>Pero más allá de la tecnología, lo que siento en este momento es que estamos cerca de algo. Un caso de éxito real, con un cliente real, resolviendo un problema que tiene impacto directo en la seguridad de las personas. Eso le da un peso distinto al trabajo. No es un ejercicio académico ni una prueba de concepto interna, sino algo que puede acabar funcionando en una obra de verdad.",
+        "en": "We share a video of the system we are working on: automatic PPE detection in construction environments using YOLO. Seeing the model identify helmets, vests and safety footwear in real time, on real footage from a construction site, is one of those things that is hard to describe to someone who has not seen it work. There is a huge leap between training a model and watching it operate on the real world as if it has genuinely understood it.<br><br>Spending time working with YOLO makes you understand why it is a reference in object detection. The architecture is elegant, the real-time performance is hard to match, and the range of applications seems to have no end: from industrial surveillance to autonomous driving, quality control or — as in this case — workplace safety. Every new problem you apply it to reveals something new about what it can do. <strong>It is one of those tools where the more you use it, the more potential you see in it.</strong><br><br>But beyond the technology, what I feel right now is that we are close to something. A real success case, with a real client, solving a problem that has direct impact on people's safety. That gives the work a different weight. It is not an academic exercise or an internal proof of concept — it is something that could end up running on a real construction site."
+      },
+      "tags": {
+        "es": [
+          "YOLO",
+          "Computer Vision",
+          "CIBINAR"
+        ],
+        "en": [
+          "YOLO",
+          "Computer Vision",
+          "CIBINAR"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver publicación en LinkedIn",
+            "en": "View LinkedIn post"
+          },
+          "url": "https://www.linkedin.com/posts/josepadillamtnz_sistema-de-identificaci%C3%B3n-de-epis-activity-6846071035746361344-hib1?utm_source=share&utm_medium=member_desktop&rcm=ACoAACoG8AABjilfHD_R0G93Q8CB02w7prF-ef4"
+        }
+      ]
+    },
+    {
+      "id": "ietf-rfc9061-2021",
+      "dateSort": "2021-08",
+      "categories": [
+        "hitos",
+        "academico"
+      ],
+      "date": {
+        "es": "Agosto 2021",
+        "en": "August 2021"
+      },
+      "title": {
+        "es": "RFC 9061: cuando un trabajo académico acaba formando parte de un estándar de Internet",
+        "en": "RFC 9061: when academic work ends up as part of an Internet standard"
+      },
+      "body": {
+        "es": "Hay momentos en los que algo en lo que has participado aparece en un sitio que no esperas. El RFC 9061 de la IETF recoge la solución en la que trabajé durante el TFG y el TFM: la gestión automatizada de asociaciones de seguridad IPsec en entornos SDN. Ver tu trabajo reflejado en un estándar de la IETF es algo difícil de procesar. La IETF no publica estándares a la ligera. El proceso es largo, riguroso y pasa por múltiples rondas de revisión técnica por parte de expertos de todo el mundo. La mayoría de propuestas no llegan a convertirse en RFC (documentos que definen cómo funciona Internet a nivel de protocolo, desde TCP/IP hasta HTTP). Que esta solución lo hiciera significa que tiene relevancia técnica real, no es solo un ejercicio académico. No fui el único implicado (obviamente este trabajo se construyó sobre el de otros muchos compañeros)m pero haber aportado mi granito de arena el módulo que automatiza la instanciación de configuraciones IPsec, y saber que esa pieza forma parte de un estándar que puede ser adoptado en redes reales a nivel global, es de esas cosas que te recuerdan <strong>por qué vale la pena ir siempre a por más</strong>.",
+        "en": "There are moments when something you contributed to appears somewhere you didn't expect. RFC 9061 from the IETF captures the solution I worked on during both my bachelor's and master's theses: automated management of IPsec security associations in SDN environments. Seeing your work reflected in an IETF standard is something hard to fully process. The IETF doesn't publish standards lightly. The process is long, rigorous and goes through multiple rounds of technical review by experts from around the world. Most proposals never become RFCs — these are the documents that define how the Internet works at the protocol level, from TCP/IP to HTTP. The fact that this solution made it means it has real technical relevance, not just academic value. I wasn't the only one involved — this work built on the contributions of colleagues and professors — but having developed the module that automates IPsec configuration instantiation, and knowing that piece is now part of a standard that can be adopted in real networks worldwide, is one of those things that reminds you <strong>why it's always worth going beyond the minimum</strong>."
+      },
+      "tags": {
+        "es": [
+          "IETF",
+          "RFC 9061",
+          "SDN",
+          "IPsec"
+        ],
+        "en": [
+          "IETF",
+          "RFC 9061",
+          "SDN",
+          "IPsec"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Ver RFC 9061 en IETF",
+            "en": "View RFC 9061 at IETF"
+          },
+          "url": "https://datatracker.ietf.org/doc/rfc9061/"
+        }
+      ]
+    },
+    {
+      "id": "tfm-defensa-2021",
+      "dateSort": "2021-07",
+      "categories": [
+        "hitos",
+        "academico"
+      ],
+      "date": {
+        "es": "Julio 2021",
+        "en": "July 2021"
+      },
+      "title": {
+        "es": "TFM presentado: el último sprint académico, con trabajo a jornada completa de fondo",
+        "en": "Master's thesis presented: the final academic sprint, juggling a full-time job"
+      },
+      "body": {
+        "es": "El TFM completó lo que el TFG había dejado a medias. Si el trabajo anterior había resuelto la parte del nodo final (aplicar configuraciones de seguridad de forma automática en el dispositivo), este atacó el otro extremo: el controlador SDN. El resultado fue un módulo capaz de detectar los nodos disponibles en la red, comunicarse con ellos y desplegar políticas de seguridad de forma completamente autónoma, <strong>sin ningún tipo de intervención externa</strong>. Un problema real, con una solución real, y unos resultados que lo corroboraban. Todo ello compaginado desde el primer día con trabajo a jornada completa, lo que añadió una exigencia extra que, honestamente, había subestimado.<br><br>La defensa salió bien. <strong>Muy bien</strong>. Obtener prácticamente la nota máxima después de todo lo que había costado es algo que no se olvida fácilmente (no tanto por la nota en sí como por lo que representa: que el esfuerzo fue reconocido y que el trabajo estaba a la altura). Las felicitaciones de toda la gente que había seguido el proceso de cerca, tenían un peso distinto al de otras veces. Hay momentos en los que sientes que algo ha cerrado de verdad, y ese fue uno de ellos.<br><br>Y sin embargo, al terminar, la cabeza se queda en un lugar extraño. De repente no hay ningún trabajo pendiente, ninguna entrega, ningún reto académico en el horizonte. Una etapa que había durado años, entre el grado y el máster, parecía haber acabado de golpe. El futuro se abría con ganas y con incertidumbre a partes iguales: sabiendo en qué quería trabajar, sin saber exactamente cómo iba a ir. <strong>Esa mezcla de cierre y apertura al mismo tiempo es difícil de gestionar, pero también es de las sensaciones más honestas que recuerdo.</strong>",
+        "en": "The Master's thesis completed what the TFG had left unfinished. If the previous work had resolved the end-node side — applying security configurations automatically on the device — this one tackled the other end: the SDN controller. The result was a module capable of detecting available nodes in the network, communicating with them and deploying security policies in a fully autonomous way, without any external intervention. A real problem, a real solution, and results that backed it up. All of it juggled from day one with a full-time job, which added extra demand that, honestly, I had underestimated.<br><br>The defence went well. Very well. Getting practically the highest possible grade after everything it had cost is something you do not easily forget (not so much for the grade itself as for what it represents: that the effort was recognised, that the work was up to the standard). The congratulations from colleagues, from the supervisor, from people who had followed the process closely, carried a different weight from other times. There are moments when you feel that something has genuinely closed, and that was one of them.<br><br>And yet, when it was over, your head ends up in a strange place. Suddenly there is no pending work, no deadlines, no academic challenge on the horizon. A chapter that had lasted years — between the degree and the master's — seemed to have ended all at once. The future opened up with equal parts excitement and uncertainty: knowing what you wanted to work on, not knowing exactly how it was going to go. <strong>That mix of closure and openness at the same time is hard to sit with, but it is also one of the most honest feelings I can remember.</strong>"
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "IPsec",
+          "Redes",
+          "Trabajo fin de máster"
+        ],
+        "en": [
+          "SDN",
+          "IPsec",
+          "Networks",
+          "Master's thesis"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "tfm-proceso-2021",
+      "dateSort": "2021-04",
+      "categories": [
+        "reflexiones",
+        "academico"
+      ],
+      "date": {
+        "es": "Abril 2021",
+        "en": "April 2021"
+      },
+      "title": {
+        "es": "El TFM: cuando crees que ya has leído todo y aún no funciona",
+        "en": "The master's thesis: when you think you've read everything and it still doesn't work"
+      },
+      "body": {
+        "es": "Ya en el TFG viví por primera vez esa sensación: haber leído todo lo que existe sobre el tema, haber agotado papers, foros, implementaciones de referencia y documentación oficial, y seguir sin encontrar exactamente lo que necesitas. En el TFM esa sensación volvió, y durante varios meses fue más intensa que nunca. Semanas enteras buscando, probando, descartando, sin avanzar de forma visible. Con el tiempo he comprendido que esto no es un fallo del proceso sino una consecuencia inevitable de él: la investigación, por definición, trabaja en terreno no desbrozado. La frustración forma parte del trabajo, aunque no siempre sea fácil asumirlo cuando estás en medio de ella.<br><br>Pero en este momento, esa fase ha quedado atrás. La investigación está prácticamente terminada: la arquitectura del módulo está definida, la integración con el controlador funciona, la lógica de despliegue automático de políticas está construida. Lo que queda es la fase final. Y con todo eso por delante, lo que más noto es el cansancio acumulado. Entre el TFM y el trabajo, es complicado tener un respiro real. Tengo muchas ganas de ver la solución terminada, de poder defender este trabajo y de cerrar este ciclo por todo lo alto. No para dejar de aprender, sino para poder <strong>comprobar la utilidad de mi solución y poder respirar y planificar siguientes pasos.</strong>",
+        "en": "I already lived this feeling for the first time during the TFG: having read everything that exists on the topic, having exhausted papers, forums, reference implementations and official documentation — and still not finding exactly what you need. In the Master's thesis that feeling came back, and for several months it was more intense than ever. Entire weeks of searching, testing, discarding, without making visible progress. Over time I have come to understand that this is not a failure of the process but an inevitable consequence of it: research, by definition, works on uncharted ground. If the solution were already documented somewhere, there would be nothing to research. Frustration is part of the work, even if it is not always easy to accept that when you are in the middle of it.<br><br>But right now, that phase is behind me. The research is practically done: the module architecture is defined, the integration with the controller works, the automatic policy deployment logic is built. What remains is the final phase — more exhaustive tests across different scenarios, interpreting the results rigorously and documenting everything coherently. It is a different kind of effort from the previous months: less uncertainty, more accumulated work. Fewer blocks, more volume.<br><br>And with all of that still ahead, what I notice most is the accumulated tiredness. Between the thesis and the full-time job, I have not had a real break in months. I am really looking forward to seeing the solution finished, being able to defend this work and closing this cycle. <strong>Not to stop learning — but to breathe before starting the next thing.</strong>"
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "IPsec",
+          "Investigación",
+          "Trabajo fin de máster"
+        ],
+        "en": [
+          "SDN",
+          "IPsec",
+          "Research",
+          "Master's thesis"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "cibinar-inicio-2021",
+      "dateSort": "2021-02",
+      "categories": [
+        "hitos",
+        "profesional"
+      ],
+      "date": {
+        "es": "Febrero 2021",
+        "en": "February 2021"
+      },
+      "title": {
+        "es": "Cibinar: mi primer trabajo real, a jornada completa y en IA",
+        "en": "Cibinar: my first real job, full-time and in AI"
+      },
+      "body": {
+        "es": "Hay una diferencia entre unas prácticas y un trabajo de verdad, aunque las tareas sean parecidas. Las prácticas son, en cierta forma, <strong>un entorno protegido</strong>: hay margen de error, hay tutelaje implícito, hay una fecha de fin que actúa como red de seguridad. Un trabajo a jornada completa no tiene nada de eso. Eres parte del equipo, tu contribución importa de verdad y el nivel de exigencia, tanto el externo como el que te pones tú mismo (muchas veces es el peor), es completamente distinto. Ya puedo decir que acabo de entrar en Cibinar, siendo este el siguiente salto necesario.<br><br>La empresa se centra en Inteligencia Artificial y Ciberseguridad, y desde el principio ha quedado claro que mi rol va a estar en el área de IA. Esta idea me pareció super atractiva desde el primer día. Llevaba tiempo siendo consciente de que la IA era el campo que más me llamaba, el que más me generaba esas ganas reales de profundizar y aprender, el que sentía que tenía más recorrido tanto tecnológico como profesional. Empezar a trabajar en esto de forma profesional, no como proyecto académico sino como trabajo real, es mi siguiente reto. <strong>Es la primera vez que alguien confía en mí para construir cosas en un campo en el que yo mismo quería crecer.</strong><br><br>Lo que no tengo tan claro es cómo voy a gestionar la situación que se me viene encima. El TFM está en marcha,y no era algo que pueda aparcar (ni que haya estado nunca en mis planes, para ser sincero). Como mínimo, se vienen por delante seis meses compaginando trabajo a jornada completa con las asignaturas y la investigación final del máster, dos cosas que por separado ya exigen bastante. No sé como de duro va a ser, pero estoy convencido de que podré con ello. Ahora toca ver de qué soy capaz.",
+        "en": "There is a difference between an internship and a real job, even if the tasks look similar. An internship is, in a way, a protected environment: there is room for error, implicit mentoring, and an end date that acts as a safety net. A full-time job has none of that. You are part of the team, your contribution genuinely matters, and the level of demand — both external and the kind you put on yourself — is completely different. Joining Cibinar in February 2021 was that leap.<br><br>The company focuses on Artificial Intelligence and Cybersecurity, and from the start it was clear my role would be in the AI side of things. That excited me from day one. I had been aware for a while that AI was the field that interested me most — the one I most wanted to go deep into, the one that felt like it had the most road ahead, both technically and professionally. Starting to work on it professionally — not as an academic project but as actual work — carried a different weight. <strong>It was the first time someone trusted me to build things in a field where I also wanted to grow myself.</strong><br><br>What I was less sure about was how I was going to manage what lay ahead. The Master's thesis was active and ongoing, not something I could put on hold. I had at least six months of juggling full-time work with active research — two things that are each demanding enough on their own. I did not know how it was going to go. I wanted to prove to myself that I could be fully present in both places, even if I also knew it was going to cost something. What I did know was that I did not want to give up either one: not the job I had just started, nor the academic work I had half-finished. So — let's see."
+      },
+      "tags": {
+        "es": [
+          "CIBINAR",
+          "IA",
+          "Primer empleo"
+        ],
+        "en": [
+          "CIBINAR",
+          "AI",
+          "First job"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "rl-rafaelmarin-2020",
+      "dateSort": "2020-12",
+      "categories": [
+        "reflexiones",
+        "academico"
+      ],
+      "date": {
+        "es": "Diciembre 2020",
+        "en": "December 2020"
+      },
+      "title": {
+        "es": "Comenzando el TFM y mi primera carta de recomendación",
+        "en": "Starting the thesis and my first recommendation letter"
+      },
+      "body": {
+        "es": "Diciembre de 2020 y el TFM ya está en marcha. De momento estoy todavía en las fases iniciales (definiendo el alcance, montando el entorno, empezando con las primeras pruebas), pero con la investigación activa y la dirección clara. Ese momento en el que el trabajo deja de ser una idea y empieza a ser algo real.<br><br>En medio de este proceso, mi tutor me comunicó hace unos días que quería escribirme una carta de recomendación. Que alguien decida hacer eso por iniciativa propia dice bastante: significa que el trabajo realizado hasta entonces estaba siendo lo suficientemente sólido como para querer respaldar una recomendación por escrito. Para mí supuso recibir mi primera carta de recomendación, algo que no tiene precio cuando estás empezando a construir tu perfil profesional. <strong>Una validación externa que llega justo cuando el siguiente capítulo se está gestando.</strong>",
+        "en": "December 2020 and the thesis was already underway. Still in the early stages — defining the scope, setting up the environment, running the first tests — but with active research and a clear direction. That moment when the work stops being an idea and starts being something real.<br><br>In the middle of all that, my supervisor told me he wanted to write me a recommendation letter. Someone deciding to do that on their own initiative says a lot: it means the work done up to that point had been solid enough that he wanted to put his name behind it in writing. For me it meant receiving my first ever recommendation letter — something invaluable when you are just starting to build your professional profile. <strong>External validation that arrives right when the next chapter has just begun.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Máster",
+          "UMU",
+          "SDN"
+        ],
+        "en": [
+          "Master's degree",
+          "UMU",
+          "SDN"
+        ]
+      },
+      "image": null,
+      "links": [
+        {
+          "label": {
+            "es": "Carta de recomendación",
+            "en": "Recommendation letter"
+          },
+          "url": "files/RL_RafaelMarin_English_Sign.pdf"
+        }
+      ]
+    },
+    {
+      "id": "tfm-eleccion-2020",
+      "dateSort": "2020-11",
+      "categories": [
+        "reflexiones",
+        "academico"
+      ],
+      "date": {
+        "es": "Noviembre 2020",
+        "en": "November 2020"
+      },
+      "title": {
+        "es": "Segunda vez ante un trabajo de investigación: más claro, igual de difícil",
+        "en": "Facing research again: clearer direction, equally demanding"
+      },
+      "body": {
+        "es": "Elegir el tema del TFM ha sido lo más sencillo de todo el proceso de realización del TFM, seguro. El TFG había dejado un extremo del problema abierto, ya que el nodo estaba resuelto, pero el controlador seguía sin tocar, y en investigación siempre hay otro hilo del que tirar. Lo tenía claro antes incluso de terminar la defensa del anterior trabajo. Pero saber lo que quieres hacer y saber lo que va a costar son dos cosas muy distintas. <strong>Al TFG llegué con cierta ingenuidad</strong>: sin entender bien el ritmo de ese tipo de trabajo, sin anticipar las semanas en las que sientes que no avanzas nada, sin conocer la densidad real de meterte a fondo en un problema técnico sin red de seguridad. Esta vez sí lo tengo en cuenta, pero aún así no se si estoy preparado para la complejidad que me espera. Sinceramente, creo que con ese tipo de trabajo nunca lo estás del todo, por mucho que lo hayas vivido antes.<br><br>Lo que sí tenía claro era que quería <strong>ser yo quien continuara con mi propio trabajo</strong>. No porque fuera el camino más fácil, sino porque había algo de responsabilidad en continuar lo que había empezado. El TFG había dado buenos resultados, había merecido la pena, y dejarlo a medias me habría parecido desperdiciar algo que tenía recorrido de sobra. Quiero demostrarme que puedo estar a la altura de ese trabajo anterior, llevarlo más lejos, y que el esfuerzo que había costado el trabajo anterior tuviera una continuación que lo completara de verdad. Esa presión, lejos de frenarme, ha sido exactamente lo que necesitaba para empezar. Y por supuesto, como decimos por aquí, <i>\"mas vale malo conocido que bueno por conocer\"</i> (no porque sea malo, si no porque siempre te sientes más cómodo en un campo en el que ya tienes cierto control).",
+        "en": "Choosing the topic for the Master's thesis was the easiest part of the whole process. The TFG had left one end of the problem open — the node was resolved, but the controller had not been touched — and in research there is always another thread to pull. I had it clear before the defence was even over. But knowing what you want to do and knowing what it will cost are two very different things. With the TFG I arrived with a certain naivety: not really understanding the rhythm of that kind of work, not anticipating the weeks where you feel like you are making no progress at all, not knowing the real density of getting deep into a technical problem without a safety net. This time I knew. And even so I was not entirely ready. I think with that kind of work you never fully are, no matter how many times you have been through it.<br><br>What I did know clearly was that I wanted to be the one to close it. Not because it was the easiest path — it clearly was not — but because there was a sense of responsibility in continuing what I had started. The TFG had produced good results, it had been worth the effort, and leaving it half-finished would have felt like wasting something that still had plenty of road ahead. I wanted to prove to myself that I could live up to that previous work, take it further, and make sure the effort it had cost had a continuation that genuinely completed it. That pressure, far from holding me back, was exactly what I needed to get started."
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "IPsec",
+          "Trabajo fin de máster",
+          "Investigación"
+        ],
+        "en": [
+          "SDN",
+          "IPsec",
+          "Master's thesis",
+          "Research"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "tfg-defensa-2020",
+      "dateSort": "2020-06",
+      "categories": [
+        "hitos",
+        "academico"
+      ],
+      "date": {
+        "es": "Junio 2020",
+        "en": "June 2020"
+      },
+      "title": {
+        "es": "TFG al fin terminado: redes, seguridad y una propuesta realmente útil",
+        "en": "Thesis done: networks, security and a proposal that ended up being useful"
+      },
+      "body": {
+        "es": "Cuatro años han dado para mucho: dudas, cambios de rumbo, asignaturas que cuestan más de lo esperado y otras que te abren la cabeza de formas que no anticipabas. Pero todo eso converge en un punto: el Trabajo de Fin de Grado. ¡Ya puedo contar de que se trataba! El trabajo giró en torno a la gestión de seguridad en redes SDN (un paradigma donde un controlador centralizado toma el mando de toda la infraestructura de red), algo fascinante en teoría pero con una gestión de seguridad históricamente muy limitada en la práctica.<br><br>El problema concreto era claro pero nada trivial: automatizar la configuración de asociaciones de seguridad IPsec entre nodos de una red SDN sin que nadie tuviera que intervenir manualmente. La solución fue un módulo en Python que, integrado con StrongSwan mediante la interfaz VICI, aplicaba las configuraciones directamente en el kernel del dispositivo en caliente (todo ello sin ficheros externos, sin reinicios de servicio, sin fricción). Ver finalmente que funcionaba como estaba pensado, después de meses depurando casos edge y entendiendo cómo se comunicaban las distintas capas, fue una <strogn>gran satisfacción personal</strong>.<br><br>Lo que más valoro de este período, más allá del resultado técnico, es el contexto en el que se ha desarrollado. Había otros compañeros trabajando en tesis con temáticas afines (distintas piezas de un mismo puzzle más grande, como el nodo final, el controlador o los protocolos de comunicación entre otros). Nos apoyamos mucho entre nosotros: compartíamos dudas, contrastábamos enfoques, nos ayudábamos a desbloquear problemas que desde dentro no se veían con claridad. De esa colaboración salió algo más valioso que cualquier trabajo individual: una solución conjunta, más completa y más sólida que la suma de sus partes.<br><br>El día de la defensa llegó con todos los nervios del mundo. Preparas la presentación, repasas cada decisión técnica, anticipas preguntas del tribunal... y aun así, cuando estás ahí delante, nada te prepara del todo para ese momento. Sientes que durante un tiempo se te ha olvidado todo y que por algún lado va a fallar. <strong>Pero salió bien</strong>. Y cuando terminas, cuando el tribunal asiente y los compañeros te felicitan, hay una mezcla de alivio, orgullo y algo parecido a la nostalgia antes de que empiece siquiera. <strong>Cuatro años intensos de carrera que se acaban de cerrar de la mejor forma posible.</strong> La única nota negativa ha sido, por culpa de esta maldita pandemia, el hecho de no poder haber celebrado la graduación con mi familia y compañeros...",
+        "en": "Four years is a long time: doubts, changes of direction, subjects that take more than expected and others that open your mind in ways you didn't anticipate. But all of it converges at one point: the Final Degree Project. Mine revolved around security management in SDN networks — a paradigm where a centralised controller takes charge of the entire network infrastructure, fascinating in theory but historically very limited in terms of security management in practice.<br><br>The specific problem was clear but far from trivial: automating the configuration of IPsec security associations between nodes in an SDN network without any manual intervention. The solution was a Python module that, integrated with StrongSwan via the VICI interface, applied configurations directly into the device kernel on the fly — no external files, no service restarts, no friction. Seeing it work as intended, after weeks of debugging edge cases and understanding how the different layers communicated, was one of those satisfactions you don't forget.<br><br>What I value most about that period, beyond the technical result, was the context in which it developed. There were other colleagues working on theses with related themes — different pieces of the same larger puzzle: the end node, the controller, the communication protocols. We supported each other a lot: sharing doubts, contrasting approaches, helping each other unblock problems that weren't clear from the inside. That collaboration produced something more valuable than any individual piece of work: a joint solution, more complete and more robust than the sum of its parts.<br><br>The day of the defence arrived with all the nerves in the world. You prepare the presentation, review every technical decision, anticipate the panel's questions — and even so, when you're standing there, nothing fully prepares you for that moment. But it went well. And when it's over, when the panel nods and your classmates congratulate you, there's a mix of relief, pride, and something close to nostalgia before it's even begun. <strong>Four years of the degree closing in the best possible way.</strong>"
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "IPsec",
+          "Python",
+          "IETF"
+        ],
+        "en": [
+          "SDN",
+          "IPsec",
+          "Python",
+          "IETF"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "matricula-computacion-movil-2020",
+      "dateSort": "2020-05",
+      "categories": [
+        "academico",
+        "proyectos"
+      ],
+      "date": {
+        "es": "Mayo 2020",
+        "en": "May 2020"
+      },
+      "title": {
+        "es": "Matrícula de honor: Computación Móvil",
+        "en": "Distinction: Mobile Computing"
+      },
+      "body": {
+        "es": "Solo paso por aquí para contar que he conseguido una matrícula de honor en la carrera, cosa que sinceramente no esperaba y que llega prácticamente al final de esta etapa. La asignatura ha sido Computación Móvil, una asignatura enfocada en toda la arquitectura de la programación móvil y el desarrollo de aplicaciones para Android. No era una asignatura que tenía en mi lista de favoritas, pero he de admitir que me ha sorprendido mucho y me ha hecho implicarme al 100%. <br><br>El proyecto que la cerró fue uno de los trabajos conjuntos que más trabajo requirió: junto a mi compañero desarrollamos una aplicación de mensajería con funcionalidades avanzadas: chat, gestión de perfiles, grupos, seguridad... Son de esos proyectos que da gusto terminar porque se nota que es un producto real, no un ejercicio. Puede verse en mis repositorios públicos. <strong>Terminar la carrera con una matrícula bajo el brazo no estaba en los planes, pero sienta muy bien.</strong>",
+        "en": "First distinction of the degree, and it arrives almost at the end. The subject was Mobile Computing, and the project that closed it was the one that required the most joint work: together with my classmate we built a fully functional messaging application — chat, profile management, groups, security — the kind you feel good finishing because it looks and feels like a real product, not an exercise. It can be found in my public repositories. <strong>Finishing the degree with a distinction was not in the plan, but it feels great.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Android",
+          "Universidad",
+          "Aplicación",
+          "Proyecto"
+        ],
+        "en": [
+          "Android",
+          "University",
+          "Application",
+          "Project"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "pandemia-2020",
+      "dateSort": "2020-03",
+      "categories": [
+        "reflexiones"
+      ],
+      "date": {
+        "es": "Marzo 2020",
+        "en": "March 2020"
+      },
+      "title": {
+        "es": "Cuarentena: cuando el mundo se para y no sabes hasta cuándo",
+        "en": "Quarantine: when the world stops and you don't know for how long"
+      },
+      "body": {
+        "es": "Llevamos días en cuarentena y todavía nadie sabe muy bien cuánto va a durar esto. La situación ha sido tan repentina y novedosa que cuesta hasta describirla: no puedes salir, no sabes lo que viene, y hay una incertidumbre de fondo constante que no termina de irse. Es raro en el sentido más literal de la palabra, ya que no tiene precedente cercano.<br><br>Lo de las clases es especialmente extraño. Seguimos con el curso, seguimos con los proyectos y entregas del TFG, pero todo desde casa, a través de una pantalla. Técnicamente funciona, pero hay algo que no cuadra del todo cuando intentas concentrarte en investigación rodeado de cuatro paredes sin poder cambiar de entorno. Tengo en mente ponerme a hacer ejercicio en casa para tener algo que rompa la rutina y ayude a desconectar un poco. <strong>A ver cuánto dura todo esto de la pandemia.</strong>",
+        "en": "We have been in quarantine for days and nobody really knows how long this is going to last. The situation is so new that it is hard to even describe: you cannot go out, you do not know what is coming, and there is a constant background uncertainty that does not go away. It is strange in the most literal sense — something without a recent precedent in anyone of my generation's life.<br><br>The classes situation is especially odd. We are still going with the course, still working on TFG projects and deadlines, but everything from home, through a screen. It technically works, but something does not quite fit when you are trying to concentrate on research surrounded by four walls with no way to change your environment. I am planning to start exercising at home to have something that breaks the routine and helps switch off a bit. <strong>Let's see how long all of this lasts.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Pandemia",
+          "Cuarentena",
+          "Incertidumbre"
+        ],
+        "en": [
+          "Pandemic",
+          "Quarantine",
+          "Uncertainty"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "tfg-proceso-2020",
+      "dateSort": "2020-03",
+      "categories": [
+        "reflexiones",
+        "academico"
+      ],
+      "date": {
+        "es": "Abril 2020",
+        "en": "April 2020"
+      },
+      "title": {
+        "es": "Investigar de verdad: cuando el problema no tiene solución en Internet",
+        "en": "Real research: when the problem has no answer on the Internet"
+      },
+      "body": {
+        "es": "Nada en la carrera me preparó para lo que es investigar de verdad al nivel que me está exigiendo el TFG. Tienes un problema, lees lo que han publicado otros, y te das cuenta de que nadie ha resuelto exactamente lo que tú necesitas. Entiendo que ahí está la clave de la investigación y la creación de un trabajo de investigación que debe aportar cosas nuevas al paradigma, pero cuando te das cuenta de que la documentación es extremadamente densa, el entorno de pruebas no se comporta como esperas, y hay semanas enteras en las que no avanzas nada visible, es fácil desmotivarse y pensar en tirar la toalla. <br><br>Al final del día, nadie te dice es que eso es el proceso normal y esperable al enfrentar un reto de esta magnitud por primera vez. Vas realizando pruebas, leyendo documentación, y poco a poco vas encontrando la solución (muchas veces donde menos te lo esperas). Finalmente, acabas encontrando algo que permite mejorar o explicar lo que necesitas, y obtienes una <strong>satisfacción proporcional al tiempo que le has dedicado</strong>. Ahora toca la parte de interpretación de todo lo obtenido y plasmarlo en un documento. Especialmente el hecho de redactar una manera tan profesional (explicar algo técnico de forma clara y coherente) es un reto completamente distinto al de intentar resolver una problemática.",
+        "en": "Nothing in the degree prepared me for what real research is like. You have a problem, you read what others have published, and you realize nobody has solved exactly what you need. The documentation is dense, the test environment doesn't behave as expected, and there are entire weeks where you make no visible progress. What nobody tells you is that this is the normal process. <strong>The satisfaction when the tests finally work is proportional to the time you spent thinking they never would.</strong> And learning to write well — to explain something technical clearly and coherently — is a completely different challenge from solving it."
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "Investigación",
+          "Redes",
+          "Universidad",
+          "Trabajo fin de grado"
+        ],
+        "en": [
+          "SDN",
+          "Research",
+          "Networks",
+          "University",
+          "Bachelor's thesis"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "tfg-eleccion-2019",
+      "dateSort": "2019-11",
+      "categories": [
+        "reflexiones",
+        "academico"
+      ],
+      "date": {
+        "es": "Noviembre 2019",
+        "en": "November 2019"
+      },
+      "title": {
+        "es": "Elegir bien el TFG: la decisión importante que nadie te explica cómo tomar",
+        "en": "Choosing the right thesis: the important decision nobody tells you how to make"
+      },
+      "body": {
+        "es": "Nadie te cuenta lo decisiva que es la elección del TFG hasta que estás en el momento de elegirlo. Cuando te vienes a dar cuenta, ha pasado medio año y el tiempo se te acaba, encontrándote en una posición en la que el problema ya no es solo el poco tiempo que te queda, sino también el hecho de no saber en que tema enfocar tu trabajo. Para evitar esto, he tomado la decisión de <strong>encontrar mi tema y tutores del TFG antes del fin del año</strong>. En este punto tenía dos opciones: esperar a que te asignen uno de los que nadie quiere, o moverte antes de tiempo. <br><br>Opté por lo segundo: hablé con varios profesores, exploré opciones dentro y fuera de la universidad, y me tomé tiempo para pensar qué quería que fuera ese trabajo para mí. No solo un trámite para cerrar la carrera. He estado buscando algo que sea un reto real, que me enseñe cosas que no estaban en los apuntes y que tenga utilidad más allá del papel. Creo haber encontrado una opción que cumple todas estas condiciones. <strong>¡Ahora toca ponerse manos a la obra!</strong>",
+        "en": "Nobody tells you how decisive the thesis choice is until you're in the moment of choosing it. When you realize it, half a year has passed and time is running out. There are two paths: wait for them to assign you whatever's left over, or move early. I chose the second: I talked to several professors, explored options inside and outside the university, and took time to think about what I wanted that project to be for me. Not just a formality to close the degree. I was looking for a real challenge, something that would teach me things not in the textbooks, and that would have genuine utility beyond the paper. I ended up finding something that ticked all three boxes. <strong>The feeling of having actively chosen it — rather than ended up with it — is worth a lot.</strong>"
+      },
+      "tags": {
+        "es": [
+          "SDN",
+          "Investigación",
+          "Redes",
+          "Universidad",
+          "Trabajo fin de grado"
+        ],
+        "en": [
+          "SDN",
+          "Research",
+          "Networks",
+          "University",
+          "Bachelor's thesis"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "aunna-fin-2019",
+      "dateSort": "2019-05",
+      "categories": [
+        "hitos",
+        "profesional"
+      ],
+      "date": {
+        "es": "Mayo 2019",
+        "en": "May 2019"
+      },
+      "title": {
+        "es": "Lo que me llevé de mi primera experiencia profesional",
+        "en": "What I took away from my first professional experience"
+      },
+      "body": {
+        "es": "Las prácticas terminaron y, mirando atrás, me quedo aún con más de lo que esperaba llevarme. La parte técnica estuvo bien: aprendí a moverme en un entorno real, a usar tecnologías que no había tocado antes, a adaptarme rápido... Pero por otro lado, lo que más me ha aportado ha sido lo que no venía en el guión: entender cómo se comunica un equipo de verdad, cómo se toman decisiones cuando hay otras empresas y riesgos reales, cómo se gestiona el trabajo cuando hay varias personas implicadas... Estoy seguro de que <strong>no hay asignatura que te enseñe como afrontar correctamente esto</strong>, y creo que esto reafirma lo positivo de haber realizado estas prácticas.<br><br>Durante este período también aprendí algo muy relevante sobre mí y mi futuro: el front-end y el diseño son divertidos y creativos, pero no terminan de ser lo que más me apasiona. Al final del día, me llama mucho más la atención lo que sucede por debajo, me atráe más la lógica interna y como hacer que las cosas funcionen. De hecho, pensándolo con retrospectiva, esta curiosidad por como funcionan las cosas por debajo viene de lejos, ya que desde pequeño me generaba especial interés intentar entender como funcionaban los ordenadores por debajo. Por tanto, me ha servido también para descubrir lo que realmente quiero aprender y donde quiero especializarme: <strong>en la parte back de la programación</strong>.",
+        "en": "The internship ended and, looking back, I'm taking away much more than I expected. The technical side was good — I learned to move in a real environment, to use technologies I hadn't touched before, to adapt quickly — but what has given me the most is what wasn't in the script: understanding how a real team communicates, how decisions are made, how work is managed when several people are involved. No course teaches you that. I also learned something about myself: front-end and design aren't my thing. I'll stay with what happens underneath — the logic, making things work. <strong>Knowing what you don't want is also progress.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Prácticas finalizadas",
+          "Experiencia laboral",
+          "Desarrollo web",
+          "Frontend vs Backend"
+        ],
+        "en": [
+          "Internship completed",
+          "Work experience",
+          "Web development",
+          "Frontend vs Backend"
+        ]
+      },
+      "image": null,
+      "links": []
+    },
+    {
+      "id": "aunna-inicio-2019",
+      "dateSort": "2019-03",
+      "categories": [
+        "reflexiones",
+        "profesional"
+      ],
+      "date": {
+        "es": "Marzo 2019",
+        "en": "March 2019"
+      },
+      "title": {
+        "es": "Primera semana en una empresa: lo que la universidad no te puede enseñar",
+        "en": "First week in a company: what university can't teach you"
+      },
+      "body": {
+        "es": "Uno de los momentos que más incertidumbre genera siempre en un estudiante es la <strong>primera toma de contacto con el mundo laboral</strong>, cuando no tienes ninguna experiencia previa en el sector y no sabes exactamente que te depara esa etapa. Siempre te haces preguntas del tipo ¿estaré a la altura?, ¿encajaré con mis compañeros? o ¿me gustará la experiencia?. Lo cierto es que esa incertidumbre ronda mi cabeza desde hace tiempo, y la única manera de responder esas preguntas es <strong>enfrentarme a ellas</strong>.<br><br>Por ello decidí hace unos días empezar unas prácticas voluntarias durante el transcurso de mi tercer año de carrera, incluso aunque no sean obligatorias, ya que quería responder a esa incertidumbre de verdad. La primera semana se esta sintiendo como un <strong>choque de realidad</strong>  en el buen sentido: un equipo completo, procesos reales y bien ejecutados, reuniones, decisiones y un gran ambiente. El aspecto laboral es totalmente diferente a la universidad, ya que en estos nuevos entornos te encuentras con problemas totalmente nuevos, y estoy convencido de que esta nueva etapa me va a formar muchísimo. Aunque puede parecer un tópico, ahora mismo tengo muchas <strong>ganas de aprender y aportar todo lo que pueda</strong>, intentando demostrarme a mi mismo que esta decisión valió la pena.",
+        "en": "Starting a voluntary internship in my third year was a decision I made eagerly but also with some uncertainty. They're not mandatory — I could have left them for later — but I wanted to find out as soon as possible what this was really like. The first week has been a reality check in the best sense: a full team, real processes, meetings, decisions. Everything different from university. I've just met everyone and already I'm getting good feelings. <strong>Eager to learn, to absorb everything I can and to prove this decision was worth it.</strong>"
+      },
+      "tags": {
+        "es": [
+          "Prácticas",
+          "Primer empleo",
+          "Desarrollo web"
+        ],
+        "en": [
+          "Internship",
+          "First job",
+          "Web development"
+        ]
+      },
+      "image": null,
+      "links": []
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio · José Padilla</title>
+  <meta name="description" content="Ingeniero informático especializado en IA, visión artificial y agentes autónomos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
+<!-- Menú móvil -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-page-active" data-nav="portfolio"></a>
+  <a href="cnn.html"   id="mobileNavCnn" data-nav="cnn"></a>
+  <a href="llm.html"   id="mobileNavLlm" data-nav="llm"></a>
+  <a href="playground.html" id="mobileNavPlayground" data-nav="playground"></a>
+  <hr style="border:none;border-top:1px solid var(--border);margin:6px 0;">
+  <a href="#experiencia" onclick="closeMobileMenu()" data-nav="experience"></a>
+  <a href="#proyectos"   onclick="closeMobileMenu()" data-nav="projects"></a>
+  <a href="#notas"       onclick="closeMobileMenu()" data-nav="notes"></a>
+  <a href="#contacto"    onclick="closeMobileMenu()" data-nav="contact"></a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <span class="nav-logo" id="navLogo"></span>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-page-link active" id="navPortfolio" data-nav="portfolio"></a></li>
+      <li><a href="cnn.html"   class="nav-page-link nav-cnn" id="navCnn"></a></li>
+      <li><a href="llm.html"   class="nav-page-link" id="navLlm" data-nav="llm"></a></li>
+      <li><a href="playground.html" class="nav-page-link" id="navPlayground" data-nav="playground"></a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="lang-toggle" id="langToggle" aria-label="Change language"></button>
+      <button class="theme-toggle" id="themeToggle">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ① SOBRE MÍ (fusionado) -->
+<section class="hero-about" id="sobre-mi">
+  <div class="container">
+    <!-- Cabecera -->
+    <div class="ha-header">
+      <h1><span id="heroGreeting"></span> <span class="gradient-text" id="heroName"></span></h1>
+      <p class="hero-title" id="heroSubtitle"></p>
+      <div class="about-tags ha-tags" id="aboutTags"></div>
+    </div>
+    <!-- Grid: imagen + stats + socials | tagline + bio + botones -->
+    <div class="about-grid">
+      <div class="about-image-wrap reveal">
+        <div class="about-avatar-glow"></div>
+        <div class="about-avatar" id="aboutAvatarWrap">
+          <img id="aboutAvatar" alt="" class="avatar-layer avatar-cartoon" />
+          <img id="aboutAvatarReal" alt="" class="avatar-layer avatar-real" />
+          <div class="avatar-hint">👁</div>
+        </div>
+        <div class="about-stats" id="aboutStats"></div>
+        <div class="about-socials" id="aboutSocials"></div>
+      </div>
+      <div class="about-text reveal">
+        <h2 class="section-title" id="aboutTagline"></h2>
+        <div id="aboutBio"></div>
+        <div class="about-nav-btns">
+          <a href="#experiencia" class="btn btn-soft" id="ptabExp"></a>
+          <a href="#proyectos"   class="btn btn-soft" id="ptabProjects"></a>
+          <a href="#notas"       class="btn btn-soft" id="ptabNotes"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ② EXPERIENCIA -->
+<section id="experiencia" style="background:rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" id="expLabel"></span>
+      <h2 class="section-title" id="expTitle"></h2>
+      <p class="section-subtitle" id="expSubtitle"></p>
+    </div>
+    <div class="exp-tabs reveal" id="expTabs"></div>
+    <div class="exp-panel active" id="panel-academic"></div>
+    <div class="exp-panel" id="panel-professional"></div>
+    <div class="exp-panel" id="panel-training"></div>
+    <div class="exp-panel" id="panel-stack">
+      <div class="skills-grid" id="skillsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ PROYECTOS -->
+<section id="proyectos">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" id="projLabel"></span>
+      <h2 class="section-title" id="projTitle"></h2>
+      <p class="section-subtitle" id="projSubtitle"></p>
+    </div>
+    <div class="project-filters reveal" id="projectFilters"></div>
+    <div class="projects-grid" id="projectsGrid"></div>
+  </div>
+</section>
+
+<!-- ④ NOTAS -->
+<section id="notas">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" id="notesLabel"></span>
+      <h2 class="section-title" id="notesTitle"></h2>
+      <p class="section-subtitle" id="notesSubtitle"></p>
+    </div>
+    <div class="notes-filters reveal" id="notesFilters"></div>
+    <div class="notes-timeline" id="notesTimeline"></div>
+    <div class="thread-feed" id="notesFeed"></div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="contact-card">
+        <span class="section-label" id="contactLabel"></span>
+        <h2 class="section-title" id="contactTitle"></h2>
+        <p id="contactBody"></p>
+        <div class="contact-actions" id="contactActions"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="text-align:center;">
+      <a id="footerLink" class="footer-back" target="_blank" rel="noopener" style="color:var(--text-muted);"></a>
+      <span class="footer-sep">&nbsp;·&nbsp;</span>
+      <span id="footerText"></span>
+      <span id="visitorCount" style="color:var(--text-dim);"></span>
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

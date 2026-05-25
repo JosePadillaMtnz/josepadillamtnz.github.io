@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playground · José Padilla</title>
+  <meta name="description"
+    content="Prueba modelos de IA reales en tu navegador: clasificación, detección y segmentación con TensorFlow.js. / Try real AI models in your browser: classification, detection and segmentation with TensorFlow.js." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.17.0/dist/tf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-pix@2.4.0/dist/body-pix.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/deeplab@0.2.1/dist/deeplab.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/pose-detection@2.1.3/dist/pose-detection.min.js"
+    defer></script>
+
+  <style>
+    /* ── PLAYGROUND ───────────────────────────────────────────── */
+    .pg-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .pg-example-btn {
+      padding: 7px 13px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      color: var(--text);
+    }
+
+    .pg-example-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pg-task-btn {
+      padding: 10px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.87rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      color: var(--text);
+    }
+
+    .pg-task-btn.active {
+      background: var(--gradient);
+      color: white;
+      border-color: transparent;
+    }
+
+    .model-status {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .model-status.loading {
+      color: #fbbf24;
+      border-color: #fbbf2440;
+    }
+
+    .model-status.ready {
+      color: #4ade80;
+      border-color: #4ade8040;
+    }
+
+    #pgImg {
+      max-width: 320px;
+      max-height: 320px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      object-fit: contain;
+      display: block;
+    }
+
+    #pgDetectCanvas {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      max-width: 100%;
+      display: block;
+    }
+
+
+    .pred-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .pred-label {
+      width: 165px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .pred-track {
+      flex: 1;
+      height: 10px;
+      background: var(--bg);
+      border-radius: 5px;
+      overflow: hidden;
+      min-width: 60px;
+    }
+
+    .pred-fill {
+      height: 100%;
+      background: var(--gradient);
+      border-radius: 5px;
+      transition: width 0.6s ease;
+    }
+
+    .pred-pct {
+      width: 46px;
+      text-align: right;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── PLAYGROUND UI ───────────────────────────────────────── */
+    .pg-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin-bottom: 24px;
+      font-size: 0.83rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .pg-status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #6b7280;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+
+    .pg-status-dot.loading {
+      background: #fbbf24;
+      animation: pulse 1s infinite;
+    }
+
+    .pg-status-dot.ready {
+      background: #4ade80;
+    }
+
+    .pg-task-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .pg-task-btn small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      opacity: 0.75;
+      margin-top: 2px;
+    }
+
+    .pg-input-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .pg-upload-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 16px 24px;
+      min-width: 130px;
+      height: 90px;
+      box-sizing: border-box;
+      background: var(--bg-card);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .pg-upload-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pg-upload-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .pg-model-select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .pg-model-select:focus,
+    .pg-model-select:hover {
+      border-color: var(--accent);
+    }
+
+    .pg-input-section {
+      position: relative;
+    }
+
+    .pg-input-overlay {
+      display: none;
+      position: absolute;
+      inset: -8px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 16px;
+      z-index: 5;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    [data-theme="light"] .pg-input-overlay {
+      background: rgba(240, 240, 248, 0.72);
+      color: var(--text);
+    }
+
+    .pg-input-section.locked .pg-input-overlay {
+      display: flex;
+    }
+
+    .pg-examples {}
+
+    .pg-examples-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .pg-examples-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .pg-example-img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pg-example-img:hover {
+      border-color: var(--accent);
+      transform: scale(1.05);
+    }
+
+    .pg-preview-area {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      min-height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pg-preview-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .pg-run-btn {
+      margin-top: 0;
+      font-size: 1rem;
+      padding: 14px 36px;
+    }
+
+    .pg-run-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .pg-results-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      min-height: 120px;
+    }
+
+    .pg-results-empty {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    .pg-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pg-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pg-bar-label {
+      width: 200px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .pg-bar-track {
+      flex: 1;
+      height: 12px;
+      background: var(--bg);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .pg-bar-fill {
+      height: 100%;
+      background: var(--gradient);
+      border-radius: 6px;
+      transition: width 0.6s ease;
+    }
+
+    .pg-bar-pct {
+      width: 50px;
+      text-align: right;
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .pg-detect-labels {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .pg-detect-label {
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* ── CONV PLAYGROUND ── */
+    .pg2-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      object-fit: cover;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .pg2-thumb.active,
+    .pg2-thumb:hover {
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+
+    #pg2KernelEditor input {
+      width: 46px;
+      height: 40px;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text);
+      outline: none;
+    }
+
+    #pg2KernelEditor input:focus {
+      border-color: var(--accent);
+    }
+
+    .pg2-filter-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .pg2-filter-canvas {
+      border-radius: 6px;
+      display: block;
+      image-rendering: pixelated;
+      border: 1px solid var(--border);
+      transition: border-color .15s, transform .15s;
+    }
+
+    .pg2-filter-card:hover .pg2-filter-canvas {
+      border-color: var(--accent);
+      transform: scale(1.06);
+    }
+
+    .pg2-filter-name {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 72px;
+    }
+
+    @media (max-width: 768px) {
+      .pg2-demo-grid {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto auto auto;
+      }
+
+      .pg2-demo-grid>div:nth-child(2) {
+        grid-row: 1;
+      }
+
+      .pg2-demo-grid>div:nth-child(3) {
+        grid-row: 2;
+      }
+
+      .pg2-kernel-col {
+        grid-row: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    /* ── PG TAB SYSTEM ─────────────────────────── */
+    .pg-tab-panel {
+      display: none;
+    }
+
+    .pg-tab-panel.active {
+      display: block;
+    }
+
+    .pg-hero {
+      padding: 80px 0 48px;
+      text-align: center;
+    }
+
+    .pg-hero .section-label {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .pg-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+
+    .pg-hero p {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .pg-tab-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .pg-tab-btns .btn.active {
+      background: var(--gradient);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    /* ── NEXT TOKEN EXPLORER ─────────────────────── */
+    .nte-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .nte-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .nte-card h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin: 0 0 14px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nte-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: color-mix(in srgb, var(--accent) 15%, transparent);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+      letter-spacing: .04em;
+    }
+
+    .nte-textarea {
+      width: 100%;
+      min-height: 90px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      color: var(--text);
+      resize: vertical;
+      outline: none;
+      transition: border-color .2s;
+      box-sizing: border-box;
+      line-height: 1.6;
+    }
+
+    .nte-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .nte-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nte-temp-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .nte-temp-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .nte-slider {
+      flex: 1;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .nte-temp-val {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3px 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .nte-temp-hints {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .nte-token-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background .15s;
+      border-radius: 6px;
+      padding: 7px 8px;
+    }
+
+    .nte-token-row:last-child {
+      border-bottom: none;
+    }
+
+    .nte-token-row:hover {
+      background: color-mix(in srgb, var(--accent) 8%, transparent);
+    }
+
+    .nte-token-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+      min-width: 110px;
+      white-space: pre;
+      color: var(--text);
+    }
+
+    .nte-token-track {
+      flex: 1;
+      background: var(--bg);
+      border-radius: 4px;
+      height: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .nte-token-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: var(--gradient);
+      transition: width .4s ease;
+    }
+
+    .nte-token-pct {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 44px;
+      text-align: right;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .nte-token-add {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+
+    .nte-token-add:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .nte-status {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 22px;
+      margin-top: 12px;
+    }
+
+    .nte-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .nte-generated {
+      margin-top: 20px;
+    }
+
+    .nte-generated-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .nte-gen-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 16px;
+      min-height: 52px;
+      word-break: break-word;
+    }
+
+    .nte-gen-context {
+      color: var(--text-muted);
+    }
+
+    .nte-gen-token {
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 4px;
+      margin: 1px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .nte-empty {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .nte-model-opt {
+      cursor: pointer;
+    }
+
+    .nte-model-opt-inner {
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      transition: border-color .2s, background .2s;
+    }
+
+    .nte-model-opt:hover .nte-model-opt-inner {
+      border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+    }
+
+    .nte-model-opt.selected .nte-model-opt-inner {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 6%, var(--bg-card));
+    }
+
+    @media (max-width: 768px) {
+      .nte-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">👤 Portfolio</a>
+    <a href="cnn.html">🧠 CNN</a>
+    <a href="llm.html">💬 LLM</a>
+    <a href="playground.html" class="mobile-page-active">🎮 Playground</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">jp.</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="tab-nav-btn">👤 Portfolio</a></li>
+        <li><a href="cnn.html" class="tab-nav-btn">🧠 CNN</a></li>
+        <li><a href="llm.html" class="tab-nav-btn">💬 LLM</a></li>
+        <li><a href="playground.html" class="tab-nav-btn active">🎮 Playground</a></li>
+      </ul>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button class="lang-toggle" id="langToggle">EN</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+            height="18">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+            height="18">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+          </svg>
+        </button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="pg-hero">
+    <div class="container">
+      <span class="section-label" data-i18n="hero.label">Playground</span>
+      <h1><span
+          style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"
+          data-i18n="hero.title">IA aplicada desde el navegador</span></h1>
+      <p data-i18n="hero.subtitle">Experimenta con modelos reales de visión artificial y filtros matemáticos, todo en tu
+        navegador y con tus propias imágenes. Sin instalaciones, sin servidores.</p>
+      <p style="font-size:0.8rem;color:var(--text-dim);max-width:580px;margin:0 auto 28px;line-height:1.6;background:color-mix(in srgb,var(--accent) 6%,transparent);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);border-radius:10px;padding:10px 16px;"
+        data-i18n="hero.disclaimer">⚠ Los modelos de IA en vivo y Siguiente Token son versiones ligeras optimizadas para
+        el
+        navegador. Ofrecen menor precisión que sus versiones completas y pueden fallar con algunas entradas. Su
+        propósito es demostrar cómo funciona la tecnología, no producción.</p>
+      <div class="pg-tab-btns">
+        <button class="btn btn-secondary active" data-pg-tab="math" onclick="activatePgTab('math')"
+          data-i18n="tab.math">🧮 Sin Modelos</button>
+        <button class="btn btn-secondary" data-pg-tab="models" onclick="activatePgTab('models')"
+          data-i18n="tab.models">🤖 IA en Vivo (CNN)</button>
+        <button class="btn btn-secondary" data-pg-tab="llm" onclick="activatePgTab('llm')" data-i18n="tab.llm">🔮 Next
+          Token (LLM)</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TAB 1: SIN MODELOS ── -->
+  <div class="pg-tab-panel active" id="pg-tab-math">
+    <section style="padding:40px 0 60px;">
+      <div class="container">
+        <span class="section-label" data-i18n="section1.label">Sin modelos · Pura matemática</span>
+        <h2 style="margin-bottom:10px;" data-i18n="section1.title">Convolución en tiempo real</h2>
+        <p style="color:var(--text-muted);max-width:700px;margin-bottom:32px;" data-i18n="section1.desc">
+          Aplica filtros convolucionales reales sobre cualquier imagen — sin TF.js, sin red neuronal, sin carga. Todo
+          ocurre en tu navegador con aritmética pura. Edita el kernel directamente para ver el efecto al instante.
+        </p>
+
+        <!-- Controls row -->
+        <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end;margin-bottom:24px;">
+          <!-- Image source -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"
+              data-i18n="ctrl.imagen">Imagen</div>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <img class="pg2-thumb active" src="files/samples/dog1.jpg" data-src="files/samples/dog1.jpg" alt="Perro"
+                title="Perro">
+              <img class="pg2-thumb" src="files/samples/cat1.jpg" data-src="files/samples/cat1.jpg" alt="Gato"
+                title="Gato">
+              <img class="pg2-thumb" src="files/samples/cat2.jpg" data-src="files/samples/cat2.jpg" alt="Gato 2"
+                title="Gato 2">
+              <img class="pg2-thumb" src="files/samples/city1.jpg" data-src="files/samples/city1.jpg" alt="Ciudad"
+                title="Ciudad">
+              <img class="pg2-thumb" src="files/samples/city2.jpg" data-src="files/samples/city2.jpg" alt="Ciudad 2"
+                title="Ciudad 2">
+              <img class="pg2-thumb" src="files/samples/city3.jpg" data-src="files/samples/city3.jpg" alt="Ciudad 3"
+                title="Ciudad 3">
+              <label class="btn btn-soft" style="font-size:0.85rem;padding:9px 18px;cursor:pointer;gap:6px;">
+                📂 <span data-i18n="btn.upload">Subir imagen</span><input type="file" id="pg2FileInput" accept="image/*"
+                  style="display:none;" onchange="pg2LoadFile(this)">
+              </label>
+            </div>
+          </div>
+          <!-- Kernel presets -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"
+              data-i18n="ctrl.kernel">Kernel</div>
+            <select id="pg2KernelSel" class="kernel-sel" style="font-size:0.82rem;padding:6px 10px;"
+              onchange="pg2SelectKernel(this.value)">
+              <option value="0" data-i18n="kernel.opt.sobel_h">Sobel H — bordes horizontales</option>
+              <option value="1" data-i18n="kernel.opt.sobel_v">Sobel V — bordes verticales</option>
+              <option value="2" data-i18n="kernel.opt.diag_ne">Diagonal ↗</option>
+              <option value="3" data-i18n="kernel.opt.diag_se">Diagonal ↘</option>
+              <option value="4" data-i18n="kernel.opt.laplacian">Laplaciano — todos los bordes</option>
+              <option value="5" data-i18n="kernel.opt.sharpen">Nitidez</option>
+              <option value="6" data-i18n="kernel.opt.emboss">Relieve / Emboss</option>
+              <option value="7" data-i18n="kernel.opt.gaussian">Gaussiano — suavizado</option>
+              <option value="8" data-i18n="kernel.opt.identity">Identidad — sin cambio</option>
+              <option value="custom" data-i18n="kernel.opt.custom">Personalizado ✏️</option>
+            </select>
+          </div>
+          <!-- Colormap -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"
+              data-i18n="ctrl.color">Color</div>
+            <select id="pg2ColormapSel" class="kernel-sel" style="font-size:0.82rem;padding:6px 10px;"
+              onchange="pg2SetColormap(this.value)">
+              <option value="gray" data-i18n="color.gray">Escala de grises</option>
+              <option value="viridis">Viridis</option>
+              <option value="hot" data-i18n="color.hot">Calor</option>
+            </select>
+          </div>
+          <!-- ReLU toggle -->
+          <label style="display:flex;align-items:center;gap:6px;font-size:0.82rem;cursor:pointer;padding-bottom:4px;">
+            <input type="checkbox" id="pg2ReluCheck" onchange="pg2Recompute()"
+              style="accent-color:var(--accent);width:16px;height:16px;">
+            <span data-i18n="ctrl.relu">Aplicar ReLU</span>
+          </label>
+        </div>
+
+        <!-- Kernel editor + main canvases -->
+        <div class="pg2-demo-grid"
+          style="display:grid;grid-template-columns:auto 1fr 1fr;gap:20px;align-items:start;flex-wrap:wrap;">
+          <!-- Kernel editor -->
+          <div class="pg2-kernel-col">
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"
+              data-i18n="editor.title">Editor de kernel</div>
+            <div id="pg2KernelEditor" style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:156px;">
+            </div>
+            <div style="margin-top:8px;display:flex;gap:6px;">
+              <button class="btn btn-soft" style="font-size:0.72rem;padding:4px 10px;" onclick="pg2NormalizeKernel()"
+                data-i18n="btn.normalize">Normalizar</button>
+              <button class="btn btn-soft" style="font-size:0.72rem;padding:4px 10px;" onclick="pg2ResetKernel()"
+                data-i18n="btn.reset">Resetear</button>
+            </div>
+            <div id="pg2KernelDesc"
+              style="margin-top:10px;font-size:0.72rem;color:var(--text-muted);line-height:1.5;max-width:160px;"></div>
+          </div>
+          <!-- Input -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"><span
+                data-i18n="canvas.input">Entrada</span> <span id="pg2InputDim"
+                style="color:var(--accent);font-family:monospace;"></span></div>
+            <canvas id="pg2InputCanvas"
+              style="max-width:100%;border-radius:10px;border:1px solid var(--border);display:block;image-rendering:auto;"></canvas>
+          </div>
+          <!-- Output -->
+          <div>
+            <div style="font-size:0.75rem;font-weight:600;color:var(--text-muted);margin-bottom:8px;"><span
+                data-i18n="canvas.output">Salida Conv</span> <span id="pg2ReluLabel">sin ReLU</span> <span
+                id="pg2OutputDim" style="color:var(--accent);font-family:monospace;"></span></div>
+            <canvas id="pg2OutputCanvas"
+              style="max-width:100%;border-radius:10px;border:1px solid var(--border);display:block;image-rendering:pixelated;"></canvas>
+            <div id="pg2Stats" style="margin-top:8px;font-size:0.7rem;font-family:monospace;color:var(--text-muted);">
+            </div>
+          </div>
+        </div>
+
+        <!-- All-filters grid -->
+        <div style="margin-top:40px;">
+          <div style="font-size:0.9rem;font-weight:700;margin-bottom:4px;" data-i18n="allfilters.title">Todos los
+            filtros aplicados a la vez</div>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;" data-i18n="allfilters.desc">Así es
+            como la primera capa convolucional de una CNN ve la imagen — en paralelo, con múltiples filtros simultáneos.
+          </p>
+          <div id="pg2AllFilters" style="display:flex;flex-wrap:wrap;gap:12px;"></div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /pg-tab-math -->
+
+  <!-- ── TAB 2: CON MODELOS ── -->
+  <div class="pg-tab-panel" id="pg-tab-models">
+    <section style="padding:40px 0 40px;">
+      <div class="container">
+        <span class="section-label" data-i18n="section2.label">Playground</span>
+        <h2 data-i18n="section2.title">Prueba tú mismo con IA</h2>
+        <p style="color:var(--text-muted);max-width:700px;" data-i18n="section2.desc">Usa modelos reales de IA
+          directamente en tu navegador. Sin
+          servidores, sin subidas a la nube: todo se ejecuta en tu dispositivo con TensorFlow.js. Elige una fuente de
+          entrada, selecciona la tarea y obtén resultados al instante.</p>
+
+        <!-- Selector de tarea -->
+        <div class="pg-task-bar" style="margin-top:36px;justify-content:center;">
+          <button class="pg-task-btn active" id="taskClassif" onclick="selectTask('classif')">
+            <span data-i18n="task.classif">🏷️ Clasificación</span>
+            <small data-i18n="task.classif.sub">¿Qué objeto hay?</small>
+          </button>
+          <button class="pg-task-btn" id="taskDetect" onclick="selectTask('detect')">
+            <span data-i18n="task.detect">📦 Detección</span>
+            <small data-i18n="task.detect.sub">¿Dónde están los objetos?</small>
+          </button>
+          <button class="pg-task-btn" id="taskSegment" onclick="selectTask('segment')">
+            <span data-i18n="task.segment">🎨 Segmentación</span>
+            <small data-i18n="task.segment.sub">¿A qué clase pertenece cada píxel?</small>
+          </button>
+          <button class="pg-task-btn" id="taskPose" onclick="selectTask('pose')">
+            <span data-i18n="task.pose">🦴 Pose</span>
+            <small data-i18n="task.pose.sub">¿Cómo está el cuerpo?</small>
+          </button>
+        </div>
+        <p id="pgTaskDesc"
+          style="text-align:center;color:var(--text-muted);font-size:0.85rem;max-width:620px;margin:14px auto 0;line-height:1.6;">
+          Identifica el objeto principal de la imagen y muestra las 10 categorías más probables con su nivel de
+          confianza.</p>
+
+        <!-- Estado del modelo + selector + botón cargar -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:20px;">
+          <!-- Selector de modelo (cambia según tarea) -->
+          <div id="pgModelSelectWrap">
+            <select id="pgModelSelectClassif" class="pg-model-select">
+              <option value="v2" data-i18n="model.classif.v2">MobileNet v2 — equilibrado</option>
+              <option value="v1" data-i18n="model.classif.v1">MobileNet v1 — preciso</option>
+              <option value="v2-fast" data-i18n="model.classif.v2fast">MobileNet v2 α0.5 — rápido</option>
+            </select>
+            <select id="pgModelSelectDetect" class="pg-model-select" style="display:none;">
+              <optgroup label="SSD" data-i18n-label="model.group.ssd">
+                <option value="mv2" data-i18n="model.detect.mv2">SSD MobileNet v2 — preciso</option>
+                <option value="lite" data-i18n="model.detect.lite">SSD Lite — rápido</option>
+              </optgroup>
+              <optgroup label="YOLO" data-i18n-label="model.group.yolo">
+                <option value="yolos-tiny" data-i18n="model.detect.yolos_tiny">YOLOS Tiny — rápido</option>
+                <option value="yolos-small" data-i18n="model.detect.yolos_small">YOLOS Small — preciso</option>
+              </optgroup>
+            </select>
+            <select id="pgModelSelectPose" class="pg-model-select" style="display:none;">
+              <option value="lightning" data-i18n="model.pose.lightning">MoveNet Lightning — rápido</option>
+              <option value="thunder" data-i18n="model.pose.thunder">MoveNet Thunder — preciso</option>
+            </select>
+            <select id="pgModelSelectSegment" class="pg-model-select" style="display:none;">
+              <option value="bodypix" data-i18n="model.segment.bodypix">BodyPix — personas y partes del cuerpo</option>
+              <option value="deeplab" data-i18n="model.segment.deeplab">DeepLab PASCAL — 20 clases semánticas</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
+            <div class="pg-status" id="pgStatus" style="margin-bottom:0;">
+              <div class="pg-status-dot" id="pgStatusDot"></div>
+              <span id="pgStatusText" data-i18n="status.unloaded">Modelo no cargado</span>
+            </div>
+            <button class="btn btn-soft" style="padding:6px 16px;font-size:0.82rem;" onclick="loadCurrentModel()"
+              data-i18n="btn.load">⬇
+              Cargar modelo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FUENTE DE ENTRADA ── -->
+    <section style="padding:0 0 60px;">
+      <div class="container">
+        <div class="pg-input-section" id="pgInputSection">
+          <div class="pg-input-overlay" id="pgInputOverlay">
+            <span style="font-size:2rem;">🔒</span>
+            <span data-i18n="status.load_first">Carga el modelo primero</span>
+          </div>
+          <h3 style="margin-bottom:20px;font-size:1.1rem;" data-i18n="input.title">1. Elige la fuente de entrada</h3>
+          <div class="pg-input-row">
+            <!-- Upload -->
+            <label class="pg-upload-btn" for="pgFileInput">
+              <span class="pg-upload-icon">📂</span>
+              <span data-i18n="btn.upload">Subir imagen</span>
+              <input type="file" id="pgFileInput" accept="image/*" style="display:none;">
+            </label>
+            <!-- Ejemplos clasificación -->
+            <div class="pg-examples" id="pgExamplesClassif">
+              <div class="pg-examples-label" data-i18n="examples.label">O usa un ejemplo:</div>
+              <div class="pg-examples-row">
+                <img class="pg-example-img" src="files/samples/dog1.jpg" alt="Perro" title="Perro"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat1.jpg" alt="Gato" title="Gato"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat2.jpg" alt="Gato 2" title="Gato 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city1.jpg" alt="Ciudad" title="Ciudad"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city2.jpg" alt="Ciudad 2" title="Ciudad 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city3.jpg" alt="Ciudad 3" title="Ciudad 3"
+                  onclick="loadExampleImage(this)">
+              </div>
+            </div>
+            <!-- Ejemplos detección -->
+            <div class="pg-examples" id="pgExamplesDetect" style="display:none;">
+              <div class="pg-examples-label" data-i18n="examples.label">O usa un ejemplo:</div>
+              <div class="pg-examples-row">
+                <img class="pg-example-img" src="files/samples/dog1.jpg" alt="Perro" title="Perro"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat1.jpg" alt="Gato" title="Gato"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat2.jpg" alt="Gato 2" title="Gato 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city1.jpg" alt="Ciudad" title="Ciudad"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city2.jpg" alt="Ciudad 2" title="Ciudad 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city3.jpg" alt="Ciudad 3" title="Ciudad 3"
+                  onclick="loadExampleImage(this)">
+              </div>
+            </div>
+            <!-- Ejemplos segmentación -->
+            <div class="pg-examples" id="pgExamplesSegment" style="display:none;">
+              <div class="pg-examples-label" data-i18n="examples.label">O usa un ejemplo:</div>
+              <div class="pg-examples-row">
+                <img class="pg-example-img" src="files/samples/dog1.jpg" alt="Perro" title="Perro"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat1.jpg" alt="Gato" title="Gato"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/cat2.jpg" alt="Gato 2" title="Gato 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city1.jpg" alt="Ciudad" title="Ciudad"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city2.jpg" alt="Ciudad 2" title="Ciudad 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/city3.jpg" alt="Ciudad 3" title="Ciudad 3"
+                  onclick="loadExampleImage(this)">
+              </div>
+            </div>
+            <!-- Ejemplos pose -->
+            <div class="pg-examples" id="pgExamplesPose" style="display:none;">
+              <div class="pg-examples-label" data-i18n="examples.label">O usa un ejemplo:</div>
+              <div class="pg-examples-row">
+                <img class="pg-example-img" src="files/samples/pose1.jpg" alt="Pose 1" title="Pose 1"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/pose2.jpg" alt="Pose 2" title="Pose 2"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/pose3.jpg" alt="Pose 3" title="Pose 3"
+                  onclick="loadExampleImage(this)">
+                <img class="pg-example-img" src="files/samples/pose4.jpg" alt="Pose 4" title="Pose 4"
+                  onclick="loadExampleImage(this)">
+              </div>
+            </div>
+          </div>
+
+          <!-- Preview área -->
+          <div class="pg-preview-area" id="pgPreviewArea">
+            <div class="pg-preview-placeholder" id="pgPreviewPlaceholder">
+              <span style="font-size:2.5rem;">🖼️</span>
+              <span data-i18n="preview.placeholder">La imagen aparecerá aquí</span>
+            </div>
+            <div class="pg-canvas-wrap" id="pgCanvasWrap" style="display:none;">
+              <canvas id="pgCanvas"></canvas>
+            </div>
+          </div>
+
+          <!-- Botón analizar -->
+          <div style="text-align:center;margin-top:20px;">
+            <button class="btn btn-primary pg-run-btn" id="pgRunBtn" onclick="runInference()" disabled
+              data-i18n="btn.analyze">
+              ▶ Analizar imagen
+            </button>
+          </div>
+        </div><!-- /pg-input-section -->
+      </div>
+    </section>
+
+    <!-- ── RESULTADOS ── -->
+    <section style="padding:0 0 80px;">
+      <div class="container">
+        <h3 style="margin-bottom:20px;font-size:1.1rem;" data-i18n="results.title">2. Resultados</h3>
+
+        <!-- Clasificación -->
+        <div id="resultsClassif" class="pg-results-panel">
+          <div class="pg-results-empty" id="classifEmpty" data-i18n="classif.empty">Los resultados de clasificación
+            aparecerán aquí.</div>
+          <div id="classifBars" class="pg-bars" style="display:none;"></div>
+        </div>
+
+        <!-- Detección -->
+        <div id="resultsDetect" class="pg-results-panel" style="display:none;">
+          <div class="pg-results-empty" id="detectEmpty" data-i18n="detect.empty">Los resultados de detección aparecerán
+            aquí.</div>
+          <div id="detectResult" style="display:none;">
+            <canvas id="detectCanvas" style="max-width:100%;border-radius:12px;"></canvas>
+            <div id="detectLabels" class="pg-detect-labels"></div>
+          </div>
+        </div>
+
+        <!-- Segmentación -->
+        <div id="resultsSegment" class="pg-results-panel" style="display:none;">
+          <div class="pg-results-empty" id="segmentEmpty" data-i18n="segment.empty">La máscara de segmentación aparecerá
+            aquí.</div>
+          <div id="segmentResult" style="display:none;">
+            <canvas id="segmentCanvas" style="max-width:100%;border-radius:12px;"></canvas>
+            <div id="segmentLegend" class="pg-detect-labels" style="margin-top:12px;"></div>
+          </div>
+        </div>
+
+        <!-- Pose -->
+        <div id="resultsPose" class="pg-results-panel" style="display:none;">
+          <div class="pg-results-empty" id="poseEmpty" data-i18n="pose.empty">El esqueleto estimado aparecerá aquí.
+          </div>
+          <div id="poseResult" style="display:none;">
+            <canvas id="poseCanvas" style="max-width:100%;border-radius:12px;"></canvas>
+            <div id="poseLabels" class="pg-detect-labels" style="margin-top:12px;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div><!-- /pg-tab-models -->
+
+  <!-- ── TAB 3: NEXT TOKEN EXPLORER ── -->
+  <div class="pg-tab-panel" id="pg-tab-llm">
+    <section style="padding:48px 0 80px;">
+      <div class="container">
+        <span class="section-label" data-i18n="nte.label">Modelos · LLM</span>
+        <h2 style="margin-bottom:10px;" data-i18n="nte.title">Next Token Explorer</h2>
+        <p style="color:var(--text-muted);max-width:680px;margin-bottom:36px;line-height:1.7;" data-i18n="nte.desc">
+          GPT-2 corre íntegramente en tu navegador. Una vez cargado, escribe un contexto y el modelo calculará los
+          logits reales del vocabulario completo (~50K tokens), aplica softmax con tu temperatura y muestra los 8
+          candidatos más probables. Sin API, sin conexión.
+        </p>
+
+        <!-- Carga del modelo -->
+        <div class="nte-card" id="nteLoadCard" style="margin-bottom:24px;">
+          <h3><span data-i18n="nte.model">Modelo</span> <span class="nte-badge" id="nteModelBadge"
+              data-i18n="nte.badge.unloaded">Sin cargar</span></h3>
+          <div
+            style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:16px;"
+            id="nteModelCards">
+            <label class="nte-model-opt" data-model="Xenova/distilgpt2">
+              <input type="radio" name="nteModel" value="Xenova/distilgpt2" style="display:none;">
+              <div class="nte-model-opt-inner">
+                <span style="font-weight:700;font-size:0.88rem;">DistilGPT-2</span>
+                <span class="nte-badge" style="margin-left:6px;">~80 MB</span>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin:5px 0 0;line-height:1.5;"
+                  data-i18n="nte.model.distilgpt2.desc">Versión destilada de GPT-2. Más rápida, misma arquitectura.
+                  Ideal para pruebas. Solo inglés.</p>
+              </div>
+            </label>
+            <label class="nte-model-opt selected" data-model="Xenova/gpt2">
+              <input type="radio" name="nteModel" value="Xenova/gpt2" checked style="display:none;">
+              <div class="nte-model-opt-inner">
+                <span style="font-weight:700;font-size:0.88rem;">GPT-2</span>
+                <span class="nte-badge" style="margin-left:6px;">~120 MB</span>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin:5px 0 0;line-height:1.5;"
+                  data-i18n="nte.model.gpt2.desc">El original de OpenAI (2019). El modelo de referencia para entender
+                  generación de texto. Solo inglés.</p>
+              </div>
+            </label>
+            <label class="nte-model-opt" data-model="Xenova/bloomz-560m">
+              <input type="radio" name="nteModel" value="Xenova/bloomz-560m" style="display:none;">
+              <div class="nte-model-opt-inner">
+                <span style="font-weight:700;font-size:0.88rem;">BLOOMZ-560M</span>
+                <span class="nte-badge" style="margin-left:6px;">~350 MB · 🌍 ES</span>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin:5px 0 0;line-height:1.5;"
+                  data-i18n="nte.model.bloomz.desc">Fine-tune de BLOOM con instrucciones multilingüe (46 idiomas). Mejor
+                  en español que el original. BigScience.</p>
+              </div>
+            </label>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-primary" id="nteLoadBtn" onclick="nteLoadModel()" data-i18n="nte.btn.load">⬇ Cargar
+              modelo</button>
+            <div class="nte-status" id="nteLoadStatus"></div>
+          </div>
+          <div id="nteProgressWrap" style="display:none;margin-top:14px;">
+            <div
+              style="background:var(--bg);border:1px solid var(--border);border-radius:6px;height:8px;overflow:hidden;">
+              <div id="nteProgressBar"
+                style="height:100%;background:var(--gradient);width:0%;transition:width .3s ease;border-radius:6px;">
+              </div>
+            </div>
+            <div id="nteProgressLabel"
+              style="font-size:0.72rem;color:var(--text-muted);margin-top:5px;font-family:'JetBrains Mono',monospace;">
+            </div>
+          </div>
+        </div>
+
+        <div class="nte-layout" id="nteMainLayout" style="opacity:.4;pointer-events:none;">
+
+          <!-- Panel izquierdo: contexto + controles -->
+          <div>
+            <div class="nte-card">
+              <h3 data-i18n="nte.card.context">Contexto</h3>
+              <textarea class="nte-textarea" id="nteContext" data-i18n-placeholder="nte.placeholder"
+                placeholder="Escribe el contexto aquí...">The future of artificial intelligence is</textarea>
+              <div class="nte-row">
+                <button class="btn btn-primary" id="ntePredictBtn" onclick="ntePredict()" data-i18n="nte.btn.predict">▶
+                  Predecir</button>
+                <button class="btn btn-secondary" id="nteAutoBtn" onclick="nteToggleAuto()" data-i18n="nte.btn.auto">⟳
+                  Auto</button>
+                <button class="btn btn-soft" onclick="nteClear()" data-i18n="nte.btn.clear">✕ Limpiar</button>
+              </div>
+              <div class="nte-temp-row">
+                <span class="nte-temp-label" data-i18n="nte.temp.label">Temperatura</span>
+                <input type="range" class="nte-slider" id="nteTemp" min="0.1" max="2.0" step="0.05" value="1.0"
+                  oninput="nteTempChange(this.value)">
+                <div class="nte-temp-val" id="nteTempVal">1.00</div>
+              </div>
+              <div class="nte-temp-hints">
+                <span data-i18n="nte.temp.low">🎯 Determinista (0.1)</span>
+                <span data-i18n="nte.temp.high">🎨 Caótica (2.0)</span>
+              </div>
+            </div>
+
+            <div class="nte-generated" id="nteGeneratedWrap" style="display:none;">
+              <div class="nte-generated-label" data-i18n="nte.generated.label">Texto construido</div>
+              <div class="nte-gen-text" id="nteGenText"></div>
+            </div>
+          </div>
+
+          <!-- Panel derecho: candidatos -->
+          <div class="nte-card">
+            <h3 data-i18n="nte.card.candidates">Candidatos al siguiente token</h3>
+            <div id="nteCandidates">
+              <div class="nte-empty" data-i18n="nte.empty">Carga el modelo y pulsa <strong>Predecir</strong></div>
+            </div>
+            <div class="nte-status" id="nteStatus"></div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+              <p style="font-size:0.76rem;color:var(--text-muted);line-height:1.65;margin:0;" data-i18n="nte.howworks">
+                <strong style="color:var(--text);">Cómo funciona:</strong> El modelo hace un forward pass completo y
+                devuelve un vector de logits de 50,257 dimensiones (una por token del vocabulario). Se aplica softmax
+                con temperatura: <code
+                  style="font-family:monospace;font-size:0.72rem;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:1px 4px;">p(i) = exp(lᵢ/T) / Σ exp(lⱼ/T)</code>.
+                Las probabilidades mostradas son <em>exactas</em>, no estimadas.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div><!-- /pg-tab-llm -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p style="text-align:center;">
+        <a href="index.html" class="footer-back" style="color:var(--accent);" data-i18n="footer.back">← Volver al
+          portfolio</a>
+        <span class="footer-sep">&nbsp;·&nbsp;</span>
+        <span data-i18n="footer.made">Hecho con</span> <span style="color:var(--accent);">♥</span> <span
+          data-i18n="footer.by">por José Padilla</span>
+        <span id="visitorCount" style="color:var(--text-muted);"></span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ── MOBILE MENU ─────────────────────────────────
+    document.getElementById('hamburger').addEventListener('click', () => {
+      const isOpen = document.getElementById('mobileMenu').classList.toggle('open');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; } });
+
+    // ── LANG ────────────────────────────────────────
+    const LANG = localStorage.getItem('lang') || new URLSearchParams(location.search).get('lang') || 'es';
+    const PG_I18N = {
+      es: {
+        'hero.label': 'Playground',
+        'hero.title': 'IA aplicada desde el navegador',
+        'hero.subtitle': 'Experimenta con modelos reales de visión artificial y filtros matemáticos, todo en tu navegador y con tus propias imágenes. Sin instalaciones, sin servidores.',
+        'hero.disclaimer': '⚠ Los modelos de IA en vivo y Siguiente Token son versiones ligeras optimizadas para el navegador. Ofrecen menor precisión que sus versiones completas y pueden fallar con algunas entradas. Su propósito es demostrar cómo funciona la tecnología, no producción.',
+        'tab.math': '🧮 Sin Modelos',
+        'tab.models': '🤖 IA en Vivo (CNN)',
+        'section1.label': 'Sin modelos · Pura matemática',
+        'section1.title': 'Convolución en tiempo real',
+        'section1.desc': 'Aplica filtros convolucionales reales sobre cualquier imagen — sin TF.js, sin red neuronal, sin carga. Todo ocurre en tu navegador con aritmética pura. Edita el kernel directamente para ver el efecto al instante.',
+        'ctrl.imagen': 'Imagen',
+        'ctrl.kernel': 'Kernel',
+        'ctrl.color': 'Color',
+        'ctrl.relu': 'Aplicar ReLU',
+        'kernel.opt.sobel_h': 'Sobel H — bordes horizontales',
+        'kernel.opt.sobel_v': 'Sobel V — bordes verticales',
+        'kernel.opt.diag_ne': 'Diagonal ↗',
+        'kernel.opt.diag_se': 'Diagonal ↘',
+        'kernel.opt.laplacian': 'Laplaciano — todos los bordes',
+        'kernel.opt.sharpen': 'Nitidez',
+        'kernel.opt.emboss': 'Relieve / Emboss',
+        'kernel.opt.gaussian': 'Gaussiano — suavizado',
+        'kernel.opt.identity': 'Identidad — sin cambio',
+        'kernel.opt.custom': 'Personalizado ✏️',
+        'color.gray': 'Escala de grises',
+        'color.hot': 'Calor',
+        'editor.title': 'Editor de kernel',
+        'btn.normalize': 'Normalizar',
+        'btn.reset': 'Resetear',
+        'canvas.input': 'Entrada',
+        'canvas.output': 'Salida Conv',
+        'relu.off': 'sin ReLU',
+        'relu.on': '+ ReLU',
+        'allfilters.title': 'Todos los filtros aplicados a la vez',
+        'allfilters.desc': 'Así es como la primera capa convolucional de una CNN ve la imagen — en paralelo, con múltiples filtros simultáneos.',
+        'section2.label': 'Playground',
+        'section2.title': 'Prueba tú mismo con IA',
+        'section2.desc': 'Usa modelos reales de IA directamente en tu navegador. Sin servidores, sin subidas a la nube: todo se ejecuta en tu dispositivo con TensorFlow.js. Elige una fuente de entrada, selecciona la tarea y obtén resultados al instante.',
+        'task.classif': '🏷️ Clasificación',
+        'task.classif.sub': '¿Qué objeto hay?',
+        'task.detect': '📦 Detección',
+        'task.detect.sub': '¿Dónde están los objetos?',
+        'task.segment': '🎨 Segmentación',
+        'task.segment.sub': '¿A qué clase pertenece cada píxel?',
+        'model.classif.v2': 'MobileNet v2 — equilibrado',
+        'model.classif.v1': 'MobileNet v1 — preciso',
+        'model.classif.v2fast': 'MobileNet v2 α0.5 — rápido',
+        'model.detect.mv2': 'COCO-SSD MobileNet v2 — preciso',
+        'model.detect.lite': 'COCO-SSD Lite v2 — rápido',
+        'model.segment.bodypix': 'BodyPix — personas y partes del cuerpo',
+        'model.segment.deeplab': 'DeepLab PASCAL — 20 clases semánticas',
+        'status.unloaded': 'Modelo no cargado',
+        'btn.load': '⬇ Cargar modelo',
+        'input.title': '1. Elige la fuente de entrada',
+        'btn.upload': 'Subir imagen',
+        'examples.label': 'O usa un ejemplo:',
+        'preview.placeholder': 'La imagen aparecerá aquí',
+        'btn.analyze': '▶ Analizar imagen',
+        'btn.analyzing': '⏳ Analizando…',
+        'results.title': '2. Resultados',
+        'classif.empty': 'Los resultados de clasificación aparecerán aquí.',
+        'detect.empty': 'Los resultados de detección aparecerán aquí.',
+        'segment.empty': 'La máscara de segmentación aparecerá aquí.',
+        'footer.back': '← Volver al portfolio',
+        'footer.made': 'Hecho con',
+        'footer.by': 'por José Padilla',
+        'status.already_loaded': 'Modelo ya cargado ✓',
+        'status.tfjs_wait': 'Librería TF.js aún no lista, espera…',
+        'status.loading_model': 'Cargando modelo…',
+        'status.model_ready': 'Modelo listo ✓',
+        'status.det_loaded': 'Detector ya cargado ✓',
+        'status.loading_det': 'Cargando detector…',
+        'status.det_ready': 'Detector listo ✓',
+        'status.tfjs_wait2': 'Librería TF.js aún no lista…',
+        'status.loading_seg': 'Cargando modelo de segmentación…',
+        'status.seg_ready': 'Segmentación lista ✓',
+        'status.classifying': 'Clasificando…',
+        'status.classif_done': 'Clasificación completada ✓',
+        'status.detecting': 'Detectando objetos…',
+        'status.load_first': 'Carga el modelo primero',
+        'status.segmenting': 'Segmentando…',
+        'status.seg_done': 'Segmentación completada ✓',
+        'status.model_ready_check': 'Modelo listo ✓',
+        'region': 'región',
+        'parts': ['torso frontal izq.', 'torso frontal der.', 'torso trasero izq.', 'torso trasero der.',
+          'bíceps izq.', 'bíceps der.', 'antebrazo izq.', 'antebrazo der.', 'mano izq.', 'mano der.',
+          'muslo izq.', 'muslo der.', 'espinilla izq.', 'espinilla der.', 'cara'],
+        'kernel.name.sobel_h': 'Sobel H',
+        'kernel.name.sobel_v': 'Sobel V',
+        'kernel.name.diag_ne': 'Diag ↗',
+        'kernel.name.diag_se': 'Diag ↘',
+        'kernel.name.laplacian': 'Laplaciano',
+        'kernel.name.sharpen': 'Nitidez',
+        'kernel.name.emboss': 'Relieve',
+        'kernel.name.gaussian': 'Gaussiano',
+        'kernel.name.identity': 'Identidad',
+        'kernel.desc.sobel_h': 'Detecta bordes horizontales. Las regiones claras son bordes de arriba a abajo.',
+        'kernel.desc.sobel_v': 'Detecta bordes verticales. Las regiones claras son bordes de izquierda a derecha.',
+        'kernel.desc.diag_ne': 'Sensible a bordes en dirección de 45°.',
+        'kernel.desc.diag_se': 'Sensible a bordes en dirección de -45°.',
+        'kernel.desc.laplacian': 'Detecta todos los bordes sin dirección preferente. Muy sensible al ruido.',
+        'kernel.desc.sharpen': 'Realza los detalles finos amplificando las diferencias locales con el entorno.',
+        'kernel.desc.emboss': 'Simula iluminación lateral, da sensación de profundidad tridimensional.',
+        'kernel.desc.gaussian': 'Suaviza la imagen eliminando ruido de alta frecuencia. La base del pooling.',
+        'kernel.desc.identity': 'No modifica la imagen. Útil para comparar.',
+        'taskdesc.classif': 'Identifica el objeto principal de la imagen y muestra las 10 categorías más probables con su nivel de confianza.',
+        'taskdesc.detect': 'Localiza todos los objetos reconocibles en la imagen, dibuja sus cajas delimitadoras y etiqueta cada uno con su clase y confianza.',
+        'taskdesc.segment': 'Asigna una clase a cada píxel de la imagen, generando una máscara de color que delimita visualmente los distintos objetos o regiones.',
+        'taskdesc.pose': 'Detecta los puntos clave del cuerpo humano y los conecta para formar el esqueleto. Útil en animación, deporte y ergonomía.',
+        'task.pose': '🦴 Pose',
+        'task.pose.sub': '¿Cómo está el cuerpo?',
+        'model.detect.mv2': 'SSD MobileNet v2 — preciso',
+        'model.detect.lite': 'SSD Lite — rápido',
+        'model.detect.yolos_tiny': 'YOLOS Tiny — rápido',
+        'model.detect.yolos_small': 'YOLOS Small — preciso',
+        'model.group.ssd': 'SSD clásico',
+        'model.group.yolo': 'YOLO',
+        'model.pose.lightning': 'MoveNet Lightning — rápido',
+        'model.pose.thunder': 'MoveNet Thunder — preciso',
+        'pose.empty': 'El esqueleto estimado aparecerá aquí.',
+        'tab.llm': '🔮 Siguiente Token (LLM)',
+        'nte.label': 'Modelos · LLM',
+        'nte.title': 'Next Token Explorer',
+        'nte.desc': 'GPT-2 corre íntegramente en tu navegador. Una vez cargado, escribe un contexto y el modelo calculará los logits reales del vocabulario completo (~50K tokens), aplica softmax con tu temperatura y muestra los 8 candidatos más probables. Sin API, sin conexión.',
+        'nte.model': 'Modelo',
+        'nte.badge.unloaded': 'Sin cargar',
+        'nte.model.distilgpt2.desc': 'Versión destilada de GPT-2. Más rápida, misma arquitectura. Ideal para pruebas. Solo inglés.',
+        'nte.model.gpt2.desc': 'El original de OpenAI (2019). El modelo de referencia para entender generación de texto. Solo inglés.',
+        'nte.model.bloomz.desc': 'Fine-tune de BLOOM con instrucciones multilingüe (46 idiomas). Mejor en español que el original. BigScience.',
+        'nte.btn.load': '⬇ Cargar modelo',
+        'nte.btn.change': '⟳ Cambiar modelo',
+        'nte.btn.retry': '⬇ Reintentar',
+        'nte.card.context': 'Contexto',
+        'nte.placeholder': 'Escribe el contexto aquí...',
+        'nte.btn.predict': '▶ Predecir',
+        'nte.btn.auto': '⟳ Auto',
+        'nte.btn.clear': '✕ Limpiar',
+        'nte.temp.label': 'Temperatura',
+        'nte.temp.low': '🎯 Determinista (0.1)',
+        'nte.temp.high': '🎨 Caótica (2.0)',
+        'nte.generated.label': 'Texto construido',
+        'nte.card.candidates': 'Candidatos al siguiente token',
+        'nte.empty': 'Carga el modelo y pulsa <strong>Predecir</strong>',
+        'nte.howworks': '<strong style="color:var(--text);">Cómo funciona:</strong> El modelo hace un forward pass completo y devuelve un vector de logits de 50,257 dimensiones (una por token del vocabulario). Se aplica softmax con temperatura: <code style="font-family:monospace;font-size:0.72rem;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:1px 4px;">p(i) = exp(lᵢ/T) / Σ exp(lⱼ/T)</code>. Las probabilidades mostradas son <em>exactas</em>, no estimadas.',
+        'nte.status.importing': 'Importando Transformers.js…',
+        'nte.status.tokenizer': 'Tokenizador',
+        'nte.status.downloading': 'Descargando',
+        'nte.status.loading_tok': 'Descargando tokenizador…',
+        'nte.status.ready_label': 'listo',
+        'nte.status.in_memory': 'en memoria',
+        'nte.badge.in_memory': 'En memoria',
+        'nte.status.computing': 'Calculando logits…',
+        'nte.status.candidates': 'candidatos',
+      },
+      en: {
+        'hero.label': 'Playground',
+        'hero.title': 'Applied AI from your browser',
+        'hero.subtitle': 'Experiment with real computer vision models and mathematical filters, all in your browser and with your own images. No installs, no servers.',
+        'hero.disclaimer': '⚠ The Live AI and Next Token models are lightweight versions optimised for the browser. They offer less accuracy than their full counterparts and may fail with some inputs. Their purpose is to demonstrate how the technology works, not production use.',
+        'tab.math': '🧮 No Models',
+        'tab.models': '🤖 Live AI (CNN)',
+        'section1.label': 'No models · Pure maths',
+        'section1.title': 'Real-time convolution',
+        'section1.desc': 'Apply real convolutional filters to any image — no TF.js, no neural network, no loading. Everything happens in your browser with pure arithmetic. Edit the kernel directly to see the effect instantly.',
+        'ctrl.imagen': 'Image',
+        'ctrl.kernel': 'Kernel',
+        'ctrl.color': 'Colour',
+        'ctrl.relu': 'Apply ReLU',
+        'kernel.opt.sobel_h': 'Sobel H — horizontal edges',
+        'kernel.opt.sobel_v': 'Sobel V — vertical edges',
+        'kernel.opt.diag_ne': 'Diagonal ↗',
+        'kernel.opt.diag_se': 'Diagonal ↘',
+        'kernel.opt.laplacian': 'Laplacian — all edges',
+        'kernel.opt.sharpen': 'Sharpen',
+        'kernel.opt.emboss': 'Emboss',
+        'kernel.opt.gaussian': 'Gaussian — blur',
+        'kernel.opt.identity': 'Identity — no change',
+        'kernel.opt.custom': 'Custom ✏️',
+        'color.gray': 'Grayscale',
+        'color.hot': 'Heat',
+        'editor.title': 'Kernel editor',
+        'btn.normalize': 'Normalise',
+        'btn.reset': 'Reset',
+        'canvas.input': 'Input',
+        'canvas.output': 'Output Conv',
+        'relu.off': 'no ReLU',
+        'relu.on': '+ ReLU',
+        'allfilters.title': 'All filters applied at once',
+        'allfilters.desc': "This is how the first convolutional layer of a CNN sees the image — in parallel, with multiple simultaneous filters.",
+        'section2.label': 'Playground',
+        'section2.title': 'Try it yourself with AI',
+        'section2.desc': 'Use real AI models directly in your browser. No servers, no cloud uploads: everything runs on your device with TensorFlow.js. Choose an input source, select the task and get results instantly.',
+        'task.classif': '🏷️ Classification',
+        'task.classif.sub': 'What object is there?',
+        'task.detect': '📦 Detection',
+        'task.detect.sub': 'Where are the objects?',
+        'task.segment': '🎨 Segmentation',
+        'task.segment.sub': 'What class does each pixel belong to?',
+        'model.classif.v2': 'MobileNet v2 — balanced',
+        'model.classif.v1': 'MobileNet v1 — accurate',
+        'model.classif.v2fast': 'MobileNet v2 α0.5 — fast',
+        'model.detect.mv2': 'COCO-SSD MobileNet v2 — accurate',
+        'model.detect.lite': 'COCO-SSD Lite v2 — fast',
+        'model.segment.bodypix': 'BodyPix — people and body parts',
+        'model.segment.deeplab': 'DeepLab PASCAL — 20 semantic classes',
+        'status.unloaded': 'Model not loaded',
+        'btn.load': '⬇ Load model',
+        'input.title': '1. Choose input source',
+        'btn.upload': 'Upload image',
+        'examples.label': 'Or use an example:',
+        'preview.placeholder': 'Image will appear here',
+        'btn.analyze': '▶ Analyse image',
+        'btn.analyzing': '⏳ Analysing…',
+        'results.title': '2. Results',
+        'classif.empty': 'Classification results will appear here.',
+        'detect.empty': 'Detection results will appear here.',
+        'segment.empty': 'Segmentation mask will appear here.',
+        'footer.back': '← Back to portfolio',
+        'footer.made': 'Made with',
+        'footer.by': 'by José Padilla',
+        'status.already_loaded': 'Model already loaded ✓',
+        'status.tfjs_wait': 'TF.js library not ready yet, please wait…',
+        'status.loading_model': 'Loading model…',
+        'status.model_ready': 'Model ready ✓',
+        'status.det_loaded': 'Detector already loaded ✓',
+        'status.loading_det': 'Loading detector…',
+        'status.det_ready': 'Detector ready ✓',
+        'status.tfjs_wait2': 'TF.js library not ready yet…',
+        'status.loading_seg': 'Loading segmentation model…',
+        'status.seg_ready': 'Segmentation ready ✓',
+        'status.classifying': 'Classifying…',
+        'status.classif_done': 'Classification complete ✓',
+        'status.detecting': 'Detecting objects…',
+        'status.load_first': 'Load the model first',
+        'status.segmenting': 'Segmenting…',
+        'status.seg_done': 'Segmentation complete ✓',
+        'status.model_ready_check': 'Model ready ✓',
+        'region': 'region',
+        'parts': ['left front torso', 'right front torso', 'left back torso', 'right back torso',
+          'left upper arm', 'right upper arm', 'left lower arm', 'right lower arm', 'left hand', 'right hand',
+          'left thigh', 'right thigh', 'left shin', 'right shin', 'face'],
+        'kernel.name.sobel_h': 'Sobel H',
+        'kernel.name.sobel_v': 'Sobel V',
+        'kernel.name.diag_ne': 'Diag ↗',
+        'kernel.name.diag_se': 'Diag ↘',
+        'kernel.name.laplacian': 'Laplacian',
+        'kernel.name.sharpen': 'Sharpen',
+        'kernel.name.emboss': 'Emboss',
+        'kernel.name.gaussian': 'Gaussian',
+        'kernel.name.identity': 'Identity',
+        'kernel.desc.sobel_h': 'Detects horizontal edges. Bright regions are edges from top to bottom.',
+        'kernel.desc.sobel_v': 'Detects vertical edges. Bright regions are edges from left to right.',
+        'kernel.desc.diag_ne': 'Sensitive to edges in the 45° direction.',
+        'kernel.desc.diag_se': 'Sensitive to edges in the -45° direction.',
+        'kernel.desc.laplacian': 'Detects all edges with no preferred direction. Very sensitive to noise.',
+        'kernel.desc.sharpen': 'Enhances fine details by amplifying local differences with the surroundings.',
+        'kernel.desc.emboss': 'Simulates lateral lighting, giving a sense of three-dimensional depth.',
+        'kernel.desc.gaussian': 'Smooths the image by eliminating high-frequency noise. The basis of pooling.',
+        'kernel.desc.identity': 'Does not modify the image. Useful for comparison.',
+        'taskdesc.classif': 'Identifies the main object in the image and shows the 10 most probable categories with their confidence level.',
+        'taskdesc.detect': 'Locates all recognisable objects in the image, draws bounding boxes and labels each one with its class and confidence.',
+        'taskdesc.segment': 'Assigns a class to each pixel of the image, generating a colour mask that visually delineates the different objects or regions.',
+        'taskdesc.pose': 'Detects human body keypoints and connects them to form a skeleton. Useful in animation, sports analysis and ergonomics.',
+        'task.pose': '🦴 Pose',
+        'task.pose.sub': 'How is the body positioned?',
+        'model.detect.mv2': 'SSD MobileNet v2 — precise',
+        'model.detect.lite': 'SSD Lite — fast',
+        'model.detect.yolos_tiny': 'YOLOS Tiny — fast',
+        'model.detect.yolos_small': 'YOLOS Small — precise',
+        'model.group.ssd': 'Classic SSD',
+        'model.group.yolo': 'YOLO',
+        'model.pose.lightning': 'MoveNet Lightning — fast',
+        'model.pose.thunder': 'MoveNet Thunder — precise',
+        'pose.empty': 'The estimated skeleton will appear here.',
+        'tab.llm': '🔮 Next Token (LLM)',
+        'nte.label': 'Models · LLM',
+        'nte.title': 'Next Token Explorer',
+        'nte.desc': 'GPT-2 runs entirely in your browser. Once loaded, type a context and the model will compute the real logits over the full vocabulary (~50K tokens), applies softmax with your temperature and shows the 8 most probable candidates. No API, no connection.',
+        'nte.model': 'Model',
+        'nte.badge.unloaded': 'Not loaded',
+        'nte.model.distilgpt2.desc': 'Distilled version of GPT-2. Faster, same architecture. Ideal for testing. English only.',
+        'nte.model.gpt2.desc': "OpenAI's original (2019). The reference model for understanding text generation. English only.",
+        'nte.model.bloomz.desc': 'Fine-tune of BLOOM with multilingual instructions (46 languages). Better in Spanish than the original. BigScience.',
+        'nte.btn.load': '⬇ Load model',
+        'nte.btn.change': '⟳ Change model',
+        'nte.btn.retry': '⬇ Retry',
+        'nte.card.context': 'Context',
+        'nte.placeholder': 'Write context here...',
+        'nte.btn.predict': '▶ Predict',
+        'nte.btn.auto': '⟳ Auto',
+        'nte.btn.clear': '✕ Clear',
+        'nte.temp.label': 'Temperature',
+        'nte.temp.low': '🎯 Deterministic (0.1)',
+        'nte.temp.high': '🎨 Chaotic (2.0)',
+        'nte.generated.label': 'Built text',
+        'nte.card.candidates': 'Next token candidates',
+        'nte.empty': 'Load the model and press <strong>Predict</strong>',
+        'nte.howworks': '<strong style="color:var(--text);">How it works:</strong> The model performs a full forward pass and returns a logit vector of 50,257 dimensions (one per vocabulary token). Softmax is applied with temperature: <code style="font-family:monospace;font-size:0.72rem;background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:1px 4px;">p(i) = exp(lᵢ/T) / Σ exp(lⱼ/T)</code>. The probabilities shown are <em>exact</em>, not estimated.',
+        'nte.status.importing': 'Importing Transformers.js…',
+        'nte.status.tokenizer': 'Tokenizer',
+        'nte.status.downloading': 'Downloading',
+        'nte.status.loading_tok': 'Downloading tokenizer…',
+        'nte.status.ready_label': 'ready',
+        'nte.status.in_memory': 'in memory',
+        'nte.badge.in_memory': 'In memory',
+        'nte.status.computing': 'Computing logits…',
+        'nte.status.candidates': 'candidates',
+      }
+    };
+    function i18n(key) { return (PG_I18N[LANG] && PG_I18N[LANG][key] !== undefined) ? PG_I18N[LANG][key] : (PG_I18N.es[key] || key); }
+    function applyI18n() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = PG_I18N[LANG] && PG_I18N[LANG][key] !== undefined ? PG_I18N[LANG][key] : PG_I18N.es[key];
+        if (val !== undefined) el.innerHTML = val;
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        const val = PG_I18N[LANG] && PG_I18N[LANG][key] !== undefined ? PG_I18N[LANG][key] : PG_I18N.es[key];
+        if (val !== undefined) el.setAttribute('placeholder', val);
+      });
+      const lt = document.getElementById('langToggle');
+      if (lt) lt.textContent = LANG === 'es' ? 'EN' : 'ES';
+    }
+
+    // ── THEME TOGGLE ────────────────────────────────
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    html.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    themeToggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+
+    // ── LANG TOGGLE ─────────────────────────────────
+    const langToggle = document.getElementById('langToggle');
+    if (langToggle) {
+      langToggle.addEventListener('click', () => {
+        localStorage.setItem('lang', LANG === 'es' ? 'en' : 'es');
+        location.reload();
+      });
+    }
+    applyI18n();
+
+    // ── PG TAB SYSTEM ───────────────────────────────
+    function activatePgTab(name) {
+      document.querySelectorAll('.pg-tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('[data-pg-tab]').forEach(b => {
+        b.classList.toggle('active', b.dataset.pgTab === name);
+      });
+      const panel = document.getElementById('pg-tab-' + name);
+      if (panel) panel.classList.add('active');
+      localStorage.setItem('pg-tab', name);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    const savedPgTab = localStorage.getItem('pg-tab') || 'math';
+    activatePgTab(savedPgTab);
+
+    // ── NAV SCROLL ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', scrollY > 40);
+    }, { passive: true });
+
+    // ══════════════════════════════════════════════════
+    // CONV PLAYGROUND (pure JS, no TF.js)
+    // ══════════════════════════════════════════════════
+    const PG2_KERNELS = [
+      { get name() { return i18n('kernel.name.sobel_h'); }, get desc() { return i18n('kernel.desc.sobel_h'); }, k: [[-1, -2, -1], [0, 0, 0], [1, 2, 1]] },
+      { get name() { return i18n('kernel.name.sobel_v'); }, get desc() { return i18n('kernel.desc.sobel_v'); }, k: [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]] },
+      { get name() { return i18n('kernel.name.diag_ne'); }, get desc() { return i18n('kernel.desc.diag_ne'); }, k: [[0, 1, 2], [-1, 0, 1], [-2, -1, 0]] },
+      { get name() { return i18n('kernel.name.diag_se'); }, get desc() { return i18n('kernel.desc.diag_se'); }, k: [[-2, -1, 0], [-1, 0, 1], [0, 1, 2]] },
+      { get name() { return i18n('kernel.name.laplacian'); }, get desc() { return i18n('kernel.desc.laplacian'); }, k: [[0, -1, 0], [-1, 4, -1], [0, -1, 0]] },
+      { get name() { return i18n('kernel.name.sharpen'); }, get desc() { return i18n('kernel.desc.sharpen'); }, k: [[0, -1, 0], [-1, 5, -1], [0, -1, 0]] },
+      { get name() { return i18n('kernel.name.emboss'); }, get desc() { return i18n('kernel.desc.emboss'); }, k: [[-2, -1, 0], [-1, 1, 1], [0, 1, 2]] },
+      { get name() { return i18n('kernel.name.gaussian'); }, get desc() { return i18n('kernel.desc.gaussian'); }, k: [[1, 2, 1], [2, 4, 2], [1, 2, 1]], scale: 1 / 16 },
+      { get name() { return i18n('kernel.name.identity'); }, get desc() { return i18n('kernel.desc.identity'); }, k: [[0, 0, 0], [0, 1, 0], [0, 0, 0]] },
+    ];
+
+    let pg2GrayFM = null;
+    let pg2Colormap = 'gray';
+    let pg2CurrentKernelIdx = 0;
+    let pg2CustomKernel = null;
+    let pg2OrigCanvas = null;
+
+    function pg2Grayscale(r, g, b) { return r * 0.299 + g * 0.587 + b * 0.114; }
+
+    function pg2Viridis(t) {
+      const s = [[68, 1, 84], [59, 82, 139], [33, 145, 140], [94, 201, 98], [253, 231, 37]];
+      const n = s.length - 1; const i = Math.min(Math.floor(t * n), n - 1); const f = t * n - i;
+      return s[i].map((c, j) => Math.round(c + f * (s[i + 1][j] - c)));
+    }
+    function pg2Hot(t) {
+      if (t < 0.333) return [Math.round(t * 3 * 255), 0, 0];
+      if (t < 0.667) return [255, Math.round((t - 0.333) * 3 * 255), 0];
+      return [255, 255, Math.round((t - 0.667) * 3 * 255)];
+    }
+    function pg2Colorize(v, mn, mx, cmap) {
+      const t = Math.min(1, Math.max(0, mx === mn ? 0.5 : (v - mn) / (mx - mn)));
+      if (cmap === 'viridis') return pg2Viridis(t);
+      if (cmap === 'hot') return pg2Hot(t);
+      const c = Math.round(t * 255); return [c, c, c];
+    }
+
+    function pg2Conv(src, kernel, scale) {
+      const { data: d, width: W, height: H } = src;
+      const k = kernel.length, pad = Math.floor(k / 2), sc = scale || 1;
+      const out = new Float32Array(W * H);
+      for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+        let sum = 0;
+        for (let ky = 0; ky < k; ky++) for (let kx = 0; kx < k; kx++) {
+          const py = Math.min(Math.max(y + ky - pad, 0), H - 1);
+          const px = Math.min(Math.max(x + kx - pad, 0), W - 1);
+          sum += d[py * W + px] * kernel[ky][kx] * sc;
+        }
+        out[y * W + x] = sum;
+      }
+      return { data: out, width: W, height: H };
+    }
+
+    function pg2RenderFM(canvas, fm, cmap, applyRelu, maxDim) {
+      const useRelu = applyRelu && document.getElementById('pg2ReluCheck')?.checked;
+      const data = useRelu ? fm.data.map(v => Math.max(0, v)) : fm.data;
+      let mn = Infinity, mx = -Infinity;
+      for (const v of data) { if (v < mn) mn = v; if (v > mx) mx = v; }
+      const scale = maxDim ? Math.min(maxDim / fm.width, maxDim / fm.height, 4) : 1;
+      const dw = Math.round(fm.width * scale), dh = Math.round(fm.height * scale);
+      canvas.width = fm.width; canvas.height = fm.height;
+      canvas.style.width = dw + 'px'; canvas.style.height = dh + 'px';
+      const ctx = canvas.getContext('2d');
+      const id = ctx.createImageData(fm.width, fm.height);
+      for (let i = 0; i < data.length; i++) {
+        const [r, g, b] = pg2Colorize(data[i], mn, mx, cmap);
+        id.data[i * 4] = r; id.data[i * 4 + 1] = g; id.data[i * 4 + 2] = b; id.data[i * 4 + 3] = 255;
+      }
+      ctx.putImageData(id, 0, 0);
+      return { min: mn, max: mx };
+    }
+
+    function pg2BuildKernelEditor(matrix, scale) {
+      const ed = document.getElementById('pg2KernelEditor'); if (!ed) return;
+      ed.innerHTML = '';
+      const sc = scale || 1;
+      matrix.flat().forEach((v, i) => {
+        const inp = document.createElement('input');
+        inp.type = 'number'; inp.step = 'any';
+        inp.value = (v * sc).toFixed(v * sc === Math.floor(v * sc) ? 0 : 4);
+        inp.oninput = () => { pg2CustomKernel = null; document.getElementById('pg2KernelSel').value = 'custom'; pg2Recompute(); };
+        ed.appendChild(inp);
+      });
+    }
+
+    function pg2GetCurrentMatrix() {
+      if (pg2CustomKernel) return pg2CustomKernel;
+      const inputs = [...document.getElementById('pg2KernelEditor').querySelectorAll('input')];
+      const vals = inputs.map(i => parseFloat(i.value) || 0);
+      return [[vals[0], vals[1], vals[2]], [vals[3], vals[4], vals[5]], [vals[6], vals[7], vals[8]]];
+    }
+
+    function pg2Recompute() {
+      if (!pg2GrayFM) return;
+      const matrix = pg2GetCurrentMatrix();
+      const sum = matrix.flat().reduce((a, b) => a + b, 0);
+      const fm = pg2Conv(pg2GrayFM, matrix);
+      const relu = document.getElementById('pg2ReluCheck')?.checked;
+      document.getElementById('pg2ReluLabel').textContent = relu ? i18n('relu.on') : i18n('relu.off');
+      const outCv = document.getElementById('pg2OutputCanvas');
+      const maxD = Math.min(pg2GrayFM.width, pg2GrayFM.height) <= 128 ? 400 : 400;
+      const { min, max } = pg2RenderFM(outCv, fm, pg2Colormap, true, maxD);
+      document.getElementById('pg2OutputDim').textContent = `${fm.width}×${fm.height}`;
+      document.getElementById('pg2Stats').textContent =
+        `min: ${min.toFixed(2)}  max: ${max.toFixed(2)}  suma kernel: ${sum.toFixed(4)}`;
+    }
+
+    function pg2SelectKernel(val) {
+      if (val === 'custom') return;
+      pg2CurrentKernelIdx = +val;
+      pg2CustomKernel = null;
+      const kd = PG2_KERNELS[pg2CurrentKernelIdx];
+      pg2BuildKernelEditor(kd.k, kd.scale);
+      document.getElementById('pg2KernelDesc').textContent = kd.desc;
+      pg2Recompute();
+    }
+
+    function pg2SetColormap(val) { pg2Colormap = val; pg2Recompute(); pg2RenderAllFilters(); }
+
+    function pg2NormalizeKernel() {
+      const m = pg2GetCurrentMatrix();
+      const s = m.flat().reduce((a, b) => a + b, 0) || 1;
+      const norm = m.map(r => r.map(v => v / s));
+      pg2BuildKernelEditor(norm, 1);
+      pg2Recompute();
+    }
+
+    function pg2ResetKernel() {
+      const kd = PG2_KERNELS[pg2CurrentKernelIdx];
+      pg2BuildKernelEditor(kd.k, kd.scale);
+      document.getElementById('pg2KernelSel').value = String(pg2CurrentKernelIdx);
+      pg2Recompute();
+    }
+
+    function pg2RenderAllFilters() {
+      const container = document.getElementById('pg2AllFilters'); if (!container || !pg2GrayFM) return;
+      container.innerHTML = '';
+      PG2_KERNELS.forEach((kd, i) => {
+        const fm = pg2Conv(pg2GrayFM, kd.k, kd.scale);
+        const card = document.createElement('div'); card.className = 'pg2-filter-card';
+        card.title = kd.desc;
+        const cv = document.createElement('canvas'); cv.className = 'pg2-filter-canvas';
+        pg2RenderFM(cv, fm, pg2Colormap, false, 72);
+        cv.style.width = '72px'; cv.style.height = '72px';
+        const lbl = document.createElement('div'); lbl.className = 'pg2-filter-name';
+        lbl.textContent = kd.name;
+        card.appendChild(cv); card.appendChild(lbl);
+        card.onclick = () => {
+          document.getElementById('pg2KernelSel').value = String(i);
+          pg2SelectKernel(String(i));
+        };
+        container.appendChild(card);
+      });
+    }
+
+    function pg2LoadImage(imgEl) {
+      const SIZE = Math.min(imgEl.naturalWidth || 256, 256);
+      const tmp = document.createElement('canvas');
+      tmp.width = imgEl.naturalWidth || 256; tmp.height = imgEl.naturalHeight || 256;
+      tmp.getContext('2d').drawImage(imgEl, 0, 0);
+      // Show original at capped size
+      const inCv = document.getElementById('pg2InputCanvas');
+      inCv.width = tmp.width; inCv.height = tmp.height;
+      const inCtx = inCv.getContext('2d');
+      inCtx.drawImage(tmp, 0, 0);
+      const maxD = 400;
+      const sc = Math.min(maxD / tmp.width, maxD / tmp.height, 1);
+      inCv.style.width = Math.round(tmp.width * sc) + 'px';
+      inCv.style.height = Math.round(tmp.height * sc) + 'px';
+      inCv.style.imageRendering = 'auto';
+      document.getElementById('pg2InputDim').textContent = `${tmp.width}×${tmp.height}`;
+      // Build grayscale
+      const { data } = inCtx.getImageData(0, 0, tmp.width, tmp.height);
+      const gray = new Float32Array(tmp.width * tmp.height);
+      for (let i = 0; i < gray.length; i++) gray[i] = pg2Grayscale(data[i * 4], data[i * 4 + 1], data[i * 4 + 2]);
+      pg2GrayFM = { data: gray, width: tmp.width, height: tmp.height };
+      pg2Recompute();
+      pg2RenderAllFilters();
+    }
+
+    function pg2LoadFile(input) {
+      const file = input.files[0]; if (!file) return;
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => pg2LoadImage(img);
+      img.src = url;
+      document.querySelectorAll('.pg2-thumb').forEach(t => t.classList.remove('active'));
+    }
+
+    // Image thumb picker
+    document.querySelectorAll('.pg2-thumb').forEach(th => {
+      th.addEventListener('click', () => {
+        document.querySelectorAll('.pg2-thumb').forEach(t => t.classList.remove('active'));
+        th.classList.add('active');
+        if (th.complete && th.naturalWidth > 0) {
+          pg2LoadImage(th);
+        } else {
+          th.onload = () => pg2LoadImage(th);
+        }
+      });
+    });
+
+    // Init with default image
+    const _pg2DefaultThumb = document.querySelector('.pg2-thumb.active');
+    if (_pg2DefaultThumb) {
+      pg2SelectKernel('0');
+      if (_pg2DefaultThumb.complete && _pg2DefaultThumb.naturalWidth > 0) {
+        pg2LoadImage(_pg2DefaultThumb);
+      } else {
+        _pg2DefaultThumb.addEventListener('load', () => pg2LoadImage(_pg2DefaultThumb));
+      }
+    }
+
+    // ══════════════════════════════════════════════════
+    // PLAYGROUND — TF.JS
+    // ══════════════════════════════════════════════════
+    const PG_TASK_DESCS = {
+      classif: i18n('taskdesc.classif'),
+      detect: i18n('taskdesc.detect'),
+      segment: i18n('taskdesc.segment'),
+      pose: i18n('taskdesc.pose')
+    };
+    let pgTask = 'classif';
+    let pgModelClassif = null;
+    let pgModelDetect = null;
+    let pgModelSegment = null;
+    let pgModelPose = null;
+    let pgImageEl = null;
+    function setStatus(text, state) {
+      const dot = document.getElementById('pgStatusDot');
+      const label = document.getElementById('pgStatusText');
+      if (label) label.textContent = text;
+      if (dot) { dot.className = 'pg-status-dot' + (state ? ' ' + state : ''); }
+    }
+
+    function lockInput() {
+      const s = document.getElementById('pgInputSection');
+      if (s) s.classList.add('locked');
+    }
+    function unlockInput() {
+      const s = document.getElementById('pgInputSection');
+      if (s) s.classList.remove('locked');
+    }
+    lockInput();
+
+    function selectTask(task) {
+      pgTask = task;
+      document.querySelectorAll('.pg-task-btn').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('task' + task.charAt(0).toUpperCase() + task.slice(1));
+      if (btn) btn.classList.add('active');
+      const tasks = ['classif', 'detect', 'segment', 'pose'];
+      tasks.forEach(t => {
+        const res = document.getElementById('results' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (res) res.style.display = task === t ? '' : 'none';
+        const sel = document.getElementById('pgModelSelect' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (sel) sel.style.display = task === t ? '' : 'none';
+        const ex = document.getElementById('pgExamples' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (ex) ex.style.display = task === t ? '' : 'none';
+      });
+      const desc = document.getElementById('pgTaskDesc');
+      if (desc) desc.textContent = PG_TASK_DESCS[task] || '';
+      const loaded = (task === 'detect' && pgModelDetect) || (task === 'segment' && pgModelSegment) || (task === 'classif' && pgModelClassif) || (task === 'pose' && pgModelPose);
+      if (loaded) { setStatus(i18n('status.model_ready'), 'ready'); unlockInput(); }
+      else { setStatus(i18n('status.unloaded'), ''); lockInput(); }
+    }
+
+    function loadCurrentModel() {
+      if (pgTask === 'detect') {
+        const sel = document.getElementById('pgModelSelectDetect');
+        loadDetectModel(sel ? sel.value : 'mv2');
+      } else if (pgTask === 'segment') {
+        const sel = document.getElementById('pgModelSelectSegment');
+        loadSegmentModel(sel ? sel.value : 'bodypix');
+      } else if (pgTask === 'pose') {
+        const sel = document.getElementById('pgModelSelectPose');
+        loadPoseModel(sel ? sel.value : 'lightning');
+      } else {
+        const sel = document.getElementById('pgModelSelectClassif');
+        loadClassifModel(sel ? sel.value : 'v2');
+      }
+    }
+
+    async function loadClassifModel(modelKey) {
+      if (pgModelClassif) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
+      if (typeof mobilenet === 'undefined') { setStatus(i18n('status.tfjs_wait'), 'loading'); return; }
+      setStatus(i18n('status.loading_model'), 'loading');
+      try {
+        let cfg = {};
+        if (modelKey === 'v1') cfg = { version: 1, alpha: 1.0 };
+        else if (modelKey === 'v2') cfg = { version: 2, alpha: 1.0 };
+        else if (modelKey === 'v2-fast') cfg = { version: 2, alpha: 0.5 };
+        pgModelClassif = await mobilenet.load(cfg);
+        setStatus(i18n('status.model_ready'), 'ready');
+        unlockInput();
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+    }
+
+    async function loadDetectModel(modelKey) {
+      if (pgModelDetect && pgModelDetect._modelKey === modelKey) { setStatus(i18n('status.det_loaded'), 'ready'); unlockInput(); return; }
+      pgModelDetect = null;
+      setStatus(i18n('status.loading_det'), 'loading');
+      try {
+        if (modelKey === 'yolos-tiny' || modelKey === 'yolos-small') {
+          const { pipeline, env } = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2');
+          env.allowLocalModels = false;
+          const modelName = modelKey === 'yolos-tiny' ? 'Xenova/yolos-tiny' : 'Xenova/yolos-small';
+          const fn = await pipeline('object-detection', modelName);
+          pgModelDetect = { _type: 'yolos', _modelKey: modelKey, fn };
+        } else {
+          if (typeof cocoSsd === 'undefined') { setStatus(i18n('status.tfjs_wait'), 'loading'); return; }
+          const cfg = modelKey === 'lite' ? { base: 'lite_mobilenet_v2' } : { base: 'mobilenet_v2' };
+          const model = await cocoSsd.load(cfg);
+          pgModelDetect = { _type: 'ssd', _modelKey: modelKey, model };
+        }
+        setStatus(i18n('status.det_ready'), 'ready');
+        unlockInput();
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+    }
+
+    async function loadPoseModel(modelKey) {
+      if (pgModelPose && pgModelPose._modelKey === modelKey) { setStatus(i18n('status.model_ready'), 'ready'); unlockInput(); return; }
+      pgModelPose = null;
+      if (typeof poseDetection === 'undefined') { setStatus(i18n('status.tfjs_wait'), 'loading'); return; }
+      setStatus(i18n('status.loading_det'), 'loading');
+      try {
+        const type = modelKey === 'thunder'
+          ? poseDetection.movenet.modelType.SINGLEPOSE_THUNDER
+          : poseDetection.movenet.modelType.SINGLEPOSE_LIGHTNING;
+        const detector = await poseDetection.createDetector(poseDetection.SupportedModels.MoveNet, { modelType: type });
+        pgModelPose = { _modelKey: modelKey, detector };
+        setStatus(i18n('status.model_ready'), 'ready');
+        unlockInput();
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+    }
+
+    async function loadSegmentModel(modelKey) {
+      if (pgModelSegment) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
+      if (modelKey === 'deeplab' && typeof deeplab === 'undefined') { setStatus(i18n('status.tfjs_wait2'), 'loading'); return; }
+      if (modelKey === 'bodypix' && typeof bodyPix === 'undefined') { setStatus(i18n('status.tfjs_wait2'), 'loading'); return; }
+      setStatus(i18n('status.loading_seg'), 'loading');
+      try {
+        if (modelKey === 'deeplab') {
+          pgModelSegment = await deeplab.load({ base: 'pascal', quantizationBytes: 2 });
+          pgModelSegment._type = 'deeplab';
+        } else {
+          pgModelSegment = await bodyPix.load({ architecture: 'MobileNetV1', outputStride: 16, multiplier: 0.75, quantBytes: 2 });
+          pgModelSegment._type = 'bodypix';
+        }
+        setStatus(i18n('status.seg_ready'), 'ready');
+        unlockInput();
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+    }
+
+    document.getElementById('pgFileInput').addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = ev => showPreviewUrl(ev.target.result);
+      reader.readAsDataURL(file);
+    });
+
+    function loadExampleImage(imgEl) {
+      showPreviewUrl(imgEl.src);
+    }
+
+    function showPreviewUrl(src) {
+      const wrap = document.getElementById('pgCanvasWrap');
+      const placeholder = document.getElementById('pgPreviewPlaceholder');
+      placeholder.style.display = 'none';
+      wrap.style.display = 'block';
+      let img = document.getElementById('pgPreviewImg');
+      if (!img) {
+        img = document.createElement('img');
+        img.id = 'pgPreviewImg';
+        img.style.cssText = 'max-width:100%;max-height:400px;border-radius:12px;display:block;margin:0 auto;';
+        wrap.appendChild(img);
+      }
+      img.src = src;
+      pgImageEl = img;
+      document.getElementById('pgRunBtn').disabled = false;
+    }
+
+    async function runInference() {
+      if (!pgImageEl) return;
+      const btn = document.getElementById('pgRunBtn');
+      btn.disabled = true; btn.textContent = i18n('btn.analyzing');
+      try {
+        if (pgTask === 'classif') await runClassif();
+        else if (pgTask === 'detect') await runDetect();
+        else if (pgTask === 'segment') await runSegment();
+        else if (pgTask === 'pose') await runPose();
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+      btn.disabled = false; btn.textContent = i18n('btn.analyze');
+    }
+
+    async function runClassif() {
+      if (!pgModelClassif) { setStatus(i18n('status.load_first'), ''); return; }
+      setStatus(i18n('status.classifying'), 'loading');
+      const preds = await pgModelClassif.classify(pgImageEl, 10);
+      setStatus(i18n('status.classif_done'), 'ready');
+      const empty = document.getElementById('classifEmpty');
+      const bars = document.getElementById('classifBars');
+      empty.style.display = 'none'; bars.style.display = 'flex';
+      bars.innerHTML = preds.map(p => `
+    <div class="pg-bar-row">
+      <div class="pg-bar-label" title="${p.className}">${p.className.split(',')[0]}</div>
+      <div class="pg-bar-track"><div class="pg-bar-fill" style="width:${(p.probability * 100).toFixed(1)}%"></div></div>
+      <div class="pg-bar-pct">${(p.probability * 100).toFixed(1)}%</div>
+    </div>`).join('');
+    }
+
+    async function runDetect() {
+      if (!pgModelDetect) { setStatus(i18n('status.load_first'), ''); return; }
+      setStatus(i18n('status.detecting'), 'loading');
+
+      const natW = pgImageEl.naturalWidth || pgImageEl.width;
+      const natH = pgImageEl.naturalHeight || pgImageEl.height;
+      const tmpCanvas = document.createElement('canvas');
+      tmpCanvas.width = natW; tmpCanvas.height = natH;
+      tmpCanvas.getContext('2d').drawImage(pgImageEl, 0, 0, natW, natH);
+
+      let preds = [];
+      if (pgModelDetect._type === 'yolos') {
+        const dataURL = tmpCanvas.toDataURL();
+        const raw = await pgModelDetect.fn(dataURL);
+        preds = raw.map(r => ({
+          cls: r.label, score: r.score,
+          x: r.box.xmin, y: r.box.ymin,
+          w: r.box.xmax - r.box.xmin, h: r.box.ymax - r.box.ymin
+        }));
+      } else {
+        const raw = await pgModelDetect.model.detect(tmpCanvas);
+        preds = raw.map(r => ({ cls: r.class, score: r.score, x: r.bbox[0], y: r.bbox[1], w: r.bbox[2], h: r.bbox[3] }));
+      }
+
+      setStatus(LANG === 'en' ? `Found ${preds.length} objects ✓` : `Encontrados ${preds.length} objetos ✓`, 'ready');
+      const empty = document.getElementById('detectEmpty');
+      const result = document.getElementById('detectResult');
+      empty.style.display = 'none'; result.style.display = 'block';
+
+      const detectCanvas = document.getElementById('detectCanvas');
+      detectCanvas.width = natW; detectCanvas.height = natH;
+      const dCtx = detectCanvas.getContext('2d');
+      dCtx.drawImage(tmpCanvas, 0, 0);
+
+      const colors = ['#f97316', '#3b82f6', '#22c55e', '#a855f7', '#ec4899', '#fbbf24'];
+      preds.forEach(({ cls, score, x, y, w, h }, i) => {
+        const color = colors[i % colors.length];
+        dCtx.strokeStyle = color; dCtx.lineWidth = 3;
+        dCtx.strokeRect(x, y, w, h);
+        const label = `${cls} ${(score * 100).toFixed(0)}%`;
+        dCtx.fillStyle = color;
+        dCtx.fillRect(x, y - 22, dCtx.measureText(label).width + 12, 22);
+        dCtx.fillStyle = 'white'; dCtx.font = 'bold 12px sans-serif';
+        dCtx.fillText(label, x + 6, y - 6);
+      });
+
+      document.getElementById('detectLabels').innerHTML = preds.map(({ cls, score }, i) =>
+        `<span class="pg-detect-label" style="border-color:${colors[i % colors.length]}40;color:${colors[i % colors.length]}">${cls} ${(score * 100).toFixed(0)}%</span>`
+      ).join('');
+    }
+
+    async function runPose() {
+      if (!pgModelPose) { setStatus(i18n('status.load_first'), ''); return; }
+      setStatus(i18n('status.detecting'), 'loading');
+      const natW = pgImageEl.naturalWidth || pgImageEl.width;
+      const natH = pgImageEl.naturalHeight || pgImageEl.height;
+
+      const tmpCanvas = document.createElement('canvas');
+      tmpCanvas.width = natW; tmpCanvas.height = natH;
+      tmpCanvas.getContext('2d').drawImage(pgImageEl, 0, 0, natW, natH);
+      const poses = await pgModelPose.detector.estimatePoses(tmpCanvas);
+      setStatus(LANG === 'en' ? `Found ${poses.length} person(s) ✓` : `Detectada(s) ${poses.length} persona(s) ✓`, 'ready');
+
+      const empty = document.getElementById('poseEmpty');
+      const result = document.getElementById('poseResult');
+      empty.style.display = 'none'; result.style.display = 'block';
+
+      const canvas = document.getElementById('poseCanvas');
+      canvas.width = natW; canvas.height = natH;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(pgImageEl, 0, 0, natW, natH);
+
+      const BONE_COLORS = { left: '#f97316', right: '#3b82f6', center: '#22c55e' };
+      const CONNECTIONS = [
+        ['nose', 'left_eye'], ['nose', 'right_eye'],
+        ['left_eye', 'left_ear'], ['right_eye', 'right_ear'],
+        ['left_shoulder', 'right_shoulder'],
+        ['left_shoulder', 'left_elbow'], ['left_elbow', 'left_wrist'],
+        ['right_shoulder', 'right_elbow'], ['right_elbow', 'right_wrist'],
+        ['left_shoulder', 'left_hip'], ['right_shoulder', 'right_hip'],
+        ['left_hip', 'right_hip'],
+        ['left_hip', 'left_knee'], ['left_knee', 'left_ankle'],
+        ['right_hip', 'right_knee'], ['right_knee', 'right_ankle'],
+      ];
+
+      poses.forEach(pose => {
+        const kpMap = Object.fromEntries(pose.keypoints.map(k => [k.name, k]));
+        CONNECTIONS.forEach(([a, b]) => {
+          const ka = kpMap[a], kb = kpMap[b];
+          if (!ka || !kb || ka.score < 0.3 || kb.score < 0.3) return;
+          const side = a.startsWith('left') || b.startsWith('left') ? 'left'
+            : a.startsWith('right') || b.startsWith('right') ? 'right' : 'center';
+          ctx.strokeStyle = BONE_COLORS[side];
+          ctx.lineWidth = Math.max(2, natW / 200);
+          ctx.beginPath(); ctx.moveTo(ka.x, ka.y); ctx.lineTo(kb.x, kb.y); ctx.stroke();
+        });
+        pose.keypoints.forEach(kp => {
+          if (kp.score < 0.3) return;
+          const side = kp.name.startsWith('left') ? 'left' : kp.name.startsWith('right') ? 'right' : 'center';
+          ctx.fillStyle = BONE_COLORS[side];
+          ctx.beginPath();
+          ctx.arc(kp.x, kp.y, Math.max(4, natW / 120), 0, Math.PI * 2);
+          ctx.fill();
+        });
+      });
+
+      const sideColor = name =>
+        name.startsWith('left') ? BONE_COLORS.left :
+          name.startsWith('right') ? BONE_COLORS.right : BONE_COLORS.center;
+
+      const detectedParts = poses.length > 0
+        ? poses[0].keypoints.filter(k => k.score > 0.5)
+        : [];
+      document.getElementById('poseLabels').innerHTML = detectedParts.map(k => {
+        const c = sideColor(k.name);
+        return `<span class="pg-detect-label" style="border-color:${c}40;color:${c}">${k.name.replace(/_/g, ' ')}</span>`;
+      }).join('');
+    }
+
+    async function runSegment() {
+      if (!pgModelSegment) { setStatus(i18n('status.load_first'), ''); return; }
+      setStatus(i18n('status.segmenting'), 'loading');
+      const empty = document.getElementById('segmentEmpty');
+      const result = document.getElementById('segmentResult');
+      const canvas = document.getElementById('segmentCanvas');
+      empty.style.display = 'none'; result.style.display = 'block';
+      const ctx = canvas.getContext('2d');
+
+      try {
+        if (pgModelSegment._type === 'deeplab') {
+          // DeepLab returns its own width/height — don't assume they match srcW/srcH
+          const { legend, height: segH, width: segW, segmentationMap } = await pgModelSegment.segment(pgImageEl);
+          canvas.width = segW; canvas.height = segH;
+          ctx.putImageData(new ImageData(segmentationMap, segW, segH), 0, 0);
+          // Blend original on top for context
+          const tmp = document.createElement('canvas');
+          tmp.width = segW; tmp.height = segH;
+          tmp.getContext('2d').drawImage(pgImageEl, 0, 0, segW, segH);
+          ctx.globalAlpha = 0.4; ctx.drawImage(tmp, 0, 0); ctx.globalAlpha = 1;
+          const segColors = ['#f97316', '#3b82f6', '#22c55e', '#a855f7', '#ec4899', '#fbbf24', '#06b6d4', '#84cc16'];
+          document.getElementById('segmentLegend').innerHTML = Object.entries(legend).map(([cls], i) =>
+            `<span class="pg-detect-label" style="border-color:${segColors[i % segColors.length]}40;color:${segColors[i % segColors.length]}">${cls}</span>`
+          ).join('');
+          setStatus(i18n('status.seg_done'), 'ready');
+        } else {
+          // BodyPix — drawMask handles canvas sizing internally
+          const seg = await pgModelSegment.segmentPersonParts(pgImageEl, { internalResolution: 'medium', segmentationThreshold: 0.7 });
+          const colored = bodyPix.toColoredPartMask(seg);
+          bodyPix.drawMask(canvas, pgImageEl, colored, 0.7, 0, false);
+          const detected = [...new Set(seg.data.filter(v => v >= 0))];
+          const partNames = i18n('parts');
+          const legColors = ['#f97316', '#3b82f6', '#22c55e', '#a855f7', '#ec4899', '#fbbf24'];
+          document.getElementById('segmentLegend').innerHTML = detected.map((id, i) =>
+            `<span class="pg-detect-label" style="border-color:${legColors[i % legColors.length]}40;color:${legColors[i % legColors.length]}">${partNames[id] || i18n('region') + ' ' + id}</span>`
+          ).join('');
+          setStatus(i18n('status.seg_done'), 'ready');
+        }
+      } catch (e) { setStatus('Error: ' + e.message, ''); }
+    }
+
+    selectTask('classif');
+
+    // ── VISITOR COUNTER ─────────────────────────────
+    (function () {
+      fetch('https://api.counterapi.dev/v1/josepadillamtnz/portfolio/up')
+        .then(r => r.json())
+        .then(d => {
+          const el = document.getElementById('visitorCount');
+          if (!el || !d.count) return;
+          const locale = LANG === 'en' ? 'en-GB' : 'es-ES';
+          const label = LANG === 'en' ? 'visits' : 'visitas';
+          el.textContent = ' · ' + d.count.toLocaleString(locale) + ' ' + label;
+        })
+        .catch(() => { });
+    })();
+
+    // ══════════════════════════════════════════════════
+    // NEXT TOKEN EXPLORER — local via Transformers.js
+    // ══════════════════════════════════════════════════
+    const NTE_COLORS = ['#f97316', '#3b82f6', '#22c55e', '#a855f7', '#ec4899', '#14b8a6', '#eab308', '#ef4444'];
+    const NTE_MODELS = {
+      'Xenova/distilgpt2': { label: 'DistilGPT-2', size: '~80 MB' },
+      'Xenova/gpt2': { label: 'GPT-2', size: '~120 MB' },
+      'Xenova/bloomz-560m': { label: 'BLOOMZ-560M', size: '~350 MB' },
+    };
+
+    let nteLib = null;
+    let nteTokenizer = null;
+    let nteModel = null;
+    let nteReady = false;
+    let nteAutoInterval = null;
+    let nteGeneratedTokens = [];
+    let nteOriginalContext = '';
+    let nteCandidates = []; // array global — evita JSON inline en onclick
+
+    // Selección de modelo con tarjetas
+    document.querySelectorAll('.nte-model-opt').forEach(card => {
+      card.addEventListener('click', () => {
+        const newModel = card.dataset.model;
+        const currentModel = nteSelectedModel();
+        if (nteReady && newModel === currentModel) return; // ya cargado, nada que hacer
+        document.querySelectorAll('.nte-model-opt').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        card.querySelector('input[type=radio]').checked = true;
+        // Si hay modelo cargado y se elige otro, resetear para recargar
+        if (nteReady && newModel !== currentModel) nteUnload();
+      });
+    });
+
+    function nteSelectedModel() {
+      const r = document.querySelector('input[name="nteModel"]:checked');
+      return r ? r.value : 'Xenova/gpt2';
+    }
+
+    function nteUnload() {
+      nteStopAuto();
+      nteTokenizer = null;
+      nteModel = null;
+      nteReady = false;
+      nteGeneratedTokens = [];
+      nteOriginalContext = '';
+      nteCandidates = [];
+      document.getElementById('nteMainLayout').style.opacity = '0.4';
+      document.getElementById('nteMainLayout').style.pointerEvents = 'none';
+      document.getElementById('nteGeneratedWrap').style.display = 'none';
+      document.getElementById('nteCandidates').innerHTML = '<div class="nte-empty">' + i18n('nte.empty') + '</div>';
+      document.getElementById('nteStatus').innerHTML = '';
+      document.getElementById('nteProgressWrap').style.display = 'none';
+      document.getElementById('nteProgressBar').style.width = '0%';
+      document.getElementById('nteProgressLabel').textContent = '';
+      document.getElementById('nteModelBadge').textContent = i18n('nte.badge.unloaded');
+      const btn = document.getElementById('nteLoadBtn');
+      btn.textContent = i18n('nte.btn.load');
+      btn.disabled = false;
+      nteSetLoadStatus('', false);
+    }
+
+    function nteTempChange(v) {
+      document.getElementById('nteTempVal').textContent = parseFloat(v).toFixed(2);
+    }
+
+    function nteSetLoadStatus(msg, loading) {
+      document.getElementById('nteLoadStatus').innerHTML = loading
+        ? '<div class="nte-spinner"></div><span>' + msg + '</span>'
+        : '<span>' + msg + '</span>';
+    }
+
+    function nteSetStatus(msg, loading) {
+      document.getElementById('nteStatus').innerHTML = loading
+        ? '<div class="nte-spinner"></div><span>' + msg + '</span>'
+        : '<span>' + msg + '</span>';
+    }
+
+    async function nteLoadModel() {
+      if (nteReady) nteUnload(); // descargar el anterior antes de cargar el nuevo
+      const btn = document.getElementById('nteLoadBtn');
+      btn.disabled = true;
+      document.getElementById('nteProgressWrap').style.display = 'block';
+      nteSetLoadStatus(i18n('nte.status.importing'), true);
+
+      const modelId = nteSelectedModel();
+      const { label, size } = NTE_MODELS[modelId] || { label: modelId, size: '' };
+
+      try {
+        if (!nteLib) {
+          nteLib = await import('https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2');
+          nteLib.env.allowLocalModels = false;
+          nteLib.env.useBrowserCache = false; // file:// no soporta Cache API
+        }
+
+        const { AutoTokenizer, AutoModelForCausalLM } = nteLib;
+        let tokDone = false;
+
+        function onProgress(p) {
+          if (p.status === 'progress') {
+            const pct = Math.round(p.progress || 0);
+            const phase = tokDone ? label : i18n('nte.status.tokenizer');
+            document.getElementById('nteProgressBar').style.width = pct + '%';
+            document.getElementById('nteProgressLabel').textContent =
+              phase + ' · ' + (p.file || '') + ' · ' + pct + '%';
+            nteSetLoadStatus(i18n('nte.status.downloading') + ' ' + phase + '… ' + pct + '%', true);
+          }
+        }
+
+        nteSetLoadStatus(i18n('nte.status.loading_tok'), true);
+        nteTokenizer = await AutoTokenizer.from_pretrained(modelId, { progress_callback: onProgress });
+        tokDone = true;
+
+        document.getElementById('nteProgressBar').style.width = '0%';
+        nteSetLoadStatus(i18n('nte.status.downloading') + ' ' + label + ' (' + size + ')…', true);
+        nteModel = await AutoModelForCausalLM.from_pretrained(modelId, { progress_callback: onProgress });
+
+        nteReady = true;
+        document.getElementById('nteProgressBar').style.width = '100%';
+        document.getElementById('nteProgressLabel').textContent = '✓ ' + label + ' ' + i18n('nte.status.ready_label');
+        nteSetLoadStatus('✓ ' + label + ' ' + i18n('nte.status.in_memory'), false);
+        document.getElementById('nteModelBadge').textContent = label + ' · ' + i18n('nte.badge.in_memory');
+        btn.textContent = i18n('nte.btn.change');
+        btn.style.opacity = '1';
+        btn.disabled = false;
+
+        const layout = document.getElementById('nteMainLayout');
+        layout.style.opacity = '1';
+        layout.style.pointerEvents = 'auto';
+
+        // Sugerir contexto según idioma del modelo
+        if (modelId === 'Xenova/bloomz-560m') {
+          document.getElementById('nteContext').value = 'El futuro de la inteligencia artificial es';
+        }
+
+      } catch (err) {
+        console.error('[NTE load]', err);
+        nteSetLoadStatus('⚠ ' + err.message, false);
+        btn.disabled = false;
+        btn.textContent = i18n('nte.btn.retry');
+      }
+    }
+
+    async function ntePredict() {
+      if (!nteReady) return;
+      const ctx = document.getElementById('nteContext').value;
+      if (!ctx.trim()) return;
+      const temp = parseFloat(document.getElementById('nteTemp').value);
+
+      if (!nteOriginalContext) {
+        nteOriginalContext = ctx;
+        nteGeneratedTokens = [];
+      }
+
+      document.getElementById('ntePredictBtn').disabled = true;
+      nteSetStatus(i18n('nte.status.computing'), true);
+
+      try {
+        const inputs = nteTokenizer(ctx, { return_tensors: 'pt' });
+        const { logits } = await nteModel(inputs);
+        const [, seqLen, vocabSize] = logits.dims;
+
+        // Últimos logits (posición de predicción)
+        const offset = (seqLen - 1) * vocabSize;
+        const lastLogits = logits.data.subarray(offset, offset + vocabSize);
+
+        // Softmax con temperatura (numéricamente estable)
+        let maxL = -Infinity;
+        for (let i = 0; i < vocabSize; i++) if (lastLogits[i] > maxL) maxL = lastLogits[i];
+        const exps = new Float32Array(vocabSize);
+        let sumE = 0;
+        for (let i = 0; i < vocabSize; i++) {
+          exps[i] = Math.exp((lastLogits[i] - maxL) / temp);
+          sumE += exps[i];
+        }
+
+        // Top-8 con min-heap
+        const topK = 8;
+        const top = [];
+        for (let i = 0; i < vocabSize; i++) {
+          const p = exps[i] / sumE;
+          if (top.length < topK) {
+            top.push({ id: i, p });
+            if (top.length === topK) top.sort((a, b) => a.p - b.p);
+          } else if (p > top[0].p) {
+            top[0] = { id: i, p };
+            let j = 0;
+            while (j * 2 + 1 < topK) {
+              let child = j * 2 + 1;
+              if (child + 1 < topK && top[child + 1].p < top[child].p) child++;
+              if (top[j].p <= top[child].p) break;
+              [top[j], top[child]] = [top[child], top[j]]; j = child;
+            }
+          }
+        }
+        top.sort((a, b) => b.p - a.p);
+
+        // Guardar en array global (evita JSON inline en onclick)
+        nteCandidates = top.map(({ id, p }) => ({
+          text: nteTokenizer.decode([id], { skip_special_tokens: true }),
+          pct: p * 100
+        })).filter(t => t.text.length > 0);
+
+        nteRenderCandidates();
+        nteSetStatus('✓ ' + nteCandidates.length + ' ' + i18n('nte.status.candidates') + ' · t=' + temp.toFixed(2) + ' · vocab=' + vocabSize.toLocaleString(), false);
+
+      } catch (err) {
+        console.error('[NTE predict]', err);
+        nteSetStatus('⚠ ' + err.message, false);
+      }
+
+      document.getElementById('ntePredictBtn').disabled = false;
+    }
+
+    function nteRenderCandidates() {
+      const html = nteCandidates.map((t, i) => {
+        const label = t.text.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+        const pct = t.pct.toFixed(2);
+        const w = Math.min(t.pct * 2, 100);
+        const col = NTE_COLORS[i % NTE_COLORS.length];
+        // Índice numérico en onclick — sin JSON, sin problemas de comillas
+        return `<div class="nte-token-row" onclick="nteAppendByIdx(${i})">
+          <span class="nte-token-text" style="color:${col}">"${label}"</span>
+          <div class="nte-token-track"><div class="nte-token-fill" style="width:${w}%;background:${col};"></div></div>
+          <span class="nte-token-pct">${pct}%</span>
+          <button class="nte-token-add" onclick="event.stopPropagation();nteAppendByIdx(${i})">+</button>
+        </div>`;
+      }).join('');
+      document.getElementById('nteCandidates').innerHTML = html;
+    }
+
+    function nteAppendByIdx(i) {
+      const t = nteCandidates[i];
+      if (!t) return;
+      document.getElementById('nteContext').value += t.text;
+      nteGeneratedTokens.push({ text: t.text, color: NTE_COLORS[i % NTE_COLORS.length] });
+      nteUpdateGenText();
+      ntePredict();
+    }
+
+    function nteUpdateGenText() {
+      document.getElementById('nteGeneratedWrap').style.display = 'block';
+      const ctxSpan = '<span class="nte-gen-context">' + nteOriginalContext.replace(/</g, '&lt;') + '</span>';
+      const tokSpans = nteGeneratedTokens.map(t =>
+        `<span class="nte-gen-token" style="background:${t.color}">${t.text.replace(/</g, '&lt;')}</span>`
+      ).join('');
+      document.getElementById('nteGenText').innerHTML = ctxSpan + tokSpans;
+    }
+
+    function nteClear() {
+      nteStopAuto();
+      nteGeneratedTokens = [];
+      nteOriginalContext = '';
+      nteCandidates = [];
+      document.getElementById('nteGeneratedWrap').style.display = 'none';
+      document.getElementById('nteCandidates').innerHTML = '<div class="nte-empty">' + i18n('nte.empty') + '</div>';
+      document.getElementById('nteStatus').innerHTML = '';
+    }
+
+    function nteToggleAuto() {
+      if (nteAutoInterval) {
+        nteStopAuto();
+      } else {
+        document.getElementById('nteAutoBtn').textContent = '⏹ Stop';
+        document.getElementById('nteAutoBtn').style.borderColor = 'var(--accent)';
+        ntePredict();
+        nteAutoInterval = setInterval(() => {
+          if (!document.getElementById('ntePredictBtn').disabled) ntePredict();
+        }, 1800);
+      }
+    }
+
+    function nteStopAuto() {
+      clearInterval(nteAutoInterval);
+      nteAutoInterval = null;
+      const btn = document.getElementById('nteAutoBtn');
+      if (btn) { btn.textContent = i18n('nte.btn.auto'); btn.style.borderColor = ''; }
+    }
+  </script>
+</body>
+
+</html>

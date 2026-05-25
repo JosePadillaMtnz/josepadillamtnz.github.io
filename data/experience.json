@@ -1,0 +1,303 @@
+{
+  "academic": [
+    {
+      "id": "master",
+      "period": "Sep 2020 — Jun 2021",
+      "from": "2020",
+      "to": "2021",
+      "title": {
+        "es": "Máster en Nuevas Tecnologías en Ingeniería Informática",
+        "en": "Master's in New Technologies in Computer Engineering"
+      },
+      "institution": "Universidad de Murcia",
+      "specialty": {
+        "es": "Mención en Redes y Telemática · Impartido en inglés y español",
+        "en": "Specialisation in Networks and Telematics · Taught in English and Spanish"
+      },
+      "shortDesc": {
+        "es": "Especialización en redes, sistemas inteligentes e IoT. TFM continuando el trabajo del TFG sobre SDN.",
+        "en": "Specialisation in networks, intelligent systems and IoT. Master's thesis continuing the Bachelor's work on SDN."
+      },
+      "description": {
+        "es": "El Máster sirvió para especializar y profundizar lo que el Grado había empezado: clases íntegramente en inglés, proyectos de mayor envergadura y un TFM que continuaba directamente el trabajo anterior.\n\nSi el TFG había resuelto la parte del nodo final, aplicar configuraciones IPsec en caliente sin intervención manual, el TFM atacó el otro extremo: el controlador SDN. Desarrollé un nuevo módulo capaz de detectar automáticamente los nodos disponibles en la red, comunicarse con ellos y desplegar políticas de seguridad IPsec de forma completamente autónoma, eliminando cualquier necesidad de intervención externa para que todos los canales internos queden asegurados.\n\nAdemas, adapté el escenario para soportar un número variable de nodos (frente al escenario estático de dos nodos del que se partía) y realicé pruebas experimentales exhaustivas comparando dos topologías: full-mesh, donde el tiempo crece de forma cuadrática con el número de nodos, O(n²), concretamente n(n-1)/2 canales, y estrella, donde crece de forma logarítmica gracias al paralelismo en la instanciación de políticas. También se analizó el modelo YANG utilizado para validar la estructura de los mensajes intercambiados entre controlador y nodos.\n\nEl trabajo contribuyó a la estandarización del RFC 9061 de la IETF, algo de lo que me siento especialmente orgulloso. Ver que un trabajo académico acaba teniendo impacto real en estándares de red utilizados a nivel global es una satisfacción difícil de igualar. Todo ello compaginado desde el primer día con trabajo a jornada completa.",
+        "en": "The Master's built on and deepened what the Bachelor's had started: classes entirely in English, larger-scale projects, and a thesis that continued directly from the previous work.\n\nIf the Bachelor's thesis had solved the end-node side — applying IPsec configurations on the fly without manual intervention — the Master's tackled the other end: the SDN controller. I developed a new module capable of automatically detecting available nodes on the network, communicating with them, and deploying IPsec security policies completely autonomously, eliminating any need for external intervention to secure all internal channels.\n\nI also adapted the scenario to support a variable number of nodes (compared to the static two-node setup it started from) and ran exhaustive experimental tests comparing two topologies: full-mesh, where time grows quadratically with the number of nodes — O(n²), specifically n(n-1)/2 channels — and star, where it grows logarithmically thanks to parallelism in policy instantiation. The YANG model used to validate the structure of messages exchanged between controller and nodes was also analysed.\n\nThe work contributed to the standardisation of IETF RFC 9061 — something I'm particularly proud of. Seeing academic work end up having real impact on network standards used globally is a hard feeling to match. All of this done alongside full-time work from day one."
+      },
+      "learned": {
+        "es": "Continuación de la mención de Redes y Telemática, donde el Trabajo Fin de Máster continuó con el trabajo previo del TFG, analizando posibles despliegues, rendimiento y viabilidad en entornos reales.\n\n✔ Presentaciones, clases y proyectos realizados en inglés.\n✔ Especialización en el uso de Linux, Python y Docker.\n✔ Adaptación a grupos de trabajo y proyectos más grandes y complejos.\n✔ Investigación, planteamiento y despliegue de nuevas tecnologías y métodos de comunicación.\n✔ Sistemas IoT y sistemas inteligentes complejos.",
+        "en": "Continuation of the Networks and Telematics specialisation, where the Master's thesis built on the prior Bachelor's work, analysing possible deployments, performance and viability in real environments.\n\n✔ Presentations, classes and projects carried out in English.\n✔ Specialisation in Linux, Python and Docker.\n✔ Adaptation to larger and more complex working groups and projects.\n✔ Research, design and deployment of new technologies and communication methods.\n✔ Complex IoT and intelligent systems."
+      },
+      "tech": [
+        "Python",
+        "Linux",
+        "Docker",
+        "IoT",
+        "Redes y Telemática",
+        "SDN"
+      ],
+      "document": "files/TFM_JosePadilla.pdf",
+      "recommendation": "files/RL_RafaelMarin_English_Sign.pdf",
+      "color": "orange"
+    },
+    {
+      "id": "grado",
+      "period": "Sep 2016 — Jun 2020",
+      "from": "2016",
+      "to": "2020",
+      "title": {
+        "es": "Grado en Ingeniería Informática",
+        "en": "Bachelor's Degree in Computer Engineering"
+      },
+      "institution": "Universidad de Murcia",
+      "specialty": {
+        "es": "Mención en Redes y Telemática",
+        "en": "Specialisation in Networks and Telematics"
+      },
+      "shortDesc": {
+        "es": "Formación base en ingeniería informática culminando en un TFG sobre seguridad en el paradigma SDN, con contribución a una propuesta estandarizada por la IETF.",
+        "en": "Core computer engineering degree culminating in a Bachelor's thesis on security in the SDN paradigm, with a contribution to a proposal standardised by the IETF."
+      },
+      "description": {
+        "es": "Cuatro años en los que fui descubriendo qué parte de la informática me apasionaba de verdad. Empecé sin tener claro hacia dónde tirar y acabé con una mención en Redes y Telemática y un TFG sobre seguridad en redes SDN cuyo trabajo fue incorporado al RFC 9061 estandarizado por la IETF.\n\nAntes de llegar al TFG, el Grado me llevó por un recorrido amplio que fue moldeando cómo pienso como programador. Asignaturas de arquitectura de computadores, sistemas operativos, bases de datos, redes y telemática, protocolos de comunicación o programación concurrente no son las más vistosas, pero son las que construyen la base. Aprender a razonar sobre procesos que se ejecutan en paralelo, entender qué ocurre realmente cuando un sistema gestiona memoria o cómo se establece una comunicación entre máquinas, ese tipo de conocimiento cambia la forma en que te enfrentas a cualquier problema técnico posterior.\n\nAlgunas de esas asignaturas fueron exigentes de verdad. Prácticas complejas donde la documentación escaseaba, donde el entorno no cooperaba y donde la única salida era pelear hasta entenderlo. Eso tiene un valor que va más allá del contenido concreto: aprendes a no rendirte ante un problema sin solución aparente, a buscar por tu cuenta, a construir criterio propio cuando no hay nadie que te dé la respuesta directa.\n\nEl Trabajo Fin de Grado se centró en la gestión automatizada de asociaciones de seguridad IPsec en entornos SDN (Software-Defined Networking). En este paradigma, un controlador centralizado administra y distribuye los recursos de toda la red, ofreciendo flexibilidad y eficiencia, pero con una gestión de seguridad históricamente muy limitada. A medida que crece el número de dispositivos conectados, configurar manualmente las políticas IPsec entre nodos se vuelve inviable.\n\nMi contribución fue desarrollar un módulo en Python (ietf-ipsec.py) que, integrado con StrongSwan mediante la interfaz VICI, aplica configuraciones de seguridad en caliente directamente en el kernel del dispositivo, sin ficheros externos, sin reinicios de servicio, sin intervención manual. El proceso completo queda automatizado: el controlador instancia la configuración en cuanto la recibe, y los nodos establecen canales IPsec seguros de forma transparente. El resultado fue validado mediante una prueba de concepto funcional e incorporado a una propuesta que acabó siendo estandarizada por la IETF como RFC 9061.",
+        "en": "Four years of gradually discovering which part of computer science I was truly passionate about. I started without a clear direction and ended up with a specialisation in Networks and Telematics and a Bachelor's thesis on SDN network security whose work was incorporated into IETF RFC 9061.\n\nBefore reaching the thesis, the degree took me through a broad journey that shaped how I think as a programmer. Subjects like computer architecture, operating systems, databases, networks and telematics, communication protocols, and concurrent programming aren't the most glamorous — but they're the ones that build the foundation. Learning to reason about processes running in parallel, understanding what really happens when a system manages memory, or how a communication between machines is established — that kind of knowledge changes the way you approach any technical problem afterwards.\n\nSome of those subjects were genuinely demanding. Complex practicals where documentation was scarce, where the environment didn't cooperate, and where the only way out was to fight through until you understood. That has a value beyond the specific content: you learn not to give up when a problem has no obvious solution, to search on your own, to build your own judgement when there's nobody to hand you the answer.\n\nThe Bachelor's thesis focused on automated management of IPsec security associations in SDN (Software-Defined Networking) environments. In this paradigm, a centralised controller administers and distributes resources across the entire network, offering flexibility and efficiency — but with historically very limited security management. As the number of connected devices grows, manually configuring IPsec policies between nodes becomes unviable.\n\nMy contribution was to develop a Python module (ietf-ipsec.py) that, integrated with StrongSwan via the VICI interface, applies security configurations on the fly directly in the device kernel — no external files, no service restarts, no manual intervention. The entire process is automated: the controller instantiates the configuration as soon as it receives it, and nodes establish secure IPsec channels transparently. The result was validated through a functional proof of concept and incorporated into a proposal that was standardised by the IETF as RFC 9061."
+      },
+      "learned": {
+        "es": "Completé la mención de Redes y Telemática, culminando en un Trabajo Fin de Grado centrado en la seguridad en el paradigma SDN. Contribuí a una propuesta ahora estandarizada por la IETF.\n\n✔ Gestión de redes, sistemas y dispositivos de red.\n✔ Gran dominio de Linux, Python y Docker.\n✔ Desarrollo de aplicaciones móviles y gestión de bases de datos.\n✔ Adaptación a distintos grupos de trabajo y proyectos.\n✔ Programación concurrente y orientada a objetos.",
+        "en": "Completed the Networks and Telematics specialisation, culminating in a Bachelor's thesis focused on security in the SDN paradigm. Contributed to a proposal now standardised by the IETF.\n\n✔ Network, system and network device management.\n✔ Strong command of Linux, Python and Docker.\n✔ Mobile application development and database management.\n✔ Adaptation to different working groups and projects.\n✔ Concurrent and object-oriented programming."
+      },
+      "tech": [
+        "Python",
+        "Linux",
+        "Docker",
+        "Java",
+        "C",
+        "SQL",
+        "SDN",
+        "Redes"
+      ],
+      "document": "files/TFG_JosePadilla.pdf",
+      "color": "orange"
+    }
+  ],
+  "professional": [
+    {
+      "id": "biyectiva",
+      "period": {
+        "es": "Feb 2025 — Actualidad",
+        "en": "Feb 2025 — Present"
+      },
+      "from": "2025-02",
+      "to": null,
+      "title": "AI Engineer | Machine Learning, Computer Vision, Data Analyst",
+      "company": "Biyectiva Technology",
+      "location": "España",
+      "type": {
+        "es": "Tiempo completo",
+        "en": "Full time"
+      },
+      "shortDesc": {
+        "es": "Desarrollo de soluciones de IA aplicadas a visión artificial, machine learning y análisis de datos.",
+        "en": "Development of AI solutions applied to computer vision, machine learning and data analysis."
+      },
+      "description": {
+        "es": "Lo que más valoro de Biyectiva es su carácter multidisciplinar. No estoy encasillado en un único producto ni en un mismo tipo de desarrollo: los proyectos duran semanas o meses, cambian de contexto y exigen adaptarse constantemente a nuevas problemáticas, clientes y tecnologías. Esa variedad es exactamente lo que busco en un entorno de trabajo.\n\nMás allá de la parte técnica, me estoy implicando cada vez más en fases del proyecto que van más allá del código: comunicación directa con el cliente, participación en la definición de requisitos y presencia en momentos donde la parte técnica y la de negocio se tienen que alinear. Este tipo de exposición está completando mi perfil de una forma que la parte puramente técnica por sí sola no podría. Es un rumbo que me gusta y en el que quiero seguir creciendo.",
+        "en": "What I value most about Biyectiva is its multidisciplinary nature. I'm not pigeonholed into a single product or the same type of development: projects last weeks or months, change context, and demand constant adaptation to new problems, clients and technologies. That variety is exactly what I look for in a work environment.\n\nBeyond the technical side, I'm becoming increasingly involved in project phases that go beyond the code: direct client communication, participation in requirements definition, and being present at moments where the technical and business sides need to align. That kind of exposure is rounding out my profile in a way that the purely technical side alone couldn't. It's a direction I enjoy and one I want to keep growing in."
+      },
+      "learned": {
+        "es": "✔ Trabajo en proyectos variados y multidisciplinares en paralelo.\n✔ Comunicación directa con cliente en distintas fases del proyecto.\n✔ Participación en definición de requisitos y toma de decisiones técnicas.\n✔ Desarrollo de soluciones de IA aplicadas a visión artificial y machine learning.\n✔ Análisis de datos y construcción de pipelines de datos en producción.",
+        "en": "✔ Working on varied, multidisciplinary projects in parallel.\n✔ Direct client communication across different project phases.\n✔ Participation in requirements definition and technical decision-making.\n✔ Development of AI solutions applied to computer vision and machine learning.\n✔ Data analysis and building production data pipelines."
+      },
+      "tech": [
+        "Python",
+        "Machine Learning",
+        "Computer Vision",
+        "Data Science",
+        "PostgreSQL",
+        "FastAPI",
+        "Docker"
+      ],
+      "color": "blue"
+    },
+    {
+      "id": "cibinar",
+      "period": {
+        "es": "Feb 2021 — Ene 2025",
+        "en": "Feb 2021 — Jan 2025"
+      },
+      "from": "2021-02",
+      "to": "2025-01",
+      "title": "AI Engineer | Machine Learning, Computer Vision, Data Analyst",
+      "company": "CIBINAR",
+      "location": "Murcia, España",
+      "type": {
+        "es": "Tiempo completo",
+        "en": "Full time"
+      },
+      "shortDesc": {
+        "es": "4 años desarrollando soluciones de visión artificial e IA aplicada a seguridad, automatización y análisis predictivo.",
+        "en": "4 years developing computer vision and applied AI solutions for security, automation and predictive analytics."
+      },
+      "description": {
+        "es": "Participación en el desarrollo de CibySecurity, una solución integral de seguridad compuesta por múltiples módulos:\n\n• Cibi Identity (Control de Acceso): Reconocimiento facial y biométrico con modelos específicos, roles, permisos y registro de movimientos.\n• Cibi Detective (Eventos): Análisis predictivo para identificar patrones, automatización de tareas y gestión de incidentes de seguridad.\n• Cibi Perimeter (Video Analytics): Modelos de clasificación, conteos y controles de zona configurables, alertas personalizadas.\n• Cibi Visión (VMS): Programación de grabación y eliminación, visualización en tiempo real.\n\nAdemás, automatización interna de creación y actualización de servicios FastAPI, BBDD y VMS, y desarrollo de un pipeline automatizado de entrenamiento: obtención de requisitos, preparación de datos, generación de datasets, lanzamiento de entrenamientos, pruebas de rendimiento, generación de informes, despliegue y mantenimiento de modelos.",
+        "en": "Participation in the development of CibySecurity, a comprehensive security solution made up of multiple modules:\n\n• Cibi Identity (Access Control): Facial and biometric recognition with specific models, roles, permissions and movement logging.\n• Cibi Detective (Events): Predictive analytics to identify patterns, task automation and security incident management.\n• Cibi Perimeter (Video Analytics): Classification models, counts and configurable zone controls, custom alerts.\n• Cibi Visión (VMS): Recording and deletion scheduling, real-time visualisation.\n\nAlso: internal automation for creating and updating FastAPI services, databases and VMS, and development of an automated training pipeline — requirements gathering, data preparation, dataset generation, training runs, performance testing, report generation, model deployment and maintenance."
+      },
+      "learned": {
+        "es": "✔ Entrenamiento de redes neuronales, enfocado en clasificación y segmentación.\n✔ Estudio de hiperparámetros, requisitos y tipos de redes neuronales.\n✔ Despliegue y mantenimiento de entornos de IA en usuario final y cloud.\n✔ Automatización de procesos, despliegues, escalabilidad, comprobación de errores y robustez.\n✔ Estudio de datos, limpieza de datos, EDA, creación de modelos predictivos.\n✔ Desarrollo de herramientas complejas.",
+        "en": "✔ Neural network training, focused on classification and segmentation.\n✔ Study of hyperparameters, requirements and neural network architectures.\n✔ Deployment and maintenance of AI environments on end-user and cloud infrastructure.\n✔ Process automation, deployments, scalability, error checking and robustness.\n✔ Data analysis, data cleaning, EDA, predictive model development.\n✔ Development of complex tooling."
+      },
+      "tech": [
+        "YOLO",
+        "ONNX",
+        "PyTorch",
+        "TensorFlow",
+        "TensorRT",
+        "OpenVINO",
+        "Python",
+        "FastAPI",
+        "Docker",
+        "PostgreSQL",
+        "OpenCV",
+        "Linux",
+        "Pandas",
+        "Git"
+      ],
+      "recommendation": "files/RL_JJCosta_Spanish_Sign.pdf",
+      "color": "blue"
+    },
+    {
+      "id": "aunna",
+      "period": "Mar 2019 — May 2019",
+      "from": "2019-03",
+      "to": "2019-05",
+      "title": "Web Developer",
+      "company": "Aunna IT",
+      "location": "Murcia, España",
+      "type": {
+        "es": "Prácticas",
+        "en": "Internship"
+      },
+      "shortDesc": {
+        "es": "Desarrollo web durante las prácticas universitarias.",
+        "en": "Web development during university internship."
+      },
+      "description": {
+        "es": "Unas prácticas voluntarias, no eran obligatorias en el plan de estudios, que decidí hacer porque quería saber cómo era trabajar de verdad en una empresa de informática antes de terminar la carrera. Fue mi primer contacto real con el mundo laboral en este campo, y lo que me aportó va mucho más allá de la tecnología.\n\nConocer a un equipo completo, entender cómo fluye la comunicación dentro de una empresa, adaptarme a procesos y ritmos que no había vivido antes... todo eso tiene un valor que no aparece en ningún temario. También me di cuenta de algo importante sobre mí: el diseño y el front-end no es lo que más me mueve. Me interesa mucho más hacer que algo funcione bien por dentro que ponerle una cara bonita. Ese descubrimiento, tan aparentemente simple, fue más valioso de lo que parece.",
+        "en": "A voluntary internship — not required by the curriculum — that I decided to do because I wanted to know what it was really like to work at a tech company before finishing my degree. It was my first real contact with the professional world in this field, and what it gave me goes well beyond technology.\n\nMeeting a full team, understanding how communication flows within a company, adapting to processes and rhythms I hadn't experienced before — all of that has a value that doesn't appear in any syllabus. I also realised something important about myself: design and front-end isn't what drives me. I'm much more interested in making something work well under the hood than in giving it a pretty face. That discovery, apparently simple as it sounds, was more valuable than it seems."
+      },
+      "learned": {
+        "es": "✔ Primera experiencia en un entorno laboral real de informática.\n✔ Comunicación y trabajo dentro de un equipo profesional completo.\n✔ Adaptación rápida a nuevas tecnologías y procesos de trabajo.\n✔ Descubrimiento de preferencias técnicas propias: back-end y lógica de negocio sobre front-end y diseño.",
+        "en": "✔ First experience in a real tech work environment.\n✔ Communication and collaboration within a full professional team.\n✔ Quick adaptation to new technologies and working processes.\n✔ Discovery of personal technical preferences: back-end and business logic over front-end and design."
+      },
+      "tech": [
+        "Bash",
+        "Git"
+      ],
+      "color": "blue"
+    }
+  ],
+  "training": [
+    {
+      "id": "google-agents",
+      "period": {
+        "es": "Diciembre 2025",
+        "en": "December 2025"
+      },
+      "from": "2025-12",
+      "to": "2025-12",
+      "title": {
+        "es": "Curso Intensivo de 5 Días de Agentes de IA con Google",
+        "en": "5-Day AI Agents Intensive Course with Google"
+      },
+      "provider": "Kaggle × Google",
+      "shortDesc": {
+        "es": "Curso intensivo de 5 días sobre construcción de agentes con IA generativa.",
+        "en": "5-day intensive course on building agents with generative AI."
+      },
+      "description": {
+        "es": "Curso intensivo de 5 días en colaboración entre Google y Kaggle, centrado en el desarrollo de agentes autónomos con LLMs. A través de ejercicios prácticos y problemáticas reales, el programa cubre el ciclo de vida completo de un agente: diseño de herramientas, gestión del contexto entre pasos, persistencia de conversaciones y control de aprobación humana antes de ejecutar acciones críticas.\n\nEl proyecto capstone consistió en desarrollar un agente para el sector retail capaz de analizar el mercado proveedor, comparar precios y tramitar órdenes de compra mediante búsquedas simuladas sobre una base de datos sintética.",
+        "en": "5-day intensive course run jointly by Google and Kaggle, focused on developing autonomous agents with LLMs. Through hands-on exercises and real-world problems, the programme covers the full lifecycle of an agent — tool design, context management between steps, conversation persistence and human approval control before executing critical actions.\n\nThe capstone project involved developing an agent for the retail sector capable of analysing the supplier market, comparing prices and processing purchase orders through simulated searches on a synthetic database."
+      },
+      "learned": {
+        "es": "Ciclo de vida completo de un agente con Google ADK, diseño de herramientas personalizadas, orquestación de flujos multi-agente secuenciales, persistencia de conversaciones, evaluación automática mediante agentes juez y gestión de confirmación humana para operaciones de alto riesgo.",
+        "en": "Full agent lifecycle with Google ADK, custom tool design, sequential multi-agent flow orchestration, conversation persistence, automatic evaluation via judge agents and human confirmation management for high-risk operations."
+      },
+      "tech": [
+        "Python",
+        "Google ADK",
+        "Gemini",
+        "Multi-agent Systems"
+      ],
+      "certificate": "https://www.kaggle.com/certification/badges/estopadilla/105",
+      "color": "green"
+    },
+    {
+      "id": "platzi-ml",
+      "period": {
+        "es": "Enero 2025",
+        "en": "January 2025"
+      },
+      "from": "2025-01",
+      "to": "2025-01",
+      "title": {
+        "es": "Machine Learning con Python",
+        "en": "Machine Learning with Python"
+      },
+      "provider": "Platzi",
+      "shortDesc": {
+        "es": "Ruta completa de Machine Learning con Python.",
+        "en": "Complete Machine Learning path with Python."
+      },
+      "description": {
+        "es": "Ruta completa de Machine Learning en Python impartida por Platzi. El programa cubre los fundamentos teóricos y su aplicación práctica en un flujo coherente: análisis exploratorio de datos, preprocesamiento, creación y evaluación de modelos, y optimización mediante ajuste de hiperparámetros. Los ejercicios incluyen despliegues reales de modelos.\n\nModelos trabajados: regresión lineal y logística, algoritmos de clusterización y árboles de decisión, entre otros.",
+        "en": "Complete Machine Learning path in Python taught by Platzi. The programme covers the theoretical foundations and their practical application in a coherent flow: exploratory data analysis, preprocessing, model creation and evaluation, and optimisation through hyperparameter tuning. Exercises include real model deployments.\n\nModels covered: linear and logistic regression, clustering algorithms and decision trees, among others."
+      },
+      "learned": {
+        "es": "Pipeline completo de ML de extremo a extremo: EDA → preprocesado → modelo → evaluación → optimización. Trabajo con modelos supervisados (regresión y clasificación) y no supervisados (clustering), y práctica con datasets reales en entornos de Kaggle.",
+        "en": "Full end-to-end ML pipeline: EDA → preprocessing → model → evaluation → optimisation. Work with supervised models (regression and classification) and unsupervised (clustering), and practice with real datasets in Kaggle environments."
+      },
+      "tech": [
+        "Python",
+        "scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib"
+      ],
+      "certificate": "https://platzi.com/p/josepadillamtnz/ruta/13488-datos-ml/diploma/detalle/",
+      "color": "green"
+    },
+    {
+      "id": "platzi-data",
+      "period": {
+        "es": "Junio 2024",
+        "en": "June 2024"
+      },
+      "from": "2024-06",
+      "to": "2024-06",
+      "title": {
+        "es": "Análisis y Manipulación de Datos con Python",
+        "en": "Data Analysis and Manipulation with Python"
+      },
+      "provider": "Platzi",
+      "shortDesc": {
+        "es": "Ruta completa de análisis y manipulación de datos con Python.",
+        "en": "Complete data analysis and manipulation path with Python."
+      },
+      "description": {
+        "es": "Ruta de análisis y manipulación de datos con Python impartida por Platzi. El programa cubre desde los conceptos fundamentales hasta técnicas avanzadas, con foco en el ecosistema Python: Pandas, NumPy, Matplotlib y Seaborn. El énfasis no está solo en la sintaxis sino en desarrollar criterio analítico: saber qué pregunta hacerle a los datos antes de procesarlos.",
+        "en": "Data analysis and manipulation path with Python taught by Platzi. The programme covers fundamentals through to advanced techniques, with a focus on the Python ecosystem: Pandas, NumPy, Matplotlib and Seaborn. The emphasis isn't just on syntax but on developing analytical judgement — knowing what question to ask of the data before processing it."
+      },
+      "learned": {
+        "es": "Análisis exploratorio de datos en profundidad, manipulación y transformación de datasets con Pandas, visualización con Matplotlib y Seaborn, y desarrollo de la capacidad de formular las preguntas correctas a partir de un dataset antes de construir cualquier modelo.",
+        "en": "In-depth exploratory data analysis, dataset manipulation and transformation with Pandas, visualisation with Matplotlib and Seaborn, and developing the ability to ask the right questions from a dataset before building any model."
+      },
+      "tech": [
+        "Python",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn"
+      ],
+      "certificate": "https://platzi.com/p/josepadillamtnz/ruta/13482-analisis-datos-python/diploma/detalle/",
+      "color": "green"
+    }
+  ]
+}
