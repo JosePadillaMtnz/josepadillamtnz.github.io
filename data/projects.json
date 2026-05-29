@@ -135,7 +135,7 @@
   {
     "id": "titanic",
     "name": {
-      "es": "Predicción de supervivencia — Titanic",
+      "es": "Predicción de supervivencia (Titanic)",
       "en": "Titanic Survival Prediction"
     },
     "category": "ml",
@@ -320,35 +320,6 @@
       "Firebase"
     ],
     "github": "https://github.com/JosePadillaMtnz/JojosApp",
-    "period": "2020"
-  },
-  {
-    "id": "comm-code",
-    "name": {
-      "es": "SimpleCommCode",
-      "en": "SimpleCommCode"
-    },
-    "category": "apps",
-    "categoryLabel": {
-      "es": "Aplicaciones",
-      "en": "Applications"
-    },
-    "icon": "📡",
-    "featured": false,
-    "shortDesc": {
-      "es": "Colección de implementaciones de comunicación entre dispositivos en Java.",
-      "en": "Collection of device communication implementations in Java."
-    },
-    "description": {
-      "es": "Conjunto de implementaciones básicas de protocolos de comunicación entre dispositivos usando Java. Incluye sockets TCP/UDP, cliente-servidor y otros patrones de comunicación de red.",
-      "en": "Set of basic device communication protocol implementations using Java. Includes TCP/UDP sockets, client-server and other network communication patterns."
-    },
-    "tech": [
-      "Java",
-      "Sockets",
-      "TCP/UDP"
-    ],
-    "github": "https://github.com/JosePadillaMtnz/SimpleCommCode",
     "period": "2020"
   }
 ]

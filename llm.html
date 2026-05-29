@@ -1187,8 +1187,19 @@
   <!-- ══════════════════════════════════════════════════ -->
   <div class="tab-panel active" id="tab-fundamentos">
 
+    <div class="section-index">
+      <p class="section-idx-title" data-i18n="idx_label">Contenidos</p>
+      <ol class="section-idx-list">
+        <li><a class="section-idx-link" href="#sec-llm-f1"><span data-i18n="f1_h2">¿Qué es un LLM?</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-f2"><span data-i18n="f2_h2">Historia</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-f3"><span data-i18n="f3_h2">¿Por qué funciona tan bien?</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-f4"><span data-i18n="f4_h2">Aplicaciones reales</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-f5"><span data-i18n="f5_h2">Limitaciones</span></a></li>
+      </ol>
+    </div>
+
     <!-- SECTION 1: QUÉ ES UN LLM -->
-    <section class="llm-section">
+    <section class="llm-section" id="sec-llm-f1">
       <div class="container">
         <div class="two-col">
           <div>
@@ -1277,7 +1288,7 @@
     </section>
 
     <!-- SECTION 2: HISTORIA -->
-    <section class="llm-section alt">
+    <section class="llm-section alt" id="sec-llm-f2">
       <div class="container">
         <span class="section-label" data-i18n="f2_label">Fundamentos · 2 · Historia</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="f2_h2">
@@ -1293,7 +1304,7 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-year">1966</div>
-            <div class="timeline-title" data-i18n="tl2_title">ELIZA — el primer chatbot</div>
+            <div class="timeline-title" data-i18n="tl2_title">ELIZA (el primer chatbot)</div>
             <p class="timeline-desc" data-i18n="tl2_desc">Joseph Weizenbaum (MIT) crea ELIZA, un programa que simula un
               psicólogo usando reglas escritas a mano. Sorprendentemente, muchos usuarios creen hablar con una persona
               real.</p>
@@ -1307,63 +1318,63 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-year">1997</div>
-            <div class="timeline-title" data-i18n="tl4_title">LSTM — memoria explícita</div>
+            <div class="timeline-title" data-i18n="tl4_title">LSTM (memoria explícita)</div>
             <p class="timeline-desc" data-i18n="tl4_desc">Hochreiter y Schmidhuber presentan las redes LSTM. Por primera
               vez, las redes pueden mantener información relevante a lo largo de secuencias largas, habilitando la
               comprensión de texto.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2013</div>
-            <div class="timeline-title" data-i18n="tl5_title">Word2Vec — palabras como vectores</div>
+            <div class="timeline-title" data-i18n="tl5_title">Word2Vec (palabras como vectores)</div>
             <p class="timeline-desc" data-i18n="tl5_desc">Mikolov (Google) demuestra que las palabras pueden
               representarse como vectores en un espacio geométrico. "Rey − Hombre + Mujer ≈ Reina". Las relaciones
               semánticas tienen estructura algebraica.</p>
           </div>
           <div class="timeline-item hi">
             <div class="timeline-year">2017</div>
-            <div class="timeline-title" data-i18n="tl6_title">Attention is All You Need — el Transformer</div>
+            <div class="timeline-title" data-i18n="tl6_title">Attention is All You Need (el Transformer)</div>
             <p class="timeline-desc" data-i18n="tl6_desc">Vaswani et al. (Google) publican el paper que cambia todo: el
               Transformer elimina la recurrencia y usa únicamente atención. Paralelizable, escalable, y superior en todo
               benchmark. Base de todos los LLMs modernos.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2018</div>
-            <div class="timeline-title" data-i18n="tl7_title">BERT y GPT-1 — preentrenamiento masivo</div>
+            <div class="timeline-title" data-i18n="tl7_title">BERT y GPT-1 (preentrenamiento masivo)</div>
             <p class="timeline-desc" data-i18n="tl7_desc">Google presenta BERT (bidireccional) y OpenAI GPT-1
               (autoregresivo). Ambos demuestran que preentrenar en texto crudo y ajustar fino supera el entrenamiento
               desde cero en cualquier tarea NLP.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2019</div>
-            <div class="timeline-title" data-i18n="tl8_title">GPT-2 — "demasiado peligroso"</div>
+            <div class="timeline-title" data-i18n="tl8_title">GPT-2 ("demasiado peligroso")</div>
             <p class="timeline-desc" data-i18n="tl8_desc">OpenAI decide no publicar GPT-2 completo por miedo a su uso
               malicioso. Primera gran polémica sobre IA. En perspectiva, era pequeño comparado con los modelos actuales,
               pero su capacidad narrativa sorprendió al mundo.</p>
           </div>
           <div class="timeline-item hi">
             <div class="timeline-year">2020</div>
-            <div class="timeline-title" data-i18n="tl9_title">GPT-3 — capacidades emergentes</div>
+            <div class="timeline-title" data-i18n="tl9_title">GPT-3 (capacidades emergentes)</div>
             <p class="timeline-desc" data-i18n="tl9_desc">175B parámetros. GPT-3 demuestra few-shot learning: aprende
               tareas nuevas con solo 3-5 ejemplos en el prompt. Genera código, poesía, traduce idiomas. Las capacidades
               emergentes sorprenden al propio OpenAI.</p>
           </div>
           <div class="timeline-item hi">
             <div class="timeline-year">2022</div>
-            <div class="timeline-title" data-i18n="tl10_title">ChatGPT — un millón de usuarios en 5 días</div>
+            <div class="timeline-title" data-i18n="tl10_title">ChatGPT (un millón de usuarios en 5 días)</div>
             <p class="timeline-desc" data-i18n="tl10_desc">InstructGPT y ChatGPT llevan el RLHF a la práctica. El modelo
               aprende a ser útil y seguro a partir de evaluaciones humanas. ChatGPT bate todos los records de adopción
               de software en la historia.</p>
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2023</div>
-            <div class="timeline-title" data-i18n="tl11_title">GPT-4, Claude, Llama — el ecosistema explota</div>
+            <div class="timeline-title" data-i18n="tl11_title">GPT-4, Claude, Llama (el ecosistema explota)</div>
             <p class="timeline-desc" data-i18n="tl11_desc">Multimodalidad, razonamiento avanzado, contextos largos. Meta
               abre Llama y democratiza el acceso a LLMs potentes. Anthropic lanza Claude con énfasis en seguridad. El
               campo se fragmenta en docenas de modelos competidores.</p>
           </div>
           <div class="timeline-item hi">
             <div class="timeline-year">2025</div>
-            <div class="timeline-title" data-i18n="tl12_title">Modelos de razonamiento — pensar antes de responder</div>
+            <div class="timeline-title" data-i18n="tl12_title">Modelos de razonamiento (pensar antes de responder)</div>
             <p class="timeline-desc" data-i18n="tl12_desc">o1, DeepSeek-R1, Claude con razonamiento extendido. Los
               modelos generan miles de tokens internos de "pensamiento" antes de responder. El razonamiento en cadena se
               convierte en entrenamiento, no solo en prompting.</p>
@@ -1373,7 +1384,7 @@
     </section>
 
     <!-- SECTION 3: POR QUÉ FUNCIONA TAN BIEN -->
-    <section class="llm-section alt">
+    <section class="llm-section alt" id="sec-llm-f3">
       <div class="container">
         <span class="section-label" data-i18n="f3_label">Fundamentos · 3 · ¿Por qué funcionan?</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="f3_h2">¿Por
@@ -1412,7 +1423,7 @@
           </div>
           <div class="why-card">
             <div class="why-card-icon">🎯</div>
-            <h4 data-i18n="f3_w5_h4">RLHF — alineación con instrucciones</h4>
+            <h4 data-i18n="f3_w5_h4">RLHF (alineación con instrucciones)</h4>
             <p data-i18n="f3_w5_p">El preentrenamiento produce un modelo que predice texto; el ajuste fino con
               retroalimentación humana (RLHF) lo convierte en un asistente útil y seguro. Es la diferencia entre "GPT-3
               que completa texto" y "ChatGPT que responde preguntas".</p>
@@ -1429,7 +1440,7 @@
     </section>
 
     <!-- SECTION 4: APLICACIONES REALES -->
-    <section class="llm-section">
+    <section class="llm-section" id="sec-llm-f4">
       <div class="container">
         <span class="section-label" data-i18n="f4_label">Fundamentos · 4 · Aplicaciones</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="f4_h2">
@@ -1507,7 +1518,7 @@
     </section>
 
     <!-- SECTION 5: LIMITACIONES -->
-    <section class="llm-section alt">
+    <section class="llm-section alt" id="sec-llm-f5">
       <div class="container">
         <span class="section-label" data-i18n="f5_label">Fundamentos · 5 · Limitaciones</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="f5_h2">
@@ -1555,7 +1566,7 @@
               <h4 data-i18n="f5_l4_h4">Sesgos del entrenamiento</h4>
               <p data-i18n="f5_l4_p">Los datos de internet reflejan los sesgos de quien escribe en internet:
                 sobrerepresentación del inglés y la cultura anglosajona, sesgos de género, raza y clase, y opiniones
-                mayoritarias que se refuerzan. El RLHF puede tanto corregir como amplificar ciertos sesgos dependiendo
+                mayoritarias que se refuerzan. El RLHF (Aprendizaje por Refuerzo con Retroalimentación Humana, del inglés Reinforcement Learning from Human Feedback) puede tanto corregir como amplificar ciertos sesgos dependiendo
                 de quién etiqueta los datos.</p>
               <span class="lim-tag med" data-i18n="lim_tag_med">Criticidad media</span>
             </div>
@@ -1603,8 +1614,18 @@
   <!-- ══════════════════════════════════════════════════ -->
   <div class="tab-panel" id="tab-interactivo">
 
+    <div class="section-index">
+      <p class="section-idx-title" data-i18n="idx_label">Contenidos</p>
+      <ol class="section-idx-list">
+        <li><a class="section-idx-link" href="#sec-llm-i0"><span data-i18n="i0_h2">El procesamiento completo</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-i1"><span data-i18n="i1_h2">Tokenizador visual</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-i2"><span data-i18n="i2_h2">Temperatura y predicción</span></a></li>
+        <li><a class="section-idx-link" href="#sec-llm-i3"><span data-i18n="i3_h2">Mecanismo de atención</span></a></li>
+      </ol>
+    </div>
+
     <!-- SECTION 1: EL PROCESAMIENTO COMPLETO -->
-    <section class="llm-section">
+    <section class="llm-section" id="sec-llm-i0">
       <div class="container">
         <span class="section-label" data-i18n="i0_label">Interactivo · 1 · El procesamiento completo</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="i0_h2">El
@@ -1677,7 +1698,7 @@
     </section>
 
     <!-- SECTION 2: TOKENIZADOR -->
-    <section class="llm-section alt">
+    <section class="llm-section alt" id="sec-llm-i1">
       <div class="container">
         <span class="section-label" data-i18n="i1_label">Interactivo · 2 · Tokenizador</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="i1_h2">
@@ -1719,7 +1740,7 @@
     </section>
 
     <!-- SECTION 3: TEMPERATURA -->
-    <section class="llm-section">
+    <section class="llm-section" id="sec-llm-i2">
       <div class="container">
         <span class="section-label" data-i18n="i2_label">Interactivo · 3 · Temperatura</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="i2_h2">
@@ -1765,7 +1786,7 @@
     </section>
 
     <!-- SECTION 4: ATENCIÓN -->
-    <section class="llm-section alt">
+    <section class="llm-section alt" id="sec-llm-i3">
       <div class="container">
         <span class="section-label" data-i18n="i3_label">Interactivo · 4 · Atención</span>
         <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px;" data-i18n="i3_h2">
@@ -2421,7 +2442,7 @@
               </div>
               <div
                 style="background:color-mix(in srgb,var(--accent) 10%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:8px;padding:8px 14px;font-size:0.68rem;font-weight:700;color:var(--accent);text-align:center;width:100%;"
-                data-i18n="cur9_v_rule">El debate más importante de la IA — sin respuesta definitiva</div>
+                data-i18n="cur9_v_rule">El debate más importante de la IA (sin respuesta definitiva)</div>
             </div>
           </div>
           <div class="cur-detail-content">
@@ -2500,6 +2521,7 @@
     // ── TRANSLATIONS ──────────────────────────────────
     const LLM_I18N = {
       hero_label: { es: 'Guía completa LLM', en: 'Complete LLM Guide' },
+      idx_label: { es: 'Contenidos', en: 'Contents' },
       hero_h1: { es: '¿Cómo <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">piensa</span> un modelo de lenguaje?', en: 'How does a language model <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">think</span>?' },
       hero_subtitle: { es: 'Un LLM no entiende el texto como tú: predice el siguiente token estadísticamente, capa a capa, con billones de parámetros. Aquí puedes explorar cómo funciona, qué historia hay detrás y por qué falla de formas sorprendentes.', en: 'An LLM doesn\'t understand text like you do: it predicts the next token statistically, layer by layer, with billions of parameters. Here you can explore how it works, its history, and why it fails in surprising ways.' },
       tab_fundamentos: { es: '📚 Fundamentos', en: '📚 Fundamentals' },
@@ -2509,7 +2531,7 @@
       f1_h2: { es: '¿Qué es un LLM?', en: 'What is an LLM?' },
       f1_lead: { es: 'Un <strong style="color:var(--text);">Modelo Grande de Lenguaje</strong> (LLM, <em>Large Language Model</em>) es una red neuronal profunda entrenada con cantidades masivas de texto para predecir el siguiente token dado un contexto. No "entiende" el lenguaje en el sentido humano: aprende correlaciones estadísticas entre secuencias de texto a una escala sin precedentes.', en: 'A <strong style="color:var(--text);">Large Language Model</strong> (LLM) is a deep neural network trained on massive amounts of text to predict the next token given a context. It doesn\'t "understand" language in the human sense: it learns statistical correlations between text sequences at an unprecedented scale.' },
       f1_c1_title: { es: 'Predicción del siguiente token', en: 'Next token prediction' },
-      f1_c1_body: { es: 'El objetivo de entrenamiento es simple: dado "El gato estaba en el", predecir "tejado". Todo lo demás —razonamiento, código, traducción— emerge de haber visto este problema a escala de billones de ejemplos.', en: 'The training objective is simple: given "The cat was on the", predict "roof". Everything else — reasoning, code, translation — emerges from seeing this problem at the scale of trillions of examples.' },
+      f1_c1_body: { es: 'El objetivo de entrenamiento es simple: dado "El gato estaba en el", predecir "tejado". Todo lo demás (razonamiento, código, traducción) emerge de haber visto este problema a escala de billones de ejemplos.', en: 'The training objective is simple: given "The cat was on the", predict "roof". Everything else — reasoning, code, translation — emerges from seeing this problem at the scale of trillions of examples.' },
       f1_c2_title: { es: 'Escala como ingrediente clave', en: 'Scale as the key ingredient' },
       f1_c2_body: { es: 'Las capacidades emergentes no aparecen en modelos pequeños. La traducción, el razonamiento lógico o la programación surgen de forma abrupta al cruzar ciertos umbrales de parámetros y datos de entrenamiento.', en: 'Emergent capabilities don\'t appear in small models. Translation, logical reasoning, and programming emerge abruptly when crossing certain thresholds of parameters and training data.' },
       f1_c3_title: { es: 'Preentrenamiento + ajuste fino', en: 'Pretraining + fine-tuning' },
@@ -2527,27 +2549,27 @@
       f2_subtitle: { es: 'De las reglas escritas a mano a los billones de parámetros: 70 años de evolución en 12 hitos.', en: 'From hand-written rules to billions of parameters: 70 years of evolution in 12 milestones.' },
       tl1_title: { es: 'Test de Turing', en: 'Turing Test' },
       tl1_desc: { es: 'Alan Turing propone la pregunta definitoria: ¿puede una máquina imitar la inteligencia humana de forma indistinguible? Sienta las bases filosóficas del campo.', en: 'Alan Turing poses the defining question: can a machine imitate human intelligence indistinguishably? Establishes the philosophical foundations of the field.' },
-      tl2_title: { es: 'ELIZA — el primer chatbot', en: 'ELIZA — the first chatbot' },
+      tl2_title: { es: 'ELIZA (el primer chatbot)', en: 'ELIZA — the first chatbot' },
       tl2_desc: { es: 'Joseph Weizenbaum (MIT) crea ELIZA, un programa que simula un psicólogo usando reglas escritas a mano. Sorprendentemente, muchos usuarios creen hablar con una persona real.', en: 'Joseph Weizenbaum (MIT) creates ELIZA, a program simulating a psychologist using hand-written rules. Surprisingly, many users believe they are talking to a real person.' },
       tl3_title: { es: 'Backpropagation', en: 'Backpropagation' },
       tl3_desc: { es: 'Rumelhart, Hinton y Williams popularizan el algoritmo de retropropagación. Las redes neuronales pueden aprender representaciones en múltiples capas por primera vez de forma práctica.', en: 'Rumelhart, Hinton and Williams popularize backpropagation. Neural networks can learn multi-layer representations for the first time in a practical way.' },
-      tl4_title: { es: 'LSTM — memoria explícita', en: 'LSTM — explicit memory' },
+      tl4_title: { es: 'LSTM (memoria explícita)', en: 'LSTM — explicit memory' },
       tl4_desc: { es: 'Hochreiter y Schmidhuber presentan las redes LSTM. Por primera vez, las redes pueden mantener información relevante a lo largo de secuencias largas, habilitando la comprensión de texto.', en: 'Hochreiter and Schmidhuber introduce LSTM networks. For the first time, networks can maintain relevant information across long sequences, enabling text understanding.' },
-      tl5_title: { es: 'Word2Vec — palabras como vectores', en: 'Word2Vec — words as vectors' },
+      tl5_title: { es: 'Word2Vec (palabras como vectores)', en: 'Word2Vec — words as vectors' },
       tl5_desc: { es: 'Mikolov (Google) demuestra que las palabras pueden representarse como vectores en un espacio geométrico. "Rey − Hombre + Mujer ≈ Reina". Las relaciones semánticas tienen estructura algebraica.', en: 'Mikolov (Google) shows words can be represented as vectors in a geometric space. "King − Man + Woman ≈ Queen". Semantic relationships have algebraic structure.' },
-      tl6_title: { es: 'Attention is All You Need — el Transformer', en: 'Attention is All You Need — the Transformer' },
+      tl6_title: { es: 'Attention is All You Need (el Transformer)', en: 'Attention is All You Need — the Transformer' },
       tl6_desc: { es: 'Vaswani et al. (Google) publican el paper que cambia todo: el Transformer elimina la recurrencia y usa únicamente atención. Paralelizable, escalable, y superior en todo benchmark. Base de todos los LLMs modernos.', en: 'Vaswani et al. (Google) publish the paper that changes everything: the Transformer eliminates recurrence and uses only attention. Parallelizable, scalable, superior on every benchmark. Foundation of all modern LLMs.' },
-      tl7_title: { es: 'BERT y GPT-1 — preentrenamiento masivo', en: 'BERT and GPT-1 — massive pretraining' },
+      tl7_title: { es: 'BERT y GPT-1 (preentrenamiento masivo)', en: 'BERT and GPT-1 — massive pretraining' },
       tl7_desc: { es: 'Google presenta BERT (bidireccional) y OpenAI GPT-1 (autoregresivo). Ambos demuestran que preentrenar en texto crudo y ajustar fino supera el entrenamiento desde cero en cualquier tarea NLP.', en: 'Google introduces BERT (bidirectional) and OpenAI GPT-1 (autoregressive). Both show pretraining on raw text and fine-tuning outperforms training from scratch on any NLP task.' },
-      tl8_title: { es: 'GPT-2 — "demasiado peligroso"', en: 'GPT-2 — "too dangerous"' },
+      tl8_title: { es: 'GPT-2 ("demasiado peligroso")', en: 'GPT-2 — "too dangerous"' },
       tl8_desc: { es: 'OpenAI decide no publicar GPT-2 completo por miedo a su uso malicioso. Primera gran polémica sobre IA. En perspectiva, era pequeño comparado con los modelos actuales, pero su capacidad narrativa sorprendió al mundo.', en: 'OpenAI decides not to fully release GPT-2 fearing malicious use. The first major AI controversy. In retrospect it was small compared to current models, but its narrative ability surprised the world.' },
-      tl9_title: { es: 'GPT-3 — capacidades emergentes', en: 'GPT-3 — emergent capabilities' },
+      tl9_title: { es: 'GPT-3 (capacidades emergentes)', en: 'GPT-3 — emergent capabilities' },
       tl9_desc: { es: '175B parámetros. GPT-3 demuestra few-shot learning: aprende tareas nuevas con solo 3-5 ejemplos en el prompt. Genera código, poesía, traduce idiomas. Las capacidades emergentes sorprenden al propio OpenAI.', en: '175B parameters. GPT-3 demonstrates few-shot learning: learns new tasks with just 3-5 prompt examples. Generates code, poetry, translates languages. Emergent capabilities surprise even OpenAI.' },
-      tl10_title: { es: 'ChatGPT — un millón de usuarios en 5 días', en: 'ChatGPT — one million users in 5 days' },
+      tl10_title: { es: 'ChatGPT (un millón de usuarios en 5 días)', en: 'ChatGPT — one million users in 5 days' },
       tl10_desc: { es: 'InstructGPT y ChatGPT llevan el RLHF a la práctica. El modelo aprende a ser útil y seguro a partir de evaluaciones humanas. ChatGPT bate todos los records de adopción de software en la historia.', en: 'InstructGPT and ChatGPT bring RLHF to practice. The model learns to be helpful and safe from human evaluations. ChatGPT breaks all software adoption records in history.' },
-      tl11_title: { es: 'GPT-4, Claude, Llama — el ecosistema explota', en: 'GPT-4, Claude, Llama — the ecosystem explodes' },
+      tl11_title: { es: 'GPT-4, Claude, Llama (el ecosistema explota)', en: 'GPT-4, Claude, Llama — the ecosystem explodes' },
       tl11_desc: { es: 'Multimodalidad, razonamiento avanzado, contextos largos. Meta abre Llama y democratiza el acceso a LLMs potentes. Anthropic lanza Claude con énfasis en seguridad. El campo se fragmenta en docenas de modelos competidores.', en: 'Multimodality, advanced reasoning, long contexts. Meta opens Llama, democratizing access to powerful LLMs. Anthropic launches Claude with a safety focus. The field fragments into dozens of competing models.' },
-      tl12_title: { es: 'Modelos de razonamiento — pensar antes de responder', en: 'Reasoning models — think before answering' },
+      tl12_title: { es: 'Modelos de razonamiento (pensar antes de responder)', en: 'Reasoning models — think before answering' },
       tl12_desc: { es: 'o1, DeepSeek-R1, Claude con razonamiento extendido. Los modelos generan miles de tokens internos de "pensamiento" antes de responder. El razonamiento en cadena se convierte en entrenamiento, no solo en prompting.', en: 'o1, DeepSeek-R1, Claude with extended reasoning. Models generate thousands of internal "thinking" tokens before responding. Chain-of-thought becomes training, not just prompting.' },
       f3_label: { es: 'Fundamentos · 3 · ¿Por qué funcionan?', en: 'Fundamentals · 3 · Why they work' },
       f3_h2: { es: '¿Por qué funciona tan bien?', en: 'Why does it work so well?' },
@@ -2560,7 +2582,7 @@
       f3_w3_p: { es: 'El mecanismo de atención permite procesar texto en paralelo (no secuencialmente), lo que habilita el uso eficiente de miles de GPUs. Además, su estructura general es aplicable a texto, código, imágenes, audio y ADN sin cambios fundamentales.', en: 'The attention mechanism enables parallel (not sequential) text processing, allowing efficient use of thousands of GPUs. Moreover, its general structure applies to text, code, images, audio and DNA without fundamental changes.' },
       f3_w4_h4: { es: 'Datos de entrenamiento sin precedentes', en: 'Unprecedented training data' },
       f3_w4_p: { es: 'Los LLMs aprenden de toda la escritura humana digitalizada: libros, artículos, código, foros, webs. Esa diversidad masiva hace que el modelo desarrolle representaciones internas que capturan razonamiento, cultura, sintaxis y conocimiento factual simultáneamente.', en: 'LLMs learn from all digitised human writing: books, articles, code, forums, websites. That massive diversity causes the model to develop internal representations that simultaneously capture reasoning, culture, syntax and factual knowledge.' },
-      f3_w5_h4: { es: 'RLHF — alineación con instrucciones', en: 'RLHF — instruction alignment' },
+      f3_w5_h4: { es: 'RLHF (alineación con instrucciones)', en: 'RLHF — instruction alignment' },
       f3_w5_p: { es: 'El preentrenamiento produce un modelo que predice texto; el ajuste fino con retroalimentación humana (RLHF) lo convierte en un asistente útil y seguro. Es la diferencia entre "GPT-3 que completa texto" y "ChatGPT que responde preguntas".', en: 'Pre-training produces a model that predicts text; fine-tuning with human feedback (RLHF) turns it into a useful and safe assistant. It\'s the difference between "GPT-3 that completes text" and "ChatGPT that answers questions".' },
       f3_w6_h4: { es: 'Representaciones densas y transferibles', en: 'Dense and transferable representations' },
       f3_w6_p: { es: 'Los embeddings aprendidos durante el preentrenamiento capturan relaciones semánticas, gramaticales y factuales en el mismo espacio vectorial. El modelo no necesita aprender desde cero cada tarea: transfiere automáticamente su representación del mundo.', en: 'Embeddings learned during pre-training capture semantic, grammatical and factual relationships in the same vector space. The model doesn\'t need to learn each task from scratch: it automatically transfers its world representation.' },
@@ -2589,7 +2611,7 @@
       f5_l3_h4: { es: 'Ventana de contexto finita', en: 'Finite context window' },
       f5_l3_p: { es: 'Aunque los contextos han crecido hasta 1M de tokens, el modelo tiene dificultades para mantener coherencia y recuperar información precisa en contextos muy largos (el "lost in the middle" problem). Documentos muy extensos requieren estrategias de chunking y RAG para ser procesados correctamente.', en: 'Although contexts have grown to 1M tokens, the model struggles to maintain coherence and retrieve precise information in very long contexts (the "lost in the middle" problem). Very long documents require chunking and RAG strategies to be processed correctly.' },
       f5_l4_h4: { es: 'Sesgos del entrenamiento', en: 'Training biases' },
-      f5_l4_p: { es: 'Los datos de internet reflejan los sesgos de quien escribe en internet: sobrerepresentación del inglés y la cultura anglosajona, sesgos de género, raza y clase, y opiniones mayoritarias que se refuerzan. El RLHF puede tanto corregir como amplificar ciertos sesgos dependiendo de quién etiqueta los datos.', en: 'Internet data reflects the biases of those who write on the internet: overrepresentation of English and Anglo-Saxon culture, gender, race and class biases, and majority opinions that get reinforced. RLHF can both correct and amplify certain biases depending on who labels the data.' },
+      f5_l4_p: { es: 'Los datos de internet reflejan los sesgos de quien escribe en internet: sobrerepresentación del inglés y la cultura anglosajona, sesgos de género, raza y clase, y opiniones mayoritarias que se refuerzan. El RLHF (Aprendizaje por Refuerzo con Retroalimentación Humana, del inglés Reinforcement Learning from Human Feedback) puede tanto corregir como amplificar ciertos sesgos dependiendo de quién etiqueta los datos.', en: 'Internet data reflects the biases of those who write on the internet: overrepresentation of English and Anglo-Saxon culture, gender, race and class biases, and majority opinions that get reinforced. RLHF (Reinforcement Learning from Human Feedback) can both correct and amplify certain biases depending on who labels the data.' },
       f5_l5_h4: { es: 'Razonamiento matemático y lógico formal', en: 'Mathematical and formal logical reasoning' },
       f5_l5_p: { es: 'Los LLMs no ejecutan código internamente: simulan razonamiento matemático basándose en patrones estadísticos. Aritmética simple puede fallar; cálculos complejos son poco fiables sin herramientas externas. Los modelos con acceso a intérprete de Python resuelven esto de forma híbrida.', en: 'LLMs don\'t execute code internally: they simulate mathematical reasoning based on statistical patterns. Simple arithmetic can fail; complex calculations are unreliable without external tools. Models with access to a Python interpreter solve this in a hybrid way.' },
       f5_l6_h4: { es: 'Coste computacional y huella ambiental', en: 'Computational cost and environmental footprint' },
@@ -2697,7 +2719,7 @@
       cur9_v_a: { es: 'Solo estadística de tokens, sin comprensión semántica real', en: 'Only token statistics, no real semantic understanding' },
       cur9_v_b_label: { es: 'Posición B', en: 'Position B' },
       cur9_v_b: { es: 'Capacidades emergentes que sugieren algo más que correlación', en: 'Emergent capabilities suggesting more than mere correlation' },
-      cur9_v_rule: { es: 'El debate más importante de la IA — sin respuesta definitiva', en: 'The most important debate in AI — no definitive answer' },
+      cur9_v_rule: { es: 'El debate más importante de la IA (sin respuesta definitiva)', en: 'The most important debate in AI — no definitive answer' },
       cur1_num: { es: '01 · Reversal Curse', en: '01 · Reversal Curse' }, cur1_h3: { es: 'La maldición de la reversibilidad', en: 'The reversal curse' },
       cur1_p1: { es: 'En 2023, investigadores de Oxford publicaron un paper sobre lo que llamaron la "maldición de la reversibilidad": los LLMs memorizan hechos en la dirección en que aparecen en el texto, pero no infieren la relación inversa. Si el modelo aprendió que "Obama es el 44º presidente", no garantiza que sepa quién es el 44º presidente cuando se le pregunta desde la otra dirección.', en: 'In 2023, Oxford researchers published a paper on what they called the "reversal curse": LLMs memorize facts in the direction they appear in text, but do not infer the inverse relationship. If the model learned that "Obama is the 44th president", it doesn\'t guarantee it knows who the 44th president is when asked from the opposite direction.' },
       cur1_p2: { es: 'La causa está en el entrenamiento autoregresivo de izquierda a derecha. Si la relación A→B aparece frecuentemente pero B→A raramente, el modelo la aprende solo en una dirección. No abstrae "A y B están relacionados de forma simétrica"; aprende la secuencia de tokens específica. Para el modelo, cada dirección de una relación es un hecho independiente que necesita ejemplos propios.', en: 'The cause lies in left-to-right autoregressive training. If the A→B relationship appears frequently but B→A rarely, the model only learns it in one direction. It doesn\'t abstract "A and B are symmetrically related"; it learns the specific token sequence. For the model, each direction of a relationship is an independent fact needing its own examples.' },
@@ -2753,7 +2775,7 @@
       texto: { title: 'Texto crudo', body: 'El usuario escribe "¿Cuál es la capital de Francia?". El modelo recibe una secuencia de caracteres Unicode. Antes de procesarla se normaliza: normalización Unicode, eliminación de caracteres de control. Este es el único punto donde el modelo ve lenguaje humano sin procesar.' },
       tokens: { title: 'Tokenización', body: 'El texto se divide en tokens mediante BPE (Byte-Pair Encoding). "¿Cuál" puede convertirse en ["¿", "Cu", "ál"] dependiendo del vocabulario. Cada token tiene un ID numérico único. GPT-4 usa ~100K tokens distintos; un token ≈ 0.75 palabras en inglés. Esta es la representación real que procesa el modelo.' },
       embed: { title: 'Embeddings', body: 'Cada ID de token se convierte en un vector denso de alta dimensión (d_model = 768 a 12.288 según el modelo). Estos vectores se aprenden durante el entrenamiento. A los embeddings de token se suman positional embeddings para codificar la posición de cada token en la secuencia.' },
-      transformer: { title: 'Capas Transformer', body: 'El corazón del modelo: N capas idénticas apiladas (12 en GPT-2, 96 en GPT-4). Cada capa tiene: (1) Multi-head self-attention — cada token puede atender a todos los anteriores; (2) Feed-forward network — dos capas lineales con activación GELU; (3) Residual connections + Layer Normalization.' },
+      transformer: { title: 'Capas Transformer', body: 'El corazón del modelo: N capas idénticas apiladas (12 en GPT-2, 96 en GPT-4). Cada capa tiene: (1) Multi-head self-attention (cada token puede atender a todos los anteriores); (2) Feed-forward network (dos capas lineales con activación GELU); (3) Residual connections + Layer Normalization.' },
       logits: { title: 'Logits', body: 'La última capa Transformer produce un vector de dimensión d_model para el último token. Una capa lineal final proyecta ese vector al tamaño del vocabulario (50K-100K). El resultado son logits: puntuaciones sin normalizar para cada posible token siguiente. Valores más altos = token más probable.' },
       softmax: { title: 'Softmax + Temperatura', body: 'Los logits se convierten en probabilidades mediante softmax: p(i) = exp(logit_i / T) / Σ exp(logit_j / T). La temperatura T controla la aleatoriedad: T=0.1 → siempre el más probable; T=2.0 → distribución muy plana. El modelo genera una distribución de probabilidad sobre todo el vocabulario.' },
       sample: { title: 'Muestreo del siguiente token', body: 'Se selecciona un token muestreando la distribución (top-k, top-p/nucleus, o greedy). Ese token se añade a la secuencia y el proceso se repite desde el principio con el contexto extendido. Así se genera el texto: token a token, de izquierda a derecha, hasta un token de fin de secuencia [EOS].' },

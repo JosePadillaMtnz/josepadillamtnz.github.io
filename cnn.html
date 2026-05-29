@@ -1983,8 +1983,21 @@
   <!-- ── TAB 1: FUNDAMENTOS ─────────────────── -->
   <div class="tab-panel" id="tab-fundamentos">
 
+    <div class="section-index">
+      <p class="section-idx-title" data-i18n="idx_label">Contenidos</p>
+      <ol class="section-idx-list">
+        <li><a class="section-idx-link" href="#sec-cnn-f0"><span data-i18n="f0_h2">¿Qué es una CNN?</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f1"><span data-i18n="f1_h2">Historia y evolución</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f2"><span data-i18n="f2_h2">Componentes de una CNN</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f3"><span data-i18n="f3_h2">¿Por qué funcionan tan bien?</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f4"><span data-i18n="f4_h2">Aplicaciones reales</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f5"><span data-i18n="f5_h2">Limitaciones y retos</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-f6"><span data-i18n="f6_h2">Referencias fundamentales</span></a></li>
+      </ol>
+    </div>
+
     <!-- ── INTRO ── -->
-    <section class="fund-section">
+    <section class="fund-section" id="sec-cnn-f0">
       <div class="container">
         <span class="section-label" data-i18n="f0_label">Fundamentos · 1 · ¿Qué es una CNN?</span>
         <h2 data-i18n="f0_h2">¿Qué es una CNN?</h2>
@@ -2023,7 +2036,7 @@
     </section>
 
     <!-- ── HISTORIA ── -->
-    <section class="fund-section fund-section--alt">
+    <section class="fund-section fund-section--alt" id="sec-cnn-f1">
       <div class="container">
         <span class="section-label" data-i18n="f1_label">Fundamentos · 2 · Historia</span>
         <h2 data-i18n="f1_h2">Historia y evolución</h2>
@@ -2033,7 +2046,7 @@
           <div class="hist-item">
             <div class="hist-year">1989</div>
             <div class="hist-content">
-              <strong data-i18n="hist_1989_title">Backprop en CNNs — LeCun et al.</strong>
+              <strong data-i18n="hist_1989_title">Backprop en CNNs (LeCun et al.)</strong>
               <p data-i18n="hist_1989_p">Yann LeCun demuestra que la retropropagación puede entrenar redes convolucionales para reconocer
                 dígitos escritos a mano.</p>
             </div>
@@ -2049,7 +2062,7 @@
           <div class="hist-item">
             <div class="hist-year">2006</div>
             <div class="hist-content">
-              <strong data-i18n="hist_2006_title">Deep Belief Networks — Hinton</strong>
+              <strong data-i18n="hist_2006_title">Deep Belief Networks (Hinton)</strong>
               <p data-i18n="hist_2006_p">El "Deep Learning Renaissance": preentrenamiento no supervisado que permite entrenar redes profundas
                 estables por primera vez.</p>
             </div>
@@ -2065,7 +2078,7 @@
           <div class="hist-item">
             <div class="hist-year">2012</div>
             <div class="hist-content">
-              <strong data-i18n="hist_2012_title">AlexNet — ImageNet LSVRC</strong>
+              <strong data-i18n="hist_2012_title">AlexNet (ImageNet LSVRC)</strong>
               <p data-i18n="hist_2012_p">Krizhevsky, Sutskever y Hinton ganan ILSVRC con un error top-5 del 15,3% (vs 26,2% del segundo). Las
                 CNN se imponen definitivamente. Introdujo ReLU y dropout.</p>
             </div>
@@ -2081,7 +2094,7 @@
           <div class="hist-item">
             <div class="hist-year">2015</div>
             <div class="hist-content">
-              <strong data-i18n="hist_2015_title">ResNet — conexiones residuales</strong>
+              <strong data-i18n="hist_2015_title">ResNet (conexiones residuales)</strong>
               <p data-i18n="hist_2015_p">He et al. presentan las conexiones de salto (<em>skip connections</em>) que permiten entrenar redes de
                 152 capas. Error top-5 del 3,57%, superando a humanos (5,1%).</p>
             </div>
@@ -2089,7 +2102,7 @@
           <div class="hist-item">
             <div class="hist-year">2016</div>
             <div class="hist-content">
-              <strong data-i18n="hist_2016_title">YOLO — detección en tiempo real</strong>
+              <strong data-i18n="hist_2016_title">YOLO (detección en tiempo real)</strong>
               <p data-i18n="hist_2016_p">Redmon et al. presentan You Only Look Once: detección de objetos a 45 FPS en una sola pasada,
                 unificando localización y clasificación.</p>
             </div>
@@ -2115,7 +2128,7 @@
     </section>
 
     <!-- ── COMPONENTES ── -->
-    <section class="fund-section">
+    <section class="fund-section" id="sec-cnn-f2">
       <div class="container">
         <span class="section-label" data-i18n="f2_label">Fundamentos · 3 · Componentes</span>
         <h2 data-i18n="f2_h2">Componentes de una CNN</h2>
@@ -2183,7 +2196,7 @@
     </section>
 
     <!-- ── POR QUÉ FUNCIONAN ── -->
-    <section class="fund-section fund-section--alt">
+    <section class="fund-section fund-section--alt" id="sec-cnn-f3">
       <div class="container">
         <span class="section-label" data-i18n="f3_label">Fundamentos · 4 · ¿Por qué funcionan?</span>
         <h2 data-i18n="f3_h2">¿Por qué funcionan tan bien?</h2>
@@ -2223,7 +2236,7 @@
     </section>
 
     <!-- ── APLICACIONES ── -->
-    <section class="fund-section">
+    <section class="fund-section" id="sec-cnn-f4">
       <div class="container">
         <span class="section-label" data-i18n="f4_label">Fundamentos · 5 · Aplicaciones</span>
         <h2 data-i18n="f4_h2">Aplicaciones reales</h2>
@@ -2271,7 +2284,7 @@
     </section>
 
     <!-- ── LIMITACIONES ── -->
-    <section class="fund-section fund-section--alt">
+    <section class="fund-section fund-section--alt" id="sec-cnn-f5">
       <div class="container">
         <span class="section-label" data-i18n="f5_label">Fundamentos · 6 · Limitaciones</span>
         <h2 data-i18n="f5_h2">Limitaciones y retos</h2>
@@ -2321,7 +2334,7 @@
     </section>
 
     <!-- ── REFERENCIAS ── -->
-    <section class="fund-section">
+    <section class="fund-section" id="sec-cnn-f6">
       <div class="container">
         <span class="section-label" data-i18n="f6_label">Fundamentos · 7 · Referencias</span>
         <h2 data-i18n="f6_h2">Referencias fundamentales</h2>
@@ -2378,6 +2391,19 @@
 
   <!-- ── TAB 2: INTERACTIVO ─────────────────── -->
   <div class="tab-panel active" id="tab-interactivo">
+
+    <div class="section-index">
+      <p class="section-idx-title" data-i18n="idx_label">Contenidos</p>
+      <ol class="section-idx-list">
+        <li><a class="section-idx-link" href="#arquitectura"><span data-i18n="i1_h2">La arquitectura completa</span></a></li>
+        <li><a class="section-idx-link" href="#convolucion"><span data-i18n="i2_h2">La convolución en acción</span></a></li>
+        <li><a class="section-idx-link" href="#activaciones"><span data-i18n="i3_h2">Funciones de Activación</span></a></li>
+        <li><a class="section-idx-link" href="#pooling-demo"><span data-i18n="i4_h2">Demo de Pooling</span></a></li>
+        <li><a class="section-idx-link" href="#paradigmas"><span data-i18n="i5_h2">Paradigmas de Visión Artificial</span></a></li>
+        <li><a class="section-idx-link" href="#sec-cnn-i6"><span data-i18n="i6_h2">Una imagen, capa a capa</span></a></li>
+      </ol>
+    </div>
+
     <!-- ═══════════════════════════════════════════
      ARQUITECTURA
      ═══════════════════════════════════════════ -->
@@ -2549,8 +2575,8 @@
           style="margin-top:32px;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 28px;">
           <h4 style="font-weight:700;margin-bottom:12px;" data-i18n="conv_explain_h4">¿Qué está pasando?</h4>
           <p style="color:var(--text-muted);font-size:0.92rem;line-height:1.8;" id="kernelExplanation">
-            El filtro Sobel X detecta cambios bruscos de intensidad en dirección horizontal — es decir, <strong>bordes
-              verticales</strong>.
+            El filtro Sobel X detecta cambios bruscos de intensidad en dirección horizontal (es decir, <strong>bordes
+              verticales</strong>).
             Multiplica los píxeles de la izquierda por -1 y los de la derecha por +1. Donde hay borde, la diferencia es
             grande; donde hay zona uniforme, casi cero.
           </p>
@@ -2656,7 +2682,7 @@
               <div class="pool-cell pool-cell--out" id="po3">4</div>
             </div>
             <div class="pool-explain" id="poolExplain">
-              Max Pooling: toma el valor máximo de cada ventana 2×2 — preserva las activaciones más fuertes.
+              Max Pooling: toma el valor máximo de cada ventana 2×2 (preserva las activaciones más fuertes).
             </div>
           </div>
         </div>
@@ -2699,12 +2725,12 @@
     </section>
 
     <!-- ── PIPELINE VISUALIZER ── -->
-    <section style="padding:60px 0 80px;">
+    <section style="padding:60px 0 80px;" id="sec-cnn-i6">
       <div class="container">
         <div class="reveal">
           <span class="section-label" data-i18n="i6_label">Interactivo · 6 · Capa a capa</span>
           <h2 class="section-title" data-i18n="i6_h2">Una imagen, capa a capa</h2>
-          <p class="section-subtitle" data-i18n="i6_subtitle">Convoluciones reales aplicadas a una imagen real — sin modelos externos. Haz clic en cualquier mapa de activación para inspeccionarlo.</p>
+          <p class="section-subtitle" data-i18n="i6_subtitle">Convoluciones reales aplicadas a una imagen real (sin modelos externos). Haz clic en cualquier mapa de activación para inspeccionarlo.</p>
         </div>
 
         <!-- Image picker + animation button -->
@@ -2780,8 +2806,18 @@
   <!-- ── TAB 4: YOLO ───────────────────────── -->
   <div class="tab-panel" id="tab-yolo">
 
+    <div class="section-index">
+      <p class="section-idx-title" data-i18n="idx_label">Contenidos</p>
+      <ol class="section-idx-list">
+        <li><a class="section-idx-link" href="#sec-yolo1"><span data-i18n="yolo_hero_h2">El detector que lo cambió todo</span></a></li>
+        <li><a class="section-idx-link" href="#sec-yolo2"><span data-i18n="yolo_hist_h2">La evolución de YOLO</span></a></li>
+        <li><a class="section-idx-link" href="#yolo"><span data-i18n="yolo_mech_h2">De features a detecciones: YOLO</span></a></li>
+        <li><a class="section-idx-link" href="#sec-yolo4"><span data-i18n="feat_h2">Lo que ve la red en cada capa</span></a></li>
+      </ol>
+    </div>
+
     <!-- ── YOLO HERO ── -->
-    <section style="padding:80px 0 40px;">
+    <section style="padding:80px 0 40px;" id="sec-yolo1">
       <div class="container">
         <div class="reveal">
           <span class="section-label" data-i18n="yolo_hero_label">YOLO · 1 · You Only Look Once</span>
@@ -2834,7 +2870,7 @@
     </section>
 
     <!-- ── HISTORIA ── -->
-    <section style="background:rgba(255,255,255,0.01);padding:60px 0;">
+    <section style="background:rgba(255,255,255,0.01);padding:60px 0;" id="sec-yolo2">
       <div class="container">
         <div class="reveal">
           <span class="section-label" data-i18n="yolo_hist_label">YOLO · 2 · Historia</span>
@@ -2847,7 +2883,7 @@
             <div class="yolo-tl-year">2016</div>
             <div class="yolo-tl-dot"></div>
             <div class="yolo-tl-card">
-              <div class="yolo-tl-tag">v1 — Redmon et al.</div>
+              <div class="yolo-tl-tag">v1 (Redmon et al.)</div>
               <h4 data-i18n="yolo_v1_h4">You Only Look Once</h4>
               <p data-i18n="yolo_v1_p">El paper original que lo cambia todo. Una única red procesa la imagen completa y predice cajas y clases en un solo paso. <strong>45 FPS</strong> en GPU, algo impensable hasta entonces.</p>
               <div class="yolo-tl-stats">
@@ -2859,7 +2895,7 @@
             <div class="yolo-tl-year">2017</div>
             <div class="yolo-tl-dot"></div>
             <div class="yolo-tl-card">
-              <div class="yolo-tl-tag">v2 — YOLO9000</div>
+              <div class="yolo-tl-tag">v2 (YOLO9000)</div>
               <h4>Better, Faster, Stronger</h4>
               <p data-i18n="yolo_v2_p">Incorpora <em>anchor boxes</em> aprendidos del dataset, batch normalization y entrenamiento multi-escala. Capaz de detectar más de <strong>9.000 clases</strong> combinando COCO e ImageNet.</p>
               <div class="yolo-tl-stats">
@@ -2871,7 +2907,7 @@
             <div class="yolo-tl-year">2018</div>
             <div class="yolo-tl-dot"></div>
             <div class="yolo-tl-card">
-              <div class="yolo-tl-tag">v3 — Darknet-53</div>
+              <div class="yolo-tl-tag">v3 (Darknet-53)</div>
               <h4 data-i18n="yolo_v3_h4">Detección multi-escala</h4>
               <p data-i18n="yolo_v3_p">Nuevo backbone Darknet-53 con conexiones residuales. Predice en <strong>3 escalas distintas</strong> (13×13, 26×26, 52×52) para detectar objetos de cualquier tamaño. El que más usé en producción.</p>
               <div class="yolo-tl-stats">
@@ -2895,7 +2931,7 @@
             <div class="yolo-tl-year">2023</div>
             <div class="yolo-tl-dot"></div>
             <div class="yolo-tl-card">
-              <div class="yolo-tl-tag">v8 — Ultralytics</div>
+              <div class="yolo-tl-tag">v8 (Ultralytics)</div>
               <h4 data-i18n="yolo_v8_h4">State of the art actual</h4>
               <p data-i18n="yolo_v8_p"><strong>Anchor-free</strong>, cabeza desacoplada, una sola librería unificada para detección, segmentación, clasificación y pose estimation. El estándar de la industria hoy.</p>
               <div class="yolo-tl-stats">
@@ -2926,17 +2962,17 @@
 
           <div class="yolo-steps">
             <div class="yolo-step active" data-yolo="grid">
-              <div class="step-num">01 — Grid</div>
+              <div class="step-num">01 (Grid)</div>
               <h4 data-i18n="yolo_step1_h4">División en rejilla S×S</h4>
               <p data-i18n="yolo_step1_p">YOLO divide la imagen en una rejilla de 13×13 celdas. Cada celda es responsable de detectar objetos cuyo centro cae en ella.</p>
             </div>
             <div class="yolo-step" data-yolo="anchors">
-              <div class="step-num">02 — Anchor Boxes</div>
+              <div class="step-num">02 (Anchor Boxes)</div>
               <h4 data-i18n="yolo_step2_h4">Cajas ancla predefinidas</h4>
               <p data-i18n="yolo_step2_p">Cada celda predice B=3 cajas ancla de distintos tamaños (alta, ancha, cuadrada). Los anclas son proporciones aprendidas del dataset.</p>
             </div>
             <div class="yolo-step" data-yolo="prediction">
-              <div class="step-num">03 — <span data-i18n="yolo_step3_label">Predicción</span></div>
+              <div class="step-num">03 (<span data-i18n="yolo_step3_label">Predicción</span>)</div>
               <h4 data-i18n="yolo_step3_h4">Salida por celda</h4>
               <p data-i18n="yolo_step3_p">Para cada ancla se predice: offset (x,y), escala (w,h), confianza de objeto, y probabilidad de cada clase.</p>
               <div class="output-format">
@@ -2949,7 +2985,7 @@
               </div>
             </div>
             <div class="yolo-step" data-yolo="nms">
-              <div class="step-num">04 — NMS</div>
+              <div class="step-num">04 (NMS)</div>
               <h4>Non-Maximum Suppression</h4>
               <p data-i18n="yolo_step4_p">Múltiples celdas pueden detectar el mismo objeto. NMS elimina duplicados conservando solo la caja con mayor confianza por objeto.</p>
             </div>
@@ -2983,7 +3019,7 @@
     </section>
 
     <!-- ── FEATURE MAPS ── -->
-    <section style="padding:60px 0 80px;">
+    <section style="padding:60px 0 80px;" id="sec-yolo4">
       <div class="container">
         <div class="reveal">
           <span class="section-label" data-i18n="feat_label">YOLO · 4 · Dentro del backbone</span>
@@ -3588,6 +3624,7 @@
     const CNN_I18N = {
       // Hero
       hero_label:     { es: 'Guía completa CNN', en: 'Complete CNN Guide' },
+      idx_label:      { es: 'Contenidos', en: 'Contents' },
       hero_h1:        { es: '¿Cómo <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ve</span> una red neuronal?', en: 'How does a <span style="background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">neural network</span> see?' },
       hero_subtitle:  { es: 'Una CNN aprende a detectar patrones visuales de forma jerárquica: bordes → texturas → formas → objetos. Aquí puedes ver exactamente cómo funciona cada operación, paso a paso y con tu propia imagen.', en: 'A CNN learns to detect visual patterns hierarchically: edges → textures → shapes → objects. Here you can see exactly how each operation works, step by step with your own image.' },
       tab_fundamentos:   { es: '📚 Fundamentos', en: '📚 Fundamentals' },
@@ -3608,21 +3645,21 @@
       f1_label:       { es: 'Fundamentos · 2 · Historia', en: 'Fundamentals · 2 · History' },
       f1_h2:          { es: 'Historia y evolución', en: 'History and evolution' },
       f1_lead:        { es: 'Las CNN han evolucionado desde experimentos teóricos en los años 80 hasta convertirse en la columna vertebral de la visión artificial moderna.', en: 'CNNs have evolved from theoretical experiments in the 1980s to become the backbone of modern computer vision.' },
-      hist_1989_title:{ es: 'Backprop en CNNs — LeCun et al.', en: 'Backprop in CNNs — LeCun et al.' },
+      hist_1989_title:{ es: 'Backprop en CNNs (LeCun et al.)', en: 'Backprop in CNNs — LeCun et al.' },
       hist_1989_p:    { es: 'Yann LeCun demuestra que la retropropagación puede entrenar redes convolucionales para reconocer dígitos escritos a mano.', en: 'Yann LeCun demonstrates that backpropagation can train convolutional networks to recognize handwritten digits.' },
       hist_1998_title:{ es: 'LeNet-5', en: 'LeNet-5' },
       hist_1998_p:    { es: 'Primera CNN con arquitectura moderna (conv → pool → conv → pool → FC). Desplegada por bancos de EE.UU. para leer cheques.', en: 'First CNN with modern architecture (conv → pool → conv → pool → FC). Deployed by US banks to read checks.' },
-      hist_2006_title:{ es: 'Deep Belief Networks — Hinton', en: 'Deep Belief Networks — Hinton' },
+      hist_2006_title:{ es: 'Deep Belief Networks (Hinton)', en: 'Deep Belief Networks — Hinton' },
       hist_2006_p:    { es: 'El "Deep Learning Renaissance": preentrenamiento no supervisado que permite entrenar redes profundas estables por primera vez.', en: 'The "Deep Learning Renaissance": unsupervised pretraining that enables stable deep network training for the first time.' },
       hist_2009_title:{ es: 'ImageNet dataset', en: 'ImageNet dataset' },
       hist_2009_p:    { es: 'Fei-Fei Li publica ImageNet: 14 millones de imágenes, 21.000 categorías. Nace el benchmark que cambiaría el campo.', en: 'Fei-Fei Li publishes ImageNet: 14 million images, 21,000 categories. The benchmark that would change the field is born.' },
-      hist_2012_title:{ es: 'AlexNet — ImageNet LSVRC', en: 'AlexNet — ImageNet LSVRC' },
+      hist_2012_title:{ es: 'AlexNet (ImageNet LSVRC)', en: 'AlexNet — ImageNet LSVRC' },
       hist_2012_p:    { es: 'Krizhevsky, Sutskever y Hinton ganan ILSVRC con un error top-5 del 15,3% (vs 26,2% del segundo). Las CNN se imponen definitivamente. Introdujo ReLU y dropout.', en: 'Krizhevsky, Sutskever and Hinton win ILSVRC with a top-5 error of 15.3% (vs 26.2% for second place). CNNs dominate definitively. Introduced ReLU and dropout.' },
       hist_2014_title:{ es: 'VGGNet &amp; GoogLeNet (Inception)', en: 'VGGNet &amp; GoogLeNet (Inception)' },
       hist_2014_p:    { es: 'VGG muestra que la profundidad importa (16-19 capas). Inception introduce los módulos paralelos y reduce el coste computacional.', en: 'VGG shows that depth matters (16-19 layers). Inception introduces parallel modules and reduces computational cost.' },
-      hist_2015_title:{ es: 'ResNet — conexiones residuales', en: 'ResNet — residual connections' },
+      hist_2015_title:{ es: 'ResNet (conexiones residuales)', en: 'ResNet — residual connections' },
       hist_2015_p:    { es: 'He et al. presentan las conexiones de salto (<em>skip connections</em>) que permiten entrenar redes de 152 capas. Error top-5 del 3,57%, superando a humanos (5,1%).', en: 'He et al. present <em>skip connections</em> that allow training 152-layer networks. Top-5 error of 3.57%, surpassing humans (5.1%).' },
-      hist_2016_title:{ es: 'YOLO — detección en tiempo real', en: 'YOLO — real-time detection' },
+      hist_2016_title:{ es: 'YOLO (detección en tiempo real)', en: 'YOLO — real-time detection' },
       hist_2016_p:    { es: 'Redmon et al. presentan You Only Look Once: detección de objetos a 45 FPS en una sola pasada, unificando localización y clasificación.', en: 'Redmon et al. present You Only Look Once: object detection at 45 FPS in a single pass, unifying localization and classification.' },
       hist_2019_title:{ es: 'EfficientNet', en: 'EfficientNet' },
       hist_2019_p:    { es: 'Tan &amp; Le proponen escalar redes de forma sistemática (profundidad, anchura, resolución) logrando el mejor ratio precisión/FLOPs del momento.', en: 'Tan &amp; Le propose systematic network scaling (depth, width, resolution) achieving the best accuracy/FLOPs ratio at the time.' },
@@ -3768,7 +3805,7 @@
       // Interactivo 6 — Pipeline
       i6_label:       { es: 'Interactivo · 6 · Capa a capa', en: 'Interactive · 6 · Layer by layer' },
       i6_h2:          { es: 'Una imagen, capa a capa', en: 'One image, layer by layer' },
-      i6_subtitle:    { es: 'Convoluciones reales aplicadas a una imagen real — sin modelos externos. Haz clic en cualquier mapa de activación para inspeccionarlo.', en: 'Real convolutions applied to a real image — no external models. Click any activation map to inspect it.' },
+      i6_subtitle:    { es: 'Convoluciones reales aplicadas a una imagen real (sin modelos externos). Haz clic en cualquier mapa de activación para inspeccionarlo.', en: 'Real convolutions applied to a real image — no external models. Click any activation map to inspect it.' },
       pipe_image_label:{ es: 'Imagen:', en: 'Image:' },
       pipe_anim_btn:  { es: '🎬 Animar kernel', en: '🎬 Animate kernel' },
       cmap_gray:      { es: 'Escala de grises', en: 'Grayscale' },
@@ -3851,7 +3888,7 @@
       // Curiosidades
       cur_label:       { es: 'Curiosidades', en: 'Curiosities' },
       cur_h2:          { es: 'Lo que las CNNs no te cuentan', en: 'What CNNs don\'t tell you' },
-      cur_subtitle:    { es: 'Comportamientos sorprendentes, errores documentados y fenómenos contraintuitivos que revelan cómo piensan —y cómo fallan— las redes neuronales convolucionales.', en: 'Surprising behaviors, documented failures and counterintuitive phenomena that reveal how convolutional neural networks think — and fail.' },
+      cur_subtitle:    { es: 'Comportamientos sorprendentes, errores documentados y fenómenos contraintuitivos que revelan cómo piensan (y cómo fallan) las redes neuronales convolucionales.', en: 'Surprising behaviors, documented failures and counterintuitive phenomena that reveal how convolutional neural networks think — and fail.' },
       // índice (etiquetas cortas)
       cur1_num_s:      { es: '01', en: '01' },
       cur1_title_s:    { es: 'Ejemplos adversariales', en: 'Adversarial examples' },
@@ -4149,7 +4186,7 @@
       blur: { es: 'El <strong>Gaussiano</strong> suaviza la imagen. Promedia los píxeles ponderando más el centro y menos los extremos. Se usa en capas iniciales para reducir ruido.', en: 'The <strong>Gaussian</strong> smooths the image. It averages pixels weighting the center more and edges less. Used in early layers to reduce noise.' },
       sharpen: { es: 'El filtro de <strong>Nitidez</strong> amplifica las diferencias locales. Suma al píxel central el negativo de sus vecinos, creando el efecto de mayor definición.', en: 'The <strong>Sharpen</strong> filter amplifies local differences. It adds to the central pixel the negative of its neighbors, creating a higher definition effect.' },
       emboss: { es: 'El filtro de <strong>Relieve</strong> da sensación de profundidad resaltando bordes diagonales. Es otro ejemplo de cómo distintos kernels detectan distintos tipos de estructura.', en: 'The <strong>Emboss</strong> filter gives a depth sensation by highlighting diagonal edges. It is another example of how different kernels detect different types of structure.' },
-      identity: { es: 'La <strong>Identidad</strong> no altera la imagen — cada píxel se multiplica por 1 y los vecinos por 0. Sirve como referencia para entender que la convolución es literalmente una suma ponderada de vecinos.', en: 'The <strong>Identity</strong> does not alter the image — each pixel is multiplied by 1 and neighbors by 0. It serves as a reference to understand that convolution is literally a weighted sum of neighbors.' }
+      identity: { es: 'La <strong>Identidad</strong> no altera la imagen (cada píxel se multiplica por 1 y los vecinos por 0). Sirve como referencia para entender que la convolución es literalmente una suma ponderada de vecinos.', en: 'The <strong>Identity</strong> does not alter the image — each pixel is multiplied by 1 and neighbors by 0. It serves as a reference to understand that convolution is literally a weighted sum of neighbors.' }
     };
     const KERNEL_EXPLANATIONS = Object.fromEntries(Object.entries(KERNEL_EXPLANATIONS_I18N).map(([k,v])=>[k,v[LANG]||v.es]));
 
@@ -4313,7 +4350,7 @@
       drawInput(row, col);
       drawOutput(row, col);
       updateMath(cells, sum);
-      document.getElementById('stepPos').textContent = `(${row},${col}) — paso ${stepIdx + 1}/${(N - 2) * (N - 2)}`;
+      document.getElementById('stepPos').textContent = `(${row},${col}) · paso ${stepIdx + 1}/${(N - 2) * (N - 2)}`;
       stepIdx++;
     }
 
@@ -4709,8 +4746,8 @@
       });
       results.forEach((v, i) => { document.getElementById('po' + i).textContent = v; });
       const explain = type === 'max'
-        ? (LANG==='en' ? 'Max Pooling: takes the maximum value of each 2×2 window — preserves the strongest activations.' : 'Max Pooling: toma el valor máximo de cada ventana 2×2 — preserva las activaciones más fuertes.')
-        : (LANG==='en' ? 'Average Pooling: computes the mean of each 2×2 window — smooths the activations.' : 'Average Pooling: calcula la media de cada ventana 2×2 — suaviza las activaciones.');
+        ? (LANG==='en' ? 'Max Pooling: takes the maximum value of each 2×2 window — preserves the strongest activations.' : 'Max Pooling: toma el valor máximo de cada ventana 2×2 (preserva las activaciones más fuertes).')
+        : (LANG==='en' ? 'Average Pooling: computes the mean of each 2×2 window — smooths the activations.' : 'Average Pooling: calcula la media de cada ventana 2×2 (suaviza las activaciones).');
       document.getElementById('poolExplain').textContent = explain;
     }
 
@@ -4859,8 +4896,8 @@
     // ══════════════════════════════════════════════════
     const _k=(es,en)=>LANG==='en'?en:es;
     const PIPE_KERNELS_L1 = [
-      { name:'Sobel H',     desc:_k('Detecta bordes horizontales — cambios de brillo de arriba a abajo.','Detects horizontal edges — brightness changes from top to bottom.'), k:[[-1,-2,-1],[0,0,0],[1,2,1]] },
-      { name:'Sobel V',     desc:_k('Detecta bordes verticales — cambios de brillo de izquierda a derecha.','Detects vertical edges — brightness changes from left to right.'), k:[[-1,0,1],[-2,0,2],[-1,0,1]] },
+      { name:'Sobel H',     desc:_k('Detecta bordes horizontales (cambios de brillo de arriba a abajo).','Detects horizontal edges — brightness changes from top to bottom.'), k:[[-1,-2,-1],[0,0,0],[1,2,1]] },
+      { name:'Sobel V',     desc:_k('Detecta bordes verticales (cambios de brillo de izquierda a derecha).','Detects vertical edges — brightness changes from left to right.'), k:[[-1,0,1],[-2,0,2],[-1,0,1]] },
       { name:'Diagonal ↗',  desc:_k('Sensible a bordes a 45°.','Sensitive to 45° edges.'), k:[[0,1,2],[-1,0,1],[-2,-1,0]] },
       { name:'Diagonal ↘',  desc:_k('Sensible a bordes a -45°.','Sensitive to -45° edges.'), k:[[-2,-1,0],[-1,0,1],[0,1,2]] },
       { name:_k('Laplaciano','Laplacian'),  desc:_k('Detecta todos los bordes resaltando regiones de cambio rápido.','Detects all edges by highlighting regions of rapid change.'), k:[[0,-1,0],[-1,4,-1],[0,-1,0]] },
@@ -4873,7 +4910,7 @@
       { name:_k('Refuerzo V','V Reinforce'),  desc:_k('Refuerza los bordes verticales de la capa anterior.','Reinforces vertical edges from the previous layer.'), k:[[-1,2,-1],[-1,2,-1],[-1,2,-1]] },
       { name:_k('Esquinas','Corners'),        desc:_k('Detecta esquinas y puntos de cruce entre bordes.','Detects corners and crossing points between edges.'), k:[[-1,-1,0],[-1,0,1],[0,1,1]] },
       { name:'Blob',                          desc:_k('Detecta regiones circulares de alta activación.','Detects circular regions of high activation.'), k:[[-1,-1,-1],[-1,8,-1],[-1,-1,-1]] },
-      { name:'Gradiente X',                   desc:_k('Gradiente horizontal de segundo orden — curvatura de bordes.','Second-order horizontal gradient — edge curvature.'), k:[[1,-2,1],[1,-2,1],[1,-2,1]] },
+      { name:'Gradiente X',                   desc:_k('Gradiente horizontal de segundo orden (curvatura de bordes).','Second-order horizontal gradient — edge curvature.'), k:[[1,-2,1],[1,-2,1],[1,-2,1]] },
       { name:'Gradiente Y',                   desc:_k('Gradiente vertical de segundo orden.','Second-order vertical gradient.'), k:[[1,1,1],[-2,-2,-2],[1,1,1]] },
       { name:_k('Cruz','Cross'),              desc:_k('Responde a estructuras en forma de cruz.','Responds to cross-shaped structures.'), k:[[0,-1,0],[-1,5,-1],[0,-1,0]] },
       { name:_k('Textura','Texture'),         desc:_k('Detecta patrones repetitivos de textura.','Detects repetitive texture patterns.'), k:[[1,-1,1],[-1,1,-1],[1,-1,1]] },

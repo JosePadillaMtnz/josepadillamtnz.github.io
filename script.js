@@ -171,7 +171,7 @@ function applyUI(s, profile) {
   const ptabDefs = [
     { id: 'ptabExp', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>', label: s.nav.experience },
     { id: 'ptabProjects', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>', label: s.nav.projects },
-    { id: 'ptabNotes', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>', label: s.nav.notes },
+    { id: 'ptabNotes', icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>', label: s.subnav.notes },
   ];
   ptabDefs.forEach(({ id, icon, label }) => {
     const el = document.getElementById(id);
@@ -457,6 +457,10 @@ function dotStyle(note) {
   return `--dot-color:${c1};`;
 }
 
+// Notes pagination state
+let _notesCtx = { s: null, notes: null, filter: 'all', page: 0, sorted: [] };
+const NOTES_PER_PAGE = 5;
+
 function renderNotesTimeline(sorted, filter, allEntries) {
   const container = document.getElementById('notesTimeline');
   if (!container) return;
@@ -511,7 +515,21 @@ function renderNotesTimeline(sorted, filter, allEntries) {
       <div class="ntl-track"><div class="ntl-axis"></div>${dots}</div>
       <div class="ntl-years"><span>${minYear}</span><span>${maxYear}</span></div>
     </div>
-    <div class="ntl-vertical">${verticalHTML}</div>`;
+    <div class="ntl-vertical">
+      <button class="ntlv-toggle" aria-expanded="false">
+        <span>${LANG === 'en' ? 'Notes index' : 'Índice de notas'}</span>
+        ${ICONS.chevron}
+      </button>
+      <div class="ntlv-body">${verticalHTML}</div>
+    </div>`;
+
+  const ntlvToggle = container.querySelector('.ntlv-toggle');
+  const ntlvBody = container.querySelector('.ntlv-body');
+  ntlvToggle?.addEventListener('click', () => {
+    const expanded = ntlvToggle.getAttribute('aria-expanded') === 'true';
+    ntlvToggle.setAttribute('aria-expanded', String(!expanded));
+    ntlvBody.classList.toggle('open');
+  });
 
   container.querySelectorAll('[data-idx]').forEach(el => {
     el.addEventListener('click', (e) => {
@@ -524,15 +542,29 @@ function renderNotesTimeline(sorted, filter, allEntries) {
           return;
         }
       }
-      const article = document.getElementById(`note-entry-${el.dataset.idx}`);
-      if (!article) return;
-      article.querySelector('.thread-content')?.classList.remove('collapsed');
-      if (el.classList.contains('ntlv-item')) {
-        const navH = document.getElementById('navbar')?.offsetHeight || 64;
-        const top = article.getBoundingClientRect().top + window.scrollY - navH - 12;
-        window.scrollTo({ top, behavior: 'smooth' });
+      const globalIdx = parseInt(el.dataset.idx);
+      const targetPage = Math.floor(globalIdx / NOTES_PER_PAGE);
+      if (targetPage !== _notesCtx.page) {
+        const { s, notes, filter } = _notesCtx;
+        renderNotes(s, notes, filter, targetPage);
+        setTimeout(() => {
+          const art = document.getElementById(`note-entry-${globalIdx}`);
+          if (!art) return;
+          art.querySelector('.thread-content')?.classList.remove('collapsed');
+          const navH = document.getElementById('navbar')?.offsetHeight || 64;
+          window.scrollTo({ top: art.getBoundingClientRect().top + scrollY - navH - 12, behavior: 'smooth' });
+        }, 50);
       } else {
-        article.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        const article = document.getElementById(`note-entry-${globalIdx}`);
+        if (!article) return;
+        article.querySelector('.thread-content')?.classList.remove('collapsed');
+        if (el.classList.contains('ntlv-item')) {
+          const navH = document.getElementById('navbar')?.offsetHeight || 64;
+          const top = article.getBoundingClientRect().top + window.scrollY - navH - 12;
+          window.scrollTo({ top, behavior: 'smooth' });
+        } else {
+          article.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
       }
     });
   });
@@ -545,21 +577,28 @@ function renderNotesTimeline(sorted, filter, allEntries) {
   }
 }
 
-function renderNotes(s, notes, filter) {
+function renderNotes(s, notes, filter, page) {
+  if (page === undefined) page = 0;
+
   const entries = filter === 'all'
     ? notes.entries
     : notes.entries.filter(n => n.categories && n.categories.includes(filter));
 
   const sorted = [...entries].sort((a, b) => b.dateSort.localeCompare(a.dateSort));
+  _notesCtx = { s, notes, filter, page, sorted };
+
+  const totalPages = Math.ceil(sorted.length / NOTES_PER_PAGE);
+  const pageEntries = sorted.slice(page * NOTES_PER_PAGE, (page + 1) * NOTES_PER_PAGE);
 
   const feed = document.getElementById('notesFeed');
-  feed.innerHTML = sorted.length
-    ? sorted.map((note, i) => {
+  feed.innerHTML = pageEntries.length
+    ? pageEntries.map((note, i) => {
+      const globalIdx = page * NOTES_PER_PAGE + i;
       return `
-        <article class="thread-entry reveal" id="note-entry-${i}">
+        <article class="thread-entry reveal" id="note-entry-${globalIdx}">
           <div class="thread-left">
             <div class="thread-dot" style="${dotStyle(note)}"></div>
-            ${i < sorted.length - 1 ? '<div class="thread-line thread-visible"></div>' : ''}
+            ${i < pageEntries.length - 1 ? '<div class="thread-line thread-visible"></div>' : ''}
           </div>
           <div class="thread-content collapsed">
             <div class="thread-meta">
@@ -580,7 +619,7 @@ function renderNotes(s, notes, filter) {
           </div>
         </article>`;
     }).join('')
-    : `<p style="color:var(--text-muted);text-align:center;padding:40px 0;">Sin notas en esta categoría.</p>`;
+    : `<p style="color:var(--text-muted);text-align:center;padding:40px 0;">${LANG === 'en' ? 'No notes in this category.' : 'Sin notas en esta categoría.'}</p>`;
 
   feed.querySelectorAll('.thread-content').forEach(card => {
     card.style.cursor = 'pointer';
@@ -589,6 +628,34 @@ function renderNotes(s, notes, filter) {
       card.classList.toggle('collapsed');
     });
   });
+
+  document.getElementById('notesPagination')?.remove();
+  if (totalPages > 1) {
+    const pag = document.createElement('div');
+    pag.id = 'notesPagination';
+    pag.className = 'notes-pagination';
+    const firstLabel = LANG === 'en' ? '«' : '«';
+    const prevLabel  = LANG === 'en' ? 'Prev' : 'Anterior';
+    const nextLabel  = LANG === 'en' ? 'Next' : 'Siguiente';
+    const lastLabel  = LANG === 'en' ? '»' : '»';
+    pag.innerHTML = `
+      <button class="notes-page-btn notes-page-edge" ${page === 0 ? 'disabled' : ''} data-page="0">${firstLabel}</button>
+      <button class="notes-page-btn" ${page === 0 ? 'disabled' : ''} data-page="${page - 1}">${prevLabel}</button>
+      <span class="notes-page-info">${page + 1} / ${totalPages}</span>
+      <button class="notes-page-btn" ${page >= totalPages - 1 ? 'disabled' : ''} data-page="${page + 1}">${nextLabel}</button>
+      <button class="notes-page-btn notes-page-edge" ${page >= totalPages - 1 ? 'disabled' : ''} data-page="${totalPages - 1}">${lastLabel}</button>
+    `;
+    pag.querySelectorAll('[data-page]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const newPage = parseInt(btn.dataset.page);
+        renderNotes(s, notes, filter, newPage);
+        const navH = document.getElementById('navbar')?.offsetHeight || 64;
+        const notesEl = document.getElementById('notas');
+        window.scrollTo({ top: notesEl.getBoundingClientRect().top + scrollY - navH - 16, behavior: 'smooth' });
+      });
+    });
+    feed.after(pag);
+  }
 
   renderNotesTimeline(sorted, filter, notes.entries);
   observeReveal();
@@ -607,7 +674,7 @@ function initNotesFilters(s, notes) {
     if (!pill) return;
     document.querySelectorAll('#notesFilters .filter-pill').forEach(p => p.classList.remove('active'));
     pill.classList.add('active');
-    renderNotes(s, notes, pill.dataset.filter);
+    renderNotes(s, notes, pill.dataset.filter, 0);
   });
 }
 

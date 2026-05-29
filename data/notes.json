@@ -58,39 +58,8 @@
         "en": "The website is live, and it's how I wanted it to be"
       },
       "body": {
-        "es": "Ya está. La web está publicada y, lo más importante, está reflejando lo que tenía en mente desde el principio. La parte que más me satisface es la de <strong>notas y reflexiones</strong>. Un espacio donde poder escribir sobre cualquier tema (tanto técnico, personal como profesional) de forma directa y sin el filtro académico de un CV o un artículo formal. Un lugar donde dejar constancia de lo que voy aprendiendo y viviendo, y que quien llegue pueda leerlo con comodidad. <br><br>Luego está la sección de <strong>CNN</strong>: una explicación interactiva del funcionamiento de las redes neuronales convolucionales, incluyendo un apartado específico sobre YOLO. La intención es clara: acercar el funcionamiento real de estas arquitecturas a cualquier persona, sin necesidad de ser experta en la materia. Que alguien sin formación técnica pueda entender qué ocurre dentro de un modelo cuando procesa una imagen. <br><br>Y en la misma línea está la sección de <strong>LLM</strong>: una guía interactiva sobre los grandes modelos de lenguaje. Desde qué son y cómo surgieron, hasta por qué funcionan tan bien y cuáles son sus límites reales. Con demos para entender cómo se tokenizan las palabras, cómo fluye la información a través del modelo paso a paso, o cómo afecta la temperatura a las respuestas generadas. La idea es la misma: que cualquiera pueda asomarse al interior de estos sistemas sin necesidad de saber matemáticas. <br><br>Y el <strong>playground</strong>: un espacio para experimentar con tus propios ficheros, a tu ritmo, y ver cómo funcionan estos sistemas de primera mano. Sin presión, sin código, solo probando y entendiendo. <br><br><strong>Pero esto no es el final.</strong> Tengo muchas ideas en mente para seguir mejorando y ampliando la página. Esto es solo la primera versión de algo que quiero que siga creciendo.",
-        "en": "There it is. The website is live and, most importantly, it reflects what I had in mind from the start. The part I'm most satisfied with is the <strong>notes and reflections</strong> section. A space to write about any topic — technical, personal, professional — in a direct way, without the academic filter of a CV or a formal article. A place to keep track of what I'm learning and experiencing, where anyone who arrives can read it comfortably. <br><br>Then there's the <strong>CNN</strong> section: an interactive explanation of how convolutional neural networks work, including a specific part on YOLO. The intention is clear — to bring the real workings of these architectures closer to anyone, without needing to be an expert. So that someone without a technical background can understand what happens inside a model when it processes an image. <br><br>Along the same lines is the <strong>LLM</strong> section: an interactive guide to large language models. From what they are and how they came to be, to why they work so well and what their real limitations are. With demos to understand how words are tokenised, how information flows through the model step by step, or how temperature affects the generated responses. The idea is the same: to let anyone peek inside these systems without needing to know any maths. <br><br>And the <strong>playground</strong>: a space to experiment with your own files, at your own pace, and see how these systems work first-hand. No pressure, no code, just exploring and understanding. <br><br><strong>But this isn't the end.</strong> I have a lot of ideas in mind to keep improving and expanding the site. This is just the first version of something I want to keep growing."
-      },
-      "tags": {
-        "es": [
-          "Portfolio",
-          "Web personal"
-        ],
-        "en": [
-          "Portfolio",
-          "Personal website"
-        ]
-      },
-      "image": null,
-      "links": []
-    },
-    {
-      "id": "portfolio-web-2026",
-      "dateSort": "2026-03",
-      "categories": [
-        "proyectos"
-      ],
-      "date": {
-        "es": "Marzo 2026",
-        "en": "March 2026"
-      },
-      "title": {
-        "es": "Por fin: el portfolio que llevaba tiempo queriendo construir",
-        "en": "Finally: the portfolio I'd been wanting to build for a long time"
-      },
-      "body": {
-        "es": "Hay cosas que llevas mucho tiempo queriendo hacer y que siempre quedan pendientes por las mismas razones: falta de tiempo, otras prioridades, o simplemente porque nunca es el momento exacto. Esta web era una de ellas. La idea de tener un espacio propio donde presentarme, contar en qué creo, qué estoy aprendiendo y cómo lo pienso llevaba rondándome la cabeza desde hace mucho. Y por fin me he puesto en serio con ello. No quería algo genérico. <strong>Quería que reflejara cómo pienso realmente</strong>: con criterio, con honestidad, sin exagerar ni inflar nada. Un sitio donde quien llegue pueda entender quién soy y cómo trabajo, más allá de un CV. Estas notas son parte de eso, una forma de dejar constancia de lo que voy aprendiendo y viviendo, sin filtro académico. Empezar algo que llevas tiempo queriendo hacer tiene algo especial. No es urgente, pero importa. Y precisamente por eso, cuando por fin arranca, se siente bien.",
-        "en": "There are things you want to do for a long time that always stay pending for the same reasons: not enough time, other priorities, or simply because the moment never feels quite right. This website was one of them. The idea of having my own space to introduce myself, share what I believe in, what I'm learning and how I think about things had been in the back of my mind for a long time. And I've finally got serious about it. I didn't want something generic. <strong>I wanted it to reflect how I actually think</strong>: with honesty, with intention, without overstating anything. A place where whoever arrives can understand who I am and how I work, beyond a CV. These notes are part of that — a way of keeping track of what I'm learning and experiencing, without an academic filter. <strong>Starting something you've wanted to do for a long time has something special to it. It's not urgent, but it matters. And precisely because of that, when it finally gets going, it feels good.</strong>"
+        "es": "Llevaba mucho tiempo queriendo hacer una web propia, donde reflejar mis pensamientos, mi experiencia y mostrar al mundo las diferentes tecnologías que uso y que aplicación tienen al mundo, dicho de otra manera, acercar lo que hago y aprendo día a día a la gente de una forma amena. Por fin puedo decir que la web está publicada y, lo más importante, está reflejando lo que tenía en mente desde hace mucho tiempo. <br><br>Una de las partes que más me ilusionan es la de <strong>notas y reflexiones</strong>. Un espacio donde poder escribir sobre cualquier tema (tanto técnico, personal como profesional) de forma directa y sin el filtro académico de un CV o un artículo formal. Un lugar donde dejar constancia de lo que voy aprendiendo y viviendo, y que quien llegue pueda leerlo con comodidad. <br><br>Luego está la sección de <strong>CNN</strong>: una explicación interactiva del funcionamiento de las redes neuronales convolucionales, incluyendo un apartado específico sobre YOLO. La intención es clara: acercar el funcionamiento real de estas arquitecturas a cualquier persona, sin necesidad de ser experta en la materia. Que alguien sin formación técnica pueda entender qué ocurre dentro de un modelo cuando procesa una imagen. <br><br>Y en la misma línea está la sección de <strong>LLM</strong>: una guía interactiva sobre los grandes modelos de lenguaje. Desde qué son y cómo surgieron, hasta por qué funcionan tan bien y cuáles son sus límites reales. Con demos para entender cómo se tokenizan las palabras, cómo fluye la información a través del modelo paso a paso, o cómo afecta la temperatura a las respuestas generadas. La idea es la misma: que cualquiera pueda asomarse al interior de estos sistemas sin necesidad de saber matemáticas. <br><br>Y el <strong>playground</strong>: un espacio para experimentar con tus propios ficheros, a tu ritmo, y ver cómo funcionan estos sistemas de primera mano. Sin presión, sin código, solo probando y entendiendo (que es el objetivo de la página desde el principio). En esta página se podra desde ver de forma matemática como funcionan los modelos, a poder probar modelos reales tanto con imágenes de muestra como imágenes tuyas, sin tener que cargar nada en tu dispositivo.<br><br><strong>Pero esto no es el final.</strong> Tengo muchas ideas en mente para seguir mejorando y ampliando la página. Esto es solo la primera versión de algo que quiero que siga creciendo, y sobretodo, que espero que sea útil y acerce a la gente que lo lea a la idea y funcionamiento de la IA.",
+        "en": "I had been wanting to build my own website for a long time — somewhere to reflect my thoughts, my experience, and show the world the different technologies I use and what they mean in practice. In other words, to bring what I do and learn every day closer to people in an approachable way. I can finally say the site is live and, most importantly, it reflects what I had in mind for a long time. <br><br>One of the parts I'm most excited about is the <strong>notes and reflections</strong> section. A space to write about any topic — technical, personal or professional — in a direct way, without the academic filter of a CV or a formal article. A place to keep track of what I'm learning and experiencing, where anyone who arrives can read it comfortably. <br><br>Then there's the <strong>CNN</strong> section: an interactive explanation of how convolutional neural networks work, including a specific part on YOLO. The intention is clear: to bring the real workings of these architectures closer to anyone, without needing to be an expert. So that someone without a technical background can understand what happens inside a model when it processes an image. <br><br>Along the same lines is the <strong>LLM</strong> section: an interactive guide to large language models. From what they are and how they came to be, to why they work so well and what their real limitations are. With demos to understand how words are tokenised, how information flows through the model step by step, or how temperature affects the generated responses. The idea is the same: to let anyone peek inside these systems without needing to know any maths. <br><br>And the <strong>playground</strong>: a space to experiment with your own files, at your own pace, and see how these systems work first-hand. No pressure, no code, just exploring and understanding — which has been the goal of the site from the start. Here you can go from seeing mathematically how models work, to testing real models with both sample images and your own, without having to upload anything to your device.<br><br><strong>But this isn't the end.</strong> I have a lot of ideas in mind to keep improving and expanding the site. This is just the first version of something I want to keep growing — and above all, I hope it's useful and brings anyone who reads it closer to the idea and inner workings of AI."
       },
       "tags": {
         "es": [
@@ -107,14 +76,14 @@
     },
     {
       "id": "biyectiva-un-anyo-2026",
-      "dateSort": "2026-02",
+      "dateSort": "2026-03",
       "categories": [
         "reflexiones",
         "profesional"
       ],
       "date": {
-        "es": "Febrero 2026",
-        "en": "February 2026"
+        "es": "Marzo 2026",
+        "en": "March 2026"
       },
       "title": {
         "es": "Un año en Biyectiva: balance y ganas de más",

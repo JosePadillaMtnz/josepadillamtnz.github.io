@@ -915,7 +915,7 @@
         <span class="section-label" data-i18n="section1.label">Sin modelos · Pura matemática</span>
         <h2 style="margin-bottom:10px;" data-i18n="section1.title">Convolución en tiempo real</h2>
         <p style="color:var(--text-muted);max-width:700px;margin-bottom:32px;" data-i18n="section1.desc">
-          Aplica filtros convolucionales reales sobre cualquier imagen — sin TF.js, sin red neuronal, sin carga. Todo
+          Aplica filtros convolucionales reales sobre cualquier imagen (sin TF.js, sin red neuronal, sin carga). Todo
           ocurre en tu navegador con aritmética pura. Edita el kernel directamente para ver el efecto al instante.
         </p>
 
@@ -950,15 +950,15 @@
               data-i18n="ctrl.kernel">Kernel</div>
             <select id="pg2KernelSel" class="kernel-sel" style="font-size:0.82rem;padding:6px 10px;"
               onchange="pg2SelectKernel(this.value)">
-              <option value="0" data-i18n="kernel.opt.sobel_h">Sobel H — bordes horizontales</option>
-              <option value="1" data-i18n="kernel.opt.sobel_v">Sobel V — bordes verticales</option>
+              <option value="0" data-i18n="kernel.opt.sobel_h">Sobel H (bordes horizontales)</option>
+              <option value="1" data-i18n="kernel.opt.sobel_v">Sobel V (bordes verticales)</option>
               <option value="2" data-i18n="kernel.opt.diag_ne">Diagonal ↗</option>
               <option value="3" data-i18n="kernel.opt.diag_se">Diagonal ↘</option>
-              <option value="4" data-i18n="kernel.opt.laplacian">Laplaciano — todos los bordes</option>
+              <option value="4" data-i18n="kernel.opt.laplacian">Laplaciano (todos los bordes)</option>
               <option value="5" data-i18n="kernel.opt.sharpen">Nitidez</option>
               <option value="6" data-i18n="kernel.opt.emboss">Relieve / Emboss</option>
-              <option value="7" data-i18n="kernel.opt.gaussian">Gaussiano — suavizado</option>
-              <option value="8" data-i18n="kernel.opt.identity">Identidad — sin cambio</option>
+              <option value="7" data-i18n="kernel.opt.gaussian">Gaussiano (suavizado)</option>
+              <option value="8" data-i18n="kernel.opt.identity">Identidad (sin cambio)</option>
               <option value="custom" data-i18n="kernel.opt.custom">Personalizado ✏️</option>
             </select>
           </div>
@@ -1024,7 +1024,7 @@
           <div style="font-size:0.9rem;font-weight:700;margin-bottom:4px;" data-i18n="allfilters.title">Todos los
             filtros aplicados a la vez</div>
           <p style="font-size:0.78rem;color:var(--text-muted);margin-bottom:16px;" data-i18n="allfilters.desc">Así es
-            como la primera capa convolucional de una CNN ve la imagen — en paralelo, con múltiples filtros simultáneos.
+            como la primera capa convolucional de una CNN ve la imagen (en paralelo, con múltiples filtros simultáneos).
           </p>
           <div id="pg2AllFilters" style="display:flex;flex-wrap:wrap;gap:12px;"></div>
         </div>
@@ -1071,28 +1071,29 @@
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:20px;">
           <!-- Selector de modelo (cambia según tarea) -->
           <div id="pgModelSelectWrap">
-            <select id="pgModelSelectClassif" class="pg-model-select">
-              <option value="v2" data-i18n="model.classif.v2">MobileNet v2 — equilibrado</option>
-              <option value="v1" data-i18n="model.classif.v1">MobileNet v1 — preciso</option>
-              <option value="v2-fast" data-i18n="model.classif.v2fast">MobileNet v2 α0.5 — rápido</option>
+            <select id="pgModelSelectClassif" class="pg-model-select" onchange="onModelSelectChange()">
+              <option value="v2" data-i18n="model.classif.v2">MobileNet v2 (equilibrado)</option>
+              <option value="v1" data-i18n="model.classif.v1">MobileNet v1 (preciso)</option>
+              <option value="v2-fast" data-i18n="model.classif.v2fast">MobileNet v2 α0.5 (rápido)</option>
             </select>
-            <select id="pgModelSelectDetect" class="pg-model-select" style="display:none;">
+            <select id="pgModelSelectDetect" class="pg-model-select" style="display:none;" onchange="onModelSelectChange()">
               <optgroup label="SSD" data-i18n-label="model.group.ssd">
-                <option value="mv2" data-i18n="model.detect.mv2">SSD MobileNet v2 — preciso</option>
-                <option value="lite" data-i18n="model.detect.lite">SSD Lite — rápido</option>
+                <option value="mv2" data-i18n="model.detect.mv2">SSD MobileNet v2 (preciso)</option>
+                <option value="lite" data-i18n="model.detect.lite">SSD Lite (rápido)</option>
               </optgroup>
               <optgroup label="YOLO" data-i18n-label="model.group.yolo">
-                <option value="yolos-tiny" data-i18n="model.detect.yolos_tiny">YOLOS Tiny — rápido</option>
-                <option value="yolos-small" data-i18n="model.detect.yolos_small">YOLOS Small — preciso</option>
+                <option value="yolos-tiny" data-i18n="model.detect.yolos_tiny">YOLOS Tiny (rápido)</option>
+                <option value="yolos-small" data-i18n="model.detect.yolos_small">YOLOS Small (preciso)</option>
               </optgroup>
             </select>
-            <select id="pgModelSelectPose" class="pg-model-select" style="display:none;">
-              <option value="lightning" data-i18n="model.pose.lightning">MoveNet Lightning — rápido</option>
-              <option value="thunder" data-i18n="model.pose.thunder">MoveNet Thunder — preciso</option>
+            <select id="pgModelSelectPose" class="pg-model-select" style="display:none;" onchange="onModelSelectChange()">
+              <option value="lightning" data-i18n="model.pose.lightning">MoveNet Lightning (rápido)</option>
+              <option value="thunder" data-i18n="model.pose.thunder">MoveNet Thunder (preciso)</option>
             </select>
-            <select id="pgModelSelectSegment" class="pg-model-select" style="display:none;">
-              <option value="bodypix" data-i18n="model.segment.bodypix">BodyPix — personas y partes del cuerpo</option>
-              <option value="deeplab" data-i18n="model.segment.deeplab">DeepLab PASCAL — 20 clases semánticas</option>
+            <select id="pgModelSelectSegment" class="pg-model-select" style="display:none;" onchange="onModelSelectChange()">
+              <option value="bodypix" data-i18n="model.segment.bodypix">BodyPix (personas y partes del cuerpo)</option>
+              <option value="deeplab" data-i18n="model.segment.deeplab">DeepLab PASCAL (20 clases semánticas)</option>
+              <option value="ade20k" data-i18n="model.segment.ade20k">DeepLab ADE20K (150 clases semánticas)</option>
             </select>
           </div>
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;">
@@ -1424,15 +1425,15 @@
         'ctrl.kernel': 'Kernel',
         'ctrl.color': 'Color',
         'ctrl.relu': 'Aplicar ReLU',
-        'kernel.opt.sobel_h': 'Sobel H — bordes horizontales',
-        'kernel.opt.sobel_v': 'Sobel V — bordes verticales',
+        'kernel.opt.sobel_h': 'Sobel H (bordes horizontales)',
+        'kernel.opt.sobel_v': 'Sobel V (bordes verticales)',
         'kernel.opt.diag_ne': 'Diagonal ↗',
         'kernel.opt.diag_se': 'Diagonal ↘',
-        'kernel.opt.laplacian': 'Laplaciano — todos los bordes',
+        'kernel.opt.laplacian': 'Laplaciano (todos los bordes)',
         'kernel.opt.sharpen': 'Nitidez',
         'kernel.opt.emboss': 'Relieve / Emboss',
-        'kernel.opt.gaussian': 'Gaussiano — suavizado',
-        'kernel.opt.identity': 'Identidad — sin cambio',
+        'kernel.opt.gaussian': 'Gaussiano (suavizado)',
+        'kernel.opt.identity': 'Identidad (sin cambio)',
         'kernel.opt.custom': 'Personalizado ✏️',
         'color.gray': 'Escala de grises',
         'color.hot': 'Calor',
@@ -1454,13 +1455,14 @@
         'task.detect.sub': '¿Dónde están los objetos?',
         'task.segment': '🎨 Segmentación',
         'task.segment.sub': '¿A qué clase pertenece cada píxel?',
-        'model.classif.v2': 'MobileNet v2 — equilibrado',
-        'model.classif.v1': 'MobileNet v1 — preciso',
-        'model.classif.v2fast': 'MobileNet v2 α0.5 — rápido',
-        'model.detect.mv2': 'COCO-SSD MobileNet v2 — preciso',
-        'model.detect.lite': 'COCO-SSD Lite v2 — rápido',
-        'model.segment.bodypix': 'BodyPix — personas y partes del cuerpo',
-        'model.segment.deeplab': 'DeepLab PASCAL — 20 clases semánticas',
+        'model.classif.v2': 'MobileNet v2 (equilibrado)',
+        'model.classif.v1': 'MobileNet v1 (preciso)',
+        'model.classif.v2fast': 'MobileNet v2 α0.5 (rápido)',
+        'model.detect.mv2': 'COCO-SSD MobileNet v2 (preciso)',
+        'model.detect.lite': 'COCO-SSD Lite v2 (rápido)',
+        'model.segment.bodypix': 'BodyPix (personas y partes del cuerpo)',
+        'model.segment.deeplab': 'DeepLab PASCAL (20 clases semánticas)',
+        'model.segment.ade20k': 'DeepLab ADE20K (150 clases semánticas)',
         'status.unloaded': 'Modelo no cargado',
         'btn.load': '⬇ Cargar modelo',
         'input.title': '1. Elige la fuente de entrada',
@@ -1521,14 +1523,14 @@
         'taskdesc.pose': 'Detecta los puntos clave del cuerpo humano y los conecta para formar el esqueleto. Útil en animación, deporte y ergonomía.',
         'task.pose': '🦴 Pose',
         'task.pose.sub': '¿Cómo está el cuerpo?',
-        'model.detect.mv2': 'SSD MobileNet v2 — preciso',
-        'model.detect.lite': 'SSD Lite — rápido',
-        'model.detect.yolos_tiny': 'YOLOS Tiny — rápido',
-        'model.detect.yolos_small': 'YOLOS Small — preciso',
+        'model.detect.mv2': 'SSD MobileNet v2 (preciso)',
+        'model.detect.lite': 'SSD Lite (rápido)',
+        'model.detect.yolos_tiny': 'YOLOS Tiny (rápido)',
+        'model.detect.yolos_small': 'YOLOS Small (preciso)',
         'model.group.ssd': 'SSD clásico',
         'model.group.yolo': 'YOLO',
-        'model.pose.lightning': 'MoveNet Lightning — rápido',
-        'model.pose.thunder': 'MoveNet Thunder — preciso',
+        'model.pose.lightning': 'MoveNet Lightning (rápido)',
+        'model.pose.thunder': 'MoveNet Thunder (preciso)',
         'pose.empty': 'El esqueleto estimado aparecerá aquí.',
         'tab.llm': '🔮 Siguiente Token (LLM)',
         'nte.label': 'Modelos · LLM',
@@ -1615,6 +1617,7 @@
         'model.detect.lite': 'COCO-SSD Lite v2 — fast',
         'model.segment.bodypix': 'BodyPix — people and body parts',
         'model.segment.deeplab': 'DeepLab PASCAL — 20 semantic classes',
+        'model.segment.ade20k': 'DeepLab ADE20K — 150 semantic classes',
         'status.unloaded': 'Model not loaded',
         'btn.load': '⬇ Load model',
         'input.title': '1. Choose input source',
@@ -2024,7 +2027,22 @@
     }
     lockInput();
 
+    function clearPreview() {
+      pgImageEl = null;
+      const wrap = document.getElementById('pgCanvasWrap');
+      const placeholder = document.getElementById('pgPreviewPlaceholder');
+      const existing = document.getElementById('pgPreviewImg');
+      if (existing) existing.remove();
+      if (wrap) wrap.style.display = 'none';
+      if (placeholder) placeholder.style.display = '';
+      const runBtn = document.getElementById('pgRunBtn');
+      if (runBtn) runBtn.disabled = true;
+      const fileInput = document.getElementById('pgFileInput');
+      if (fileInput) fileInput.value = '';
+    }
+
     function selectTask(task) {
+      if (pgTask !== task) clearPreview();
       pgTask = task;
       document.querySelectorAll('.pg-task-btn').forEach(b => b.classList.remove('active'));
       const btn = document.getElementById('task' + task.charAt(0).toUpperCase() + task.slice(1));
@@ -2045,6 +2063,22 @@
       else { setStatus(i18n('status.unloaded'), ''); lockInput(); }
     }
 
+    function onModelSelectChange() {
+      const modelMap = { classif: pgModelClassif, detect: pgModelDetect, segment: pgModelSegment, pose: pgModelPose };
+      const current = modelMap[pgTask];
+      const sel = document.getElementById('pgModelSelect' + pgTask.charAt(0).toUpperCase() + pgTask.slice(1));
+      if (!current || !sel) return;
+      if (current._modelKey !== sel.value) {
+        current.dispose?.();
+        if (pgTask === 'classif') pgModelClassif = null;
+        else if (pgTask === 'detect') pgModelDetect = null;
+        else if (pgTask === 'segment') pgModelSegment = null;
+        else if (pgTask === 'pose') pgModelPose = null;
+        setStatus(i18n('status.unloaded'), '');
+        lockInput();
+      }
+    }
+
     function loadCurrentModel() {
       if (pgTask === 'detect') {
         const sel = document.getElementById('pgModelSelectDetect');
@@ -2062,7 +2096,9 @@
     }
 
     async function loadClassifModel(modelKey) {
-      if (pgModelClassif) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
+      if (pgModelClassif && pgModelClassif._modelKey === modelKey) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
+      pgModelClassif?.dispose?.();
+      pgModelClassif = null;
       if (typeof mobilenet === 'undefined') { setStatus(i18n('status.tfjs_wait'), 'loading'); return; }
       setStatus(i18n('status.loading_model'), 'loading');
       try {
@@ -2070,7 +2106,9 @@
         if (modelKey === 'v1') cfg = { version: 1, alpha: 1.0 };
         else if (modelKey === 'v2') cfg = { version: 2, alpha: 1.0 };
         else if (modelKey === 'v2-fast') cfg = { version: 2, alpha: 0.5 };
-        pgModelClassif = await mobilenet.load(cfg);
+        const model = await mobilenet.load(cfg);
+        pgModelClassif = model;
+        pgModelClassif._modelKey = modelKey;
         setStatus(i18n('status.model_ready'), 'ready');
         unlockInput();
       } catch (e) { setStatus('Error: ' + e.message, ''); }
@@ -2078,6 +2116,7 @@
 
     async function loadDetectModel(modelKey) {
       if (pgModelDetect && pgModelDetect._modelKey === modelKey) { setStatus(i18n('status.det_loaded'), 'ready'); unlockInput(); return; }
+      pgModelDetect?.dispose?.();
       pgModelDetect = null;
       setStatus(i18n('status.loading_det'), 'loading');
       try {
@@ -2100,6 +2139,7 @@
 
     async function loadPoseModel(modelKey) {
       if (pgModelPose && pgModelPose._modelKey === modelKey) { setStatus(i18n('status.model_ready'), 'ready'); unlockInput(); return; }
+      pgModelPose?.dispose?.();
       pgModelPose = null;
       if (typeof poseDetection === 'undefined') { setStatus(i18n('status.tfjs_wait'), 'loading'); return; }
       setStatus(i18n('status.loading_det'), 'loading');
@@ -2115,18 +2155,24 @@
     }
 
     async function loadSegmentModel(modelKey) {
-      if (pgModelSegment) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
-      if (modelKey === 'deeplab' && typeof deeplab === 'undefined') { setStatus(i18n('status.tfjs_wait2'), 'loading'); return; }
+      if (pgModelSegment && pgModelSegment._modelKey === modelKey) { setStatus(i18n('status.already_loaded'), 'ready'); unlockInput(); return; }
+      pgModelSegment?.dispose?.();
+      pgModelSegment = null;
+      if ((modelKey === 'deeplab' || modelKey === 'ade20k') && typeof deeplab === 'undefined') { setStatus(i18n('status.tfjs_wait2'), 'loading'); return; }
       if (modelKey === 'bodypix' && typeof bodyPix === 'undefined') { setStatus(i18n('status.tfjs_wait2'), 'loading'); return; }
       setStatus(i18n('status.loading_seg'), 'loading');
       try {
         if (modelKey === 'deeplab') {
           pgModelSegment = await deeplab.load({ base: 'pascal', quantizationBytes: 2 });
           pgModelSegment._type = 'deeplab';
+        } else if (modelKey === 'ade20k') {
+          pgModelSegment = await deeplab.load({ base: 'ade20k', quantizationBytes: 2 });
+          pgModelSegment._type = 'deeplab';
         } else {
           pgModelSegment = await bodyPix.load({ architecture: 'MobileNetV1', outputStride: 16, multiplier: 0.75, quantBytes: 2 });
           pgModelSegment._type = 'bodypix';
         }
+        pgModelSegment._modelKey = modelKey;
         setStatus(i18n('status.seg_ready'), 'ready');
         unlockInput();
       } catch (e) { setStatus('Error: ' + e.message, ''); }

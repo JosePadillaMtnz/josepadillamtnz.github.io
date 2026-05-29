@@ -511,10 +511,13 @@ section { padding: 100px 0; }
 .avatar-cartoon { opacity: 1; }
 .avatar-real    { opacity: 0; }
 
-.about-avatar:hover .avatar-cartoon,
 .about-avatar.reveal-real .avatar-cartoon { opacity: 0; }
-.about-avatar:hover .avatar-real,
 .about-avatar.reveal-real .avatar-real    { opacity: 1; }
+
+@media (hover: hover) {
+  .about-avatar:hover .avatar-cartoon { opacity: 0; }
+  .about-avatar:hover .avatar-real    { opacity: 1; }
+}
 
 .avatar-hint {
   position: absolute;
@@ -528,12 +531,11 @@ section { padding: 100px 0; }
   align-items: center;
   justify-content: center;
   font-size: 0.85rem;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease;
   pointer-events: none;
   z-index: 2;
 }
-.about-avatar:hover .avatar-hint { opacity: 1; }
 
 .about-avatar-glow {
   position: absolute;
@@ -1264,7 +1266,23 @@ footer span {
 }
 
 @media (max-width: 480px) {
-  .projects-grid { grid-template-columns: 1fr; }
+  .projects-grid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding-bottom: 12px;
+  }
+  .projects-grid::-webkit-scrollbar { height: 4px; }
+  .projects-grid::-webkit-scrollbar-track { background: transparent; }
+  .projects-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+  .projects-grid .project-card {
+    flex: 0 0 82vw;
+    max-width: 340px;
+    scroll-snap-align: start;
+  }
   .skills-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .btn { justify-content: center; }
@@ -1284,31 +1302,31 @@ footer span {
   gap: 8px;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0;
 }
 
 .exp-tab {
-  padding: 10px 20px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
+  padding: 8px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   transition: all var(--transition);
-  border-radius: 6px 6px 0 0;
 }
 
-.exp-tab:hover { color: var(--text); }
+.exp-tab:hover {
+  border-color: rgba(249,115,22,0.4);
+  color: var(--text);
+}
 
 .exp-tab.active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-  background: rgba(249,115,22,0.05);
+  background: var(--accent);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 16px rgba(249,115,22,0.42);
 }
 
 .exp-panel { display: none; }
@@ -1690,6 +1708,99 @@ footer span {
   transform: translateY(-1px);
 }
 
+/* ── SECTION INDEX (cnn / llm tabs) ── */
+.tab-panel section { scroll-margin-top: 88px; }
+.section-index {
+  max-width: var(--container-width, 1100px);
+  margin: 0 auto;
+  padding: 20px var(--container-pad, 24px) 0;
+}
+.section-idx-title {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 8px;
+}
+.section-idx-list {
+  margin: 0;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  list-style: none;
+  counter-reset: idx-counter;
+}
+.section-idx-list li {
+  counter-increment: idx-counter;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+.section-idx-list li:last-child { border-bottom: none; }
+.section-idx-list li::before {
+  content: counter(idx-counter);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 16px;
+}
+.section-idx-link {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .15s;
+  line-height: 1.4;
+}
+.section-idx-link:hover { color: var(--text); }
+
+/* ── NOTES PAGINATION ── */
+.notes-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 28px 0 8px;
+}
+.notes-page-btn {
+  padding: 7px 18px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.notes-page-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.notes-page-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.notes-page-edge {
+  padding: 7px 12px;
+  font-size: 0.88rem;
+}
+.notes-page-info {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-width: 52px;
+  text-align: center;
+}
+
+/* ── NOTES TIMELINE TOGGLE (mobile) ── */
+.ntlv-toggle { display: none; }
+.ntlv-toggle svg { transition: transform 0.2s; flex-shrink: 0; }
+
 /* ── NOTES FILTERS ── */
 .notes-filters {
   display: flex;
@@ -1728,6 +1839,27 @@ footer span {
   .ntl-horizontal { display: none; }
   .ntl-vertical { display: block; }
 
+  /* Toggle del índice de notas en móvil */
+  .ntlv-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 2px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 2px;
+  }
+  .ntlv-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .ntlv-body { display: none; }
+  .ntlv-body.open { display: block; }
+  .ntl-vertical::before { display: none; }
+
   /* Filtros: fila horizontal deslizable */
   .exp-tabs,
   .project-filters,
@@ -1742,7 +1874,7 @@ footer span {
   .project-filters::-webkit-scrollbar,
   .notes-filters::-webkit-scrollbar { display: none; }
 
-  .exp-tab { padding: 8px 12px; font-size: 0.82rem; white-space: nowrap; flex-shrink: 0; }
+  .exp-tab { padding: 7px 14px; font-size: 0.82rem; white-space: nowrap; flex-shrink: 0; }
   .filter-pill { white-space: nowrap; flex-shrink: 0; }
 
   .tl-header { padding: 16px 18px 12px; }
